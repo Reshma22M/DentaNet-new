@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DentaNet - Lab Slot Booking</title>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1d72d2",
+              "background-light": "#f3f4f9",
+              "background-dark": "#0f172a",
+              "nav-light": "#bfdbfe",
+              "nav-dark": "#1e293b",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+              body: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+              'xl': '1rem',
+            },
+          },
+        },
+      };
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .sidebar-active { background-color: rgba(255, 255, 255, 0.9); color: #1d72d2; }
+        .nav-active { background-color: white; border-radius: 9999px; padding: 4px 12px; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
+<nav class="bg-nav-light dark:bg-nav-dark px-6 py-3 flex items-center justify-between sticky top-0 z-50 shadow-sm">
+<div class="flex items-center gap-2">
+<div class="bg-white p-1 rounded border-2 border-primary">
+<span class="material-icons-outlined text-primary text-2xl">biotech</span>
+</div>
+<span class="font-bold text-xl tracking-tight text-primary dark:text-blue-400">DentaNET</span>
+</div>
+<div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-700 dark:text-slate-300">
+<a class="hover:text-primary transition-colors" href="student-dashboard.html">Dashboard</a>
+<a class="hover:text-primary transition-colors" href="practical-exam-submission.html">Submissions</a>
+<a class="nav-active text-primary shadow-sm" href="lab-slot-booking.html">Lab slots</a>
+<a class="hover:text-primary transition-colors" href="grades-feedback.html">Grades</a>
+<a class="hover:text-primary transition-colors" href="study-materials.html">Materials</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="relative p-2 text-slate-600 dark:text-slate-400 hover:bg-white/50 dark:hover:bg-slate-700 rounded-full transition-all">
+<span class="material-icons-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-nav-light dark:border-nav-dark"></span>
+</button>
+<div class="flex items-center gap-2 pl-2 border-l border-slate-300 dark:border-slate-600">
+<img alt="User Avatar" class="w-8 h-8 rounded-full object-cover ring-2 ring-white dark:ring-slate-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXnnlUctY7uzu6VWc8RRlR78gSe9CQtrbAyKI4twZdQ3AcVK4KPwtKzLmJBiagoluzKmmB79cxgCBh7bvSKXqhKVarYdSOgcaFYY_WUwI8aSsgOI4F4lmp8S4A9aPeUtc7q02DlsTdcQboSVQusGIK9s9ISZ_zkx4X_0O9paYKOGfwoEDvrjui8OOAqfZ-Qpt5jtDRXHBrXG3PItUYS7E_dAocvOQ2gO3mNr3K0ZeOASUVR9sNQPWvyy_PxIprF1wZcduUWQLDcVE"/>
+<span class="hidden lg:block text-xs font-semibold">Senara Perera</span>
+</div>
+</div>
+</nav>
+<div class="flex flex-1 overflow-hidden">
+<aside class="w-72 bg-blue-400 dark:bg-blue-900/40 m-4 rounded-xl p-6 hidden lg:block shadow-lg">
+<div class="mb-8">
+<h3 class="text-white font-bold text-lg">LMS</h3>
+<p class="text-blue-100 text-xs opacity-80">University of Peradeniya</p>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-white/90 hover:bg-white/10 rounded-lg transition-all" href="student-dashboard.html">
+<span class="material-icons-outlined text-xl">home</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-white/90 hover:bg-white/10 rounded-lg transition-all" href="practical-exam-submission.html">
+<span class="material-icons-outlined text-xl">assignment</span>
+<span class="font-medium">Practical Exam Submission</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 sidebar-active rounded-lg shadow-md transition-all" href="lab-slot-booking.html">
+<span class="material-icons-outlined text-xl">calendar_today</span>
+<span class="font-medium">Lab Slot Booking</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-white/90 hover:bg-white/10 rounded-lg transition-all" href="study-materials.html">
+<span class="material-icons-outlined text-xl">menu_book</span>
+<span class="font-medium">Study Materials</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-white/90 hover:bg-white/10 rounded-lg transition-all" href="grades-feedback.html">
+<span class="material-icons-outlined text-xl">grade</span>
+<span class="font-medium">Grades &amp; Feedback</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-white/90 hover:bg-white/10 rounded-lg transition-all" href="student-profile.html">
+<span class="material-icons-outlined text-xl">assessment</span>
+<span class="font-medium">Progress Report</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-red-600 dark:text-red-400 hover:bg-red-100/20 rounded-lg transition-all mt-8" href="login.html">
+<span class="material-icons-outlined text-xl">logout</span>
+<span class="font-medium">Logout</span>
+</a>
+</nav>
+</aside>
+<main class="flex-1 overflow-y-auto p-4 md:p-8">
+<div class="max-w-7xl mx-auto">
+<div class="mb-8">
+<h1 class="text-3xl font-bold text-slate-900 dark:text-white mb-2">Lab Slot Booking</h1>
+<p class="text-slate-600 dark:text-slate-400">Book your exam slot or reserve practice sessions</p>
+</div>
+
+<!-- Tabs -->
+<div class="bg-white dark:bg-slate-800 rounded-t-2xl shadow-lg border-b-2 border-slate-200 dark:border-slate-700">
+<div class="flex gap-1 p-2">
+<button onclick="switchTab('exam')" id="examTab" class="flex-1 px-6 py-3 rounded-lg font-semibold transition-all bg-primary text-white shadow-sm">
+<span class="flex items-center justify-center gap-2">
+<span class="material-icons-outlined text-xl">assignment</span>
+Exam Slot Booking
+                        </span>
+</button>
+<button onclick="switchTab('practice')" id="practiceTab" class="flex-1 px-6 py-3 rounded-lg font-semibold transition-all text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700">
+<span class="flex items-center justify-center gap-2">
+<span class="material-icons-outlined text-xl">science</span>
+Practice Sessions
+                        </span>
+</button>
+</div>
+</div>
+
+<!-- Exam Slot Booking Content -->
+<div id="examContent" class="bg-white dark:bg-slate-800 rounded-b-2xl shadow-lg p-8">
+<div class="mb-6 p-4 bg-amber-50 dark:bg-amber-900/20 border-l-4 border-amber-500 rounded-r-lg">
+<div class="flex items-start gap-3">
+<span class="material-icons-outlined text-amber-600 dark:text-amber-400">info</span>
+<div>
+<h3 class="font-bold text-amber-900 dark:text-amber-200 mb-1">Important Information</h3>
+<p class="text-sm text-amber-800 dark:text-amber-300">Exam Date: <strong>February 15, 2026</strong> • Duration: <strong>1 hour</strong> • Machines per slot: <strong>20</strong></p>
+<p class="text-sm text-amber-800 dark:text-amber-300 mt-1">You can book <strong>ONE</strong> exam slot only. Choose carefully!</p>
+</div>
+</div>
+</div>
+
+<!-- Exam Slots Grid -->
+<h2 class="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
+<span class="material-icons-outlined text-primary">schedule</span>
+                Available Exam Slots - February 15, 2026
+            </h2>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+<!-- Slot 1: 8:00 AM -->
+<div class="border-2 border-slate-200 dark:border-slate-700 rounded-xl p-5 hover:border-primary dark:hover:border-primary transition-all cursor-pointer group">
+<div class="flex items-start justify-between mb-3">
+<div>
+<h3 class="font-bold text-lg text-slate-900 dark:text-white">8:00 AM - 9:00 AM</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400">Morning Session</p>
+</div>
+<span class="material-icons-outlined text-emerald-500">check_circle</span>
+</div>
+<div class="flex items-center justify-between mb-3">
+<span class="text-sm font-medium text-slate-600 dark:text-slate-400">Capacity</span>
+<span class="text-sm font-bold text-emerald-600 dark:text-emerald-400">12/20 booked</span>
+</div>
+<div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2 mb-4">
+<div class="bg-emerald-500 h-2 rounded-full" style="width: 60%"></div>
+</div>
+<button class="w-full bg-primary hover:bg-blue-600 text-white font-semibold py-2.5 rounded-lg transition-all group-hover:shadow-md">
+                        Book This Slot
+                    </button>
+</div>
+
+<!-- Slot 2: 9:00 AM -->
+<div class="border-2 border-slate-200 dark:border-slate-700 rounded-xl p-5 hover:border-primary dark:hover:border-primary transition-all cursor-pointer group">
+<div class="flex items-start justify-between mb-3">
+<div>
+<h3 class="font-bold text-lg text-slate-900 dark:text-white">9:00 AM - 10:00 AM</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400">Morning Session</p>
+</div>
+<span class="material-icons-outlined text-amber-500">schedule</span>
+</div>
+<div class="flex items-center justify-between mb-3">
+<span class="text-sm font-medium text-slate-600 dark:text-slate-400">Capacity</span>
+<span class="text-sm font-bold text-amber-600 dark:text-amber-400">17/20 booked</span>
+</div>
+<div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2 mb-4">
+<div class="bg-amber-500 h-2 rounded-full" style="width: 85%"></div>
+</div>
+<button class="w-full bg-primary hover:bg-blue-600 text-white font-semibold py-2.5 rounded-lg transition-all group-hover:shadow-md">
+                        Book This Slot
+                    </button>
+</div>
+
+<!-- Slot 3: 10:00 AM -->
+<div class="border-2 border-slate-200 dark:border-slate-700 rounded-xl p-5 hover:border-primary dark:hover:border-primary transition-all cursor-pointer group">
+<div class="flex items-start justify-between mb-3">
+<div>
+<h3 class="font-bold text-lg text-slate-900 dark:text-white">10:00 AM - 11:00 AM</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400">Morning Session</p>
+</div>
+<span class="material-icons-outlined text-emerald-500">check_circle</span>
+</div>
+<div class="flex items-center justify-between mb-3">
+<span class="text-sm font-medium text-slate-600 dark:text-slate-400">Capacity</span>
+<span class="text-sm font-bold text-emerald-600 dark:text-emerald-400">8/20 booked</span>
+</div>
+<div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2 mb-4">
+<div class="bg-emerald-500 h-2 rounded-full" style="width: 40%"></div>
+</div>
+<button class="w-full bg-primary hover:bg-blue-600 text-white font-semibold py-2.5 rounded-lg transition-all group-hover:shadow-md">
+                        Book This Slot
+                    </button>
+</div>
+
+<!-- Slot 4: 11:00 AM -->
+<div class="border-2 border-slate-200 dark:border-slate-700 rounded-xl p-5 hover:border-primary dark:hover:border-primary transition-all cursor-pointer group">
+<div class="flex items-start justify-between mb-3">
+<div>
+<h3 class="font-bold text-lg text-slate-900 dark:text-white">11:00 AM - 12:00 PM</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400">Morning Session</p>
+</div>
+<span class="material-icons-outlined text-emerald-500">check_circle</span>
+</div>
+<div class="flex items-center justify-between mb-3">
+<span class="text-sm font-medium text-slate-600 dark:text-slate-400">Capacity</span>
+<span class="text-sm font-bold text-emerald-600 dark:text-emerald-400">5/20 booked</span>
+</div>
+<div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2 mb-4">
+<div class="bg-emerald-500 h-2 rounded-full" style="width: 25%"></div>
+</div>
+<button class="w-full bg-primary hover:bg-blue-600 text-white font-semibold py-2.5 rounded-lg transition-all group-hover:shadow-md">
+                        Book This Slot
+                    </button>
+</div>
+
+<!-- Slot 5: 1:00 PM -->
+<div class="border-2 border-slate-200 dark:border-slate-700 rounded-xl p-5 hover:border-primary dark:hover:border-primary transition-all cursor-pointer group">
+<div class="flex items-start justify-between mb-3">
+<div>
+<h3 class="font-bold text-lg text-slate-900 dark:text-white">1:00 PM - 2:00 PM</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400">Afternoon Session</p>
+</div>
+<span class="material-icons-outlined text-red-500">cancel</span>
+</div>
+<div class="flex items-center justify-between mb-3">
+<span class="text-sm font-medium text-slate-600 dark:text-slate-400">Capacity</span>
+<span class="text-sm font-bold text-red-600 dark:text-red-400">20/20 booked</span>
+</div>
+<div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2 mb-4">
+<div class="bg-red-500 h-2 rounded-full" style="width: 100%"></div>
+</div>
+<button disabled class="w-full bg-slate-300 dark:bg-slate-700 text-slate-500 dark:text-slate-500 font-semibold py-2.5 rounded-lg cursor-not-allowed">
+                        Fully Booked
+                    </button>
+</div>
+
+<!-- Slot 6: 2:00 PM -->
+<div class="border-2 border-slate-200 dark:border-slate-700 rounded-xl p-5 hover:border-primary dark:hover:border-primary transition-all cursor-pointer group">
+<div class="flex items-start justify-between mb-3">
+<div>
+<h3 class="font-bold text-lg text-slate-900 dark:text-white">2:00 PM - 3:00 PM</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400">Afternoon Session</p>
+</div>
+<span class="material-icons-outlined text-emerald-500">check_circle</span>
+</div>
+<div class="flex items-center justify-between mb-3">
+<span class="text-sm font-medium text-slate-600 dark:text-slate-400">Capacity</span>
+<span class="text-sm font-bold text-emerald-600 dark:text-emerald-400">15/20 booked</span>
+</div>
+<div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2 mb-4">
+<div class="bg-emerald-500 h-2 rounded-full" style="width: 75%"></div>
+</div>
+<button class="w-full bg-primary hover:bg-blue-600 text-white font-semibold py-2.5 rounded-lg transition-all group-hover:shadow-md">
+                        Book This Slot
+                    </button>
+</div>
+</div>
+
+<!-- My Booking Status -->
+<div class="mt-8 p-6 bg-blue-50 dark:bg-blue-900/20 border-2 border-blue-200 dark:border-blue-800 rounded-xl">
+<h3 class="font-bold text-lg text-slate-900 dark:text-white mb-3 flex items-center gap-2">
+<span class="material-icons-outlined text-blue-600">event_note</span>
+                    Your Exam Slot
+                </h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm">You haven't booked an exam slot yet. Select a slot above to confirm your booking.</p>
+</div>
+</div>
+
+<!-- Practice Sessions Content -->
+<div id="practiceContent" class="bg-white dark:bg-slate-800 rounded-b-2xl shadow-lg p-8 hidden">
+<div class="mb-6 p-4 bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 rounded-r-lg">
+<div class="flex items-start gap-3">
+<span class="material-icons-outlined text-blue-600 dark:text-blue-400">lightbulb</span>
+<div>
+<h3 class="font-bold text-blue-900 dark:text-blue-200 mb-1">Practice Before Your Exam</h3>
+<p class="text-sm text-blue-800 dark:text-blue-300">Book practice sessions to prepare. Upload images and get instant automated grading feedback!</p>
+</div>
+</div>
+</div>
+
+<!-- Practice Booking Form -->
+<div class="bg-slate-50 dark:bg-slate-900/50 rounded-xl p-6 mb-6">
+<h2 class="text-xl font-bold text-slate-900 dark:text-white mb-6">Book Practice Session</h2>
+<form class="space-y-4" id="practiceBookingForm">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Select Date</label>
+<input class="w-full px-4 py-3 rounded-lg border-2 border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:border-primary focus:outline-none transition-colors" type="date" min="2026-01-26" required/>
+</div>
+
+<div>
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Select Time Slot</label>
+<select class="w-full px-4 py-3 rounded-lg border-2 border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:border-primary focus:outline-none transition-colors" required>
+<option value="">Choose a time...</option>
+<option>8:00 AM - 9:00 AM</option>
+<option>9:00 AM - 10:00 AM</option>
+<option>10:00 AM - 11:00 AM</option>
+<option>11:00 AM - 12:00 PM</option>
+<option>1:00 PM - 2:00 PM</option>
+<option>2:00 PM - 3:00 PM</option>
+<option>3:00 PM - 4:00 PM</option>
+<option>4:00 PM - 5:00 PM</option>
+</select>
+</div>
+</div>
+
+<div>
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Practice Focus (Optional)</label>
+<textarea class="w-full px-4 py-3 rounded-lg border-2 border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:border-primary focus:outline-none transition-colors resize-none" placeholder="What do you want to practice? (e.g., cavity detection, crown preparation...)" rows="2"></textarea>
+</div>
+
+<button class="w-full bg-primary hover:bg-blue-600 text-white font-bold py-4 rounded-lg transition-all shadow-md hover:shadow-lg active:scale-[0.98]" type="submit">
+<span class="flex items-center justify-center gap-2">
+<span class="material-icons-outlined">add_circle</span>
+                            Book Practice Session
+                        </span>
+</button>
+</form>
+</div>
+
+<!-- My Practice Sessions -->
+<div>
+<h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+<span class="material-icons-outlined text-primary">history</span>
+                    My Practice Sessions
+                </h2>
+
+<div class="space-y-3">
+<!-- Upcoming Practice Session -->
+<div class="bg-white dark:bg-slate-700/50 border-2 border-slate-200 dark:border-slate-600 rounded-xl p-5">
+<div class="flex items-start justify-between mb-3">
+<div>
+<h3 class="font-bold text-slate-900 dark:text-white">January 28, 2026 - 10:00 AM</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400">Practice Focus: Cavity Detection</p>
+</div>
+<span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-bold rounded-full">UPCOMING</span>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 px-4 py-2 bg-slate-100 dark:bg-slate-600 text-slate-700 dark:text-slate-200 font-semibold rounded-lg hover:bg-slate-200 dark:hover:bg-slate-500 transition-all">
+                            Cancel
+                        </button>
+<button class="flex-1 px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 font-semibold rounded-lg hover:bg-blue-200 dark:hover:bg-blue-900/50 transition-all">
+                            Reschedule
+                        </button>
+</div>
+</div>
+
+<!-- Completed Practice Session with AI Grading -->
+<div class="bg-white dark:bg-slate-700/50 border-2 border-slate-200 dark:border-slate-600 rounded-xl p-5">
+<div class="flex items-start justify-between mb-3">
+<div>
+<h3 class="font-bold text-slate-900 dark:text-white">January 22, 2026 - 2:00 PM</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400">Practice Focus: Crown Preparation</p>
+</div>
+<span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 text-xs font-bold rounded-full">COMPLETED</span>
+</div>
+<div class="mt-3 p-3 bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 rounded-lg border border-purple-200 dark:border-purple-800">
+<div class="flex items-center justify-between mb-2">
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300">AI Grading Result</span>
+<span class="text-2xl font-bold text-purple-600 dark:text-purple-400">B+</span>
+</div>
+<p class="text-xs text-slate-600 dark:text-slate-400">Accuracy: 85% • Images Analyzed: 4</p>
+</div>
+<button class="w-full mt-3 px-4 py-2 bg-slate-100 dark:bg-slate-600 text-slate-700 dark:text-slate-200 font-semibold rounded-lg hover:bg-slate-200 dark:hover:bg-slate-500 transition-all flex items-center justify-center gap-2">
+<span class="material-icons-outlined text-lg">visibility</span>
+                        View Detailed Feedback
+                    </button>
+</div>
+
+<!-- Another Completed Session -->
+<div class="bg-white dark:bg-slate-700/50 border-2 border-slate-200 dark:border-slate-600 rounded-xl p-5">
+<div class="flex items-start justify-between mb-3">
+<div>
+<h3 class="font-bold text-slate-900 dark:text-white">January 18, 2026 - 11:00 AM</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400">Practice Focus: Root Canal Assessment</p>
+</div>
+<span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 text-xs font-bold rounded-full">COMPLETED</span>
+</div>
+<div class="mt-3 p-3 bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 rounded-lg border border-purple-200 dark:border-purple-800">
+<div class="flex items-center justify-between mb-2">
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300">AI Grading Result</span>
+<span class="text-2xl font-bold text-purple-600 dark:text-purple-400">A-</span>
+</div>
+<p class="text-xs text-slate-600 dark:text-slate-400">Accuracy: 92% • Images Analyzed: 3</p>
+</div>
+<button class="w-full mt-3 px-4 py-2 bg-slate-100 dark:bg-slate-600 text-slate-700 dark:text-slate-200 font-semibold rounded-lg hover:bg-slate-200 dark:hover:bg-slate-500 transition-all flex items-center justify-center gap-2">
+<span class="material-icons-outlined text-lg">visibility</span>
+                        View Detailed Feedback
+                    </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<footer class="bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700 py-8 px-6 mt-auto">
+<div class="max-w-7xl mx-auto text-center">
+<p class="text-sm text-slate-600 dark:text-slate-400 mb-2">© 2026 University of Peradeniya - Faculty of Dental Sciences</p>
+<p class="text-xs text-slate-400">DentaNet Learning Management System. All rights reserved.</p>
+</div>
+</footer>
+<button class="fixed bottom-4 right-4 bg-white dark:bg-slate-800 p-3 rounded-full shadow-lg border border-slate-200 dark:border-slate-700" onclick="document.documentElement.classList.toggle('dark')">
+<span class="material-icons-outlined dark:text-white">dark_mode</span>
+</button>
+
+<script>
+// Tab switching functionality
+function switchTab(tab) {
+    const examTab = document.getElementById('examTab');
+    const practiceTab = document.getElementById('practiceTab');
+    const examContent = document.getElementById('examContent');
+    const practiceContent = document.getElementById('practiceContent');
+    
+    if (tab === 'exam') {
+        examTab.classList.add('bg-primary', 'text-white', 'shadow-sm');
+        examTab.classList.remove('text-slate-600', 'dark:text-slate-400', 'hover:bg-slate-100', 'dark:hover:bg-slate-700');
+        practiceTab.classList.remove('bg-primary', 'text-white', 'shadow-sm');
+        practiceTab.classList.add('text-slate-600', 'dark:text-slate-400', 'hover:bg-slate-100', 'dark:hover:bg-slate-700');
+        examContent.classList.remove('hidden');
+        practiceContent.classList.add('hidden');
+    } else {
+        practiceTab.classList.add('bg-primary', 'text-white', 'shadow-sm');
+        practiceTab.classList.remove('text-slate-600', 'dark:text-slate-400', 'hover:bg-slate-100', 'dark:hover:bg-slate-700');
+        examTab.classList.remove('bg-primary', 'text-white', 'shadow-sm');
+        examTab.classList.add('text-slate-600', 'dark:text-slate-400', 'hover:bg-slate-100', 'dark:hover:bg-slate-700');
+        practiceContent.classList.remove('hidden');
+        examContent.classList.add('hidden');
+    }
+}
+
+// Practice booking form handler
+document.getElementById('practiceBookingForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Practice session booked successfully! You will receive a confirmation email.');
+    this.reset();
+});
+</script>
+
+</body></html>

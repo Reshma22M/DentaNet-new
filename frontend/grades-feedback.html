@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DentaNet - Performance Report</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<script src="assets/js/api.js"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#3b82f6",
+              "background-light": "#f1f5f9",
+              "background-dark": "#0f172a",
+              "sidebar-light": "#93c5fd",
+              "sidebar-dark": "#1e293b",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+            },
+          },
+        },
+      };
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<nav class="bg-blue-200 dark:bg-slate-800 border-b border-blue-300 dark:border-slate-700 h-16 flex items-center justify-between px-6 sticky top-0 z-50">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+<span class="material-icons-outlined text-white text-xl">biotech</span>
+</div>
+<span class="font-bold text-lg text-blue-900 dark:text-blue-100">DentaNET</span>
+</div>
+<div class="hidden md:flex items-center gap-8 text-sm font-medium text-blue-800 dark:text-blue-200">
+<a class="hover:text-primary transition-colors" href="student-dashboard.html">Dashboard</a>
+<a class="hover:text-primary transition-colors" href="practical-exam-submission.html">Submissions</a>
+<a class="hover:text-primary transition-colors" href="lab-slot-booking.html">Lab slots</a>
+<a class="hover:text-primary transition-colors border-b-2 border-primary" href="grades-feedback.html">Grades</a>
+<a class="hover:text-primary transition-colors" href="study-materials.html">Materials</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-white dark:bg-slate-700 shadow-sm">
+<span class="material-icons-outlined text-slate-600 dark:text-slate-300">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-slate-300 overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_tM5ZfvHnIqXF-InhG8kbJKqXMy0-pMf4KsTsnUCtMzT7Y6huL9C5AUY-15KucI1aIkx36P4HggGysx0_12VwJa6EI1o7Q-D4DQqXiT5hBeGaDNzZafsehrlA6v7dD04Tl1JosGpe5SzFqJzBeWlt5oAusMObsVAMmmXDfkVyQQW0Yj6tjgKfQ9SETHneQiOgJ0KGQPuGn7WKpP-OzxsGF_-aH2IB5353OubRXTtomja4VrG_FvOc6_SpCWEGy8SlUhYIqYwlDSs"/>
+</div>
+</div>
+</nav>
+<div class="flex flex-1">
+<aside class="w-64 bg-sidebar-light dark:bg-sidebar-dark p-6 hidden lg:block border-r border-blue-200 dark:border-slate-800">
+<div class="mb-8">
+<h2 class="font-bold text-slate-800 dark:text-slate-200">LMS</h2>
+<p class="text-xs text-slate-600 dark:text-slate-400">University of Peradeniya</p>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-white/50 dark:hover:bg-slate-700/50 rounded-lg transition-all" href="student-dashboard.html">
+<span class="material-icons-outlined text-xl">home</span> Dashboard
+                </a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-white/50 dark:hover:bg-slate-700/50 rounded-lg transition-all" href="practical-exam-submission.html">
+<span class="material-icons-outlined text-xl">upload_file</span> Practical Exam Submission
+                </a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-white/50 dark:hover:bg-slate-700/50 rounded-lg transition-all" href="lab-slot-booking.html">
+<span class="material-icons-outlined text-xl">event_available</span> Lab Slot Booking
+                </a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-white/50 dark:hover:bg-slate-700/50 rounded-lg transition-all" href="study-materials.html">
+<span class="material-icons-outlined text-xl">menu_book</span> Study Materials
+                </a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-sm font-bold text-slate-900 dark:text-white bg-white/80 dark:bg-slate-700 rounded-lg shadow-sm" href="grades-feedback.html">
+<span class="material-icons-outlined text-xl text-primary">assignment</span> Grades &amp; Feedback
+                </a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-white/50 dark:hover:bg-slate-700/50 rounded-lg transition-all" href="student-profile.html">
+<span class="material-icons-outlined text-xl">person</span> Profile
+                </a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-sm font-medium text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-all mt-8" href="login.html">
+<span class="material-icons-outlined text-xl">logout</span> Logout
+                </a>
+</nav>
+</aside>
+<main class="flex-1 p-8 md:p-12 overflow-y-auto">
+<header class="mb-10">
+<h1 class="text-3xl font-bold text-slate-800 dark:text-slate-100">Performance Report & Grades</h1>
+<p class="text-slate-500 dark:text-slate-400 mt-1">View your grades and feedback for the Cavity Preparation Exam.</p>
+</header>
+<div class="bg-white dark:bg-slate-800 rounded-2xl border border-blue-100 dark:border-slate-700 shadow-sm p-8 mb-10">
+<h2 class="text-xl font-bold mb-8 text-slate-800 dark:text-slate-100">Overall Grades</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div class="bg-blue-50 dark:bg-slate-700/50 rounded-2xl p-10 flex flex-col items-center justify-center border border-blue-100 dark:border-slate-600">
+<span class="text-slate-500 dark:text-slate-400 font-medium mb-2 uppercase tracking-wide text-xs">Cavity Prep Exam Grade</span>
+<span class="text-7xl font-extrabold text-primary">A</span>
+</div>
+<div class="relative group">
+<img alt="Annotated cavity preparation" class="rounded-2xl w-full h-64 object-cover border border-slate-200 dark:border-slate-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoVoq39qd6KYE7KVWdIp8C9Z7qa2Wspfb0qe_HVmEkvtslkCAyv7OSbw48Cva1_ikC5DdmGKwK1Kq3-cj4_BenaVLTXkKM4HTOwp5Nwl4T-ON2OlS88jxb7ivsoc-K-pSp6OZvp5y7G1pGF2oOesLxh5EN8UMYh8kV9NjR_6vr18es_jH98I8I3zVfRRI8PPzzqQpgW1QBuwWo3PG_EgYRTy4Pe18DWYD2Xp9ZQVzSFGwfJEVY3dl8qJ_jD_8-TKPje8E0FUqB49M"/>
+<div class="absolute inset-0 bg-black/5 rounded-2xl pointer-events-none border border-black/10"></div>
+<div class="absolute top-4 left-4 bg-white/90 dark:bg-slate-900/90 px-2 py-1 rounded text-[10px] border border-slate-200 dark:border-slate-700 shadow-sm">class I cavity preparation</div>
+</div>
+</div>
+<div class="mt-12">
+<h3 class="text-lg font-bold mb-4 text-slate-800 dark:text-slate-100">AI Evaluation Results</h3>
+<div class="border border-slate-100 dark:border-slate-700 rounded-xl p-6 bg-slate-50 dark:bg-slate-900/30">
+<div class="mb-6">
+<h4 class="font-semibold text-slate-800 dark:text-slate-200 mb-2">Final Grade</h4>
+<span id="aiGrade" class="text-4xl font-bold text-primary">--</span>
+</div>
+<div class="mb-6">
+<h4 class="font-semibold text-slate-800 dark:text-slate-200 mb-3">Feature Assessment</h4>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div id="smoothOutline" class="flex items-center justify-between p-3 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Smooth Outline</span>
+<span class="feature-status px-3 py-1 rounded-full text-xs font-semibold">--</span>
+</div>
+<div id="flatFloor" class="flex items-center justify-between p-3 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Flat Floor</span>
+<span class="feature-status px-3 py-1 rounded-full text-xs font-semibold">--</span>
+</div>
+<div id="depth" class="flex items-center justify-between p-3 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Depth</span>
+<span class="feature-status px-3 py-1 rounded-full text-xs font-semibold">--</span>
+</div>
+<div id="undercut" class="flex items-center justify-between p-3 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Undercut</span>
+<span class="feature-status px-3 py-1 rounded-full text-xs font-semibold">--</span>
+</div>
+</div>
+</div>
+<div>
+<h4 class="font-semibold text-slate-800 dark:text-slate-200 mb-2">AI Comments</h4>
+<p id="aiComment" class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+Loading evaluation...
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mb-12">
+<h2 class="text-xl font-bold mb-6 text-slate-800 dark:text-slate-100">Grade Summary</h2>
+<div class="overflow-hidden border border-slate-200 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-800">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50 dark:bg-slate-700/50 border-b border-slate-200 dark:border-slate-700">
+<th class="px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">Exam Component</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">Weight</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">Grade</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-700">
+<tr>
+<td class="px-6 py-4 text-sm font-medium text-slate-700 dark:text-slate-200">Preparation</td>
+<td class="px-6 py-4 text-sm text-slate-500 dark:text-slate-400">30%</td>
+<td class="px-6 py-4 text-sm font-bold text-primary">A</td>
+</tr>
+<tr>
+<td class="px-6 py-4 text-sm font-medium text-slate-700 dark:text-slate-200">Execution</td>
+<td class="px-6 py-4 text-sm text-slate-500 dark:text-slate-400">40%</td>
+<td class="px-6 py-4 text-sm font-bold text-slate-700 dark:text-slate-300">B</td>
+</tr>
+<tr>
+<td class="px-6 py-4 text-sm font-medium text-slate-700 dark:text-slate-200">Final Result</td>
+<td class="px-6 py-4 text-sm text-slate-500 dark:text-slate-400">30%</td>
+<td class="px-6 py-4 text-sm font-bold text-primary">A</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="mb-8">
+<h2 class="text-xl font-bold mb-6 text-slate-800 dark:text-slate-100">Progress Tracker</h2>
+<div class="space-y-4">
+<div class="flex justify-between items-end mb-1">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-200">Overall Progress</span>
+<span class="text-xs font-semibold text-primary uppercase">On Track</span>
+</div>
+<div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-3 overflow-hidden">
+<div class="bg-primary h-full rounded-full w-[85%]"></div>
+</div>
+<p class="text-xs text-slate-500 dark:text-slate-400 italic">You are on track to achieve your academic goals.</p>
+</div>
+</div>
+</main>
+</div>
+<footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-8">
+<div class="max-w-7xl mx-auto px-6 text-center">
+<p class="text-sm text-slate-600 dark:text-slate-400 mb-2">© 2026 University of Peradeniya - Faculty of Dental Sciences</p>
+<p class="text-xs text-slate-400">DentaNet Learning Management System. All rights reserved.</p>
+</div>
+</footer>
+<button class="fixed bottom-4 right-4 bg-white dark:bg-slate-800 p-3 rounded-full shadow-lg border border-slate-200 dark:border-slate-700" onclick="document.documentElement.classList.toggle('dark')">
+<span class="material-icons-outlined dark:text-white">dark_mode</span>
+</button>
+
+<script>
+// Load AI evaluation data on page load
+async function loadEvaluationData() {
+    try {
+        // Check authentication
+        if (!checkAuth()) return;
+
+        const user = getCurrentUser();
+        
+        // For demo purposes, using a sample submission ID
+        // In production, this would come from the URL parameter or user's latest submission
+        const submissionId = new URLSearchParams(window.location.search).get('submissionId') || 1;
+        
+        const response = await fetch(`http://localhost:3000/api/evaluations/${submissionId}`, {
+            headers: getAuthHeaders()
+        });
+        
+        if (!response.ok) {
+            throw new Error('Failed to load evaluation');
+        }
+        
+        const data = await response.json();
+        
+        // Display AI evaluation
+        if (data.ai_evaluation) {
+            const ai = data.ai_evaluation;
+            
+            // Update grade
+            document.getElementById('aiGrade').textContent = ai.final_grade || '--';
+            
+            // Update comment
+            document.getElementById('aiComment').textContent = ai.ai_comment || 'No comments available';
+            
+            // Update feature statuses
+            updateFeatureStatus('smoothOutline', ai.smooth_outline_status);
+            updateFeatureStatus('flatFloor', ai.flat_floor_status);
+            updateFeatureStatus('depth', ai.depth_status);
+            updateFeatureStatus('undercut', ai.undercut_status);
+        }
+        
+    } catch (error) {
+        console.error('Error loading evaluation:', error);
+        document.getElementById('aiComment').textContent = 'Failed to load evaluation data';
+    }
+}
+
+function updateFeatureStatus(elementId, status) {
+    const element = document.getElementById(elementId);
+    const statusSpan = element.querySelector('.feature-status');
+    
+    if (status === 'acceptable') {
+        statusSpan.textContent = 'Acceptable';
+        statusSpan.className = 'feature-status px-3 py-1 rounded-full text-xs font-semibold bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400';
+    } else if (status === 'non-acceptable') {
+        statusSpan.textContent = 'Non-Acceptable';
+        statusSpan.className = 'feature-status px-3 py-1 rounded-full text-xs font-semibold bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400';
+    } else {
+        statusSpan.textContent = 'Not Evaluated';
+        statusSpan.className = 'feature-status px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 dark:bg-gray-900/30 text-gray-700 dark:text-gray-400';
+    }
+}
+
+// Load data when page loads
+document.addEventListener('DOMContentLoaded', loadEvaluationData);
+</script>
+
+</body></html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Connection Monitor - DentaNet LMS</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link rel="stylesheet" href="assets/css/common.css">
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+    
+    <!-- Top Navigation -->
+    <nav class="bg-admin text-white shadow-md sticky top-0 z-50" style="background-color: #6D5CB3;">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-3xl">medical_services</span>
+                <span class="text-xl font-bold tracking-tight">DentaNET</span>
+            </div>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#" class="text-sm font-medium hover:text-slate-200 transition-colors">Home</a>
+                <a href="#" class="text-sm font-medium hover:text-slate-200 transition-colors">About</a>
+                <a href="#" class="text-sm font-medium hover:text-slate-200 transition-colors">Contact</a>
+                <button class="bg-white px-5 py-2 rounded-lg text-sm font-semibold transition-all shadow-md" style="color: #6D5CB3;">Log In</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="flex flex-1 relative overflow-hidden">
+        
+        <!-- Sidebar -->
+        <aside class="w-64 border-r border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 hidden lg:block shrink-0">
+            <div class="p-6">
+                <div class="mb-8">
+                    <h3 class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-4">Organization</h3>
+                    <div class="flex items-center gap-3 p-3 rounded-xl" style="background-color: rgba(109, 92, 179, 0.1);">
+                        <div class="p-2 rounded-lg" style="background-color: rgba(109, 92, 179, 0.2);">
+                            <span class="material-symbols-outlined" style="color: #6D5CB3;">school</span>
+                        </div>
+                        <div class="text-xs font-bold leading-tight" style="color: #6D5CB3;">
+                            LMS University of Peradeniya
+                        </div>
+                    </div>
+                </div>
+                <nav class="space-y-1">
+                    <a href="admin-dashboard.html" class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                        <span class="material-symbols-outlined text-[20px]">dashboard</span> Dashboard
+                    </a>
+                    <a href="admin-api-monitor.html" class="flex items-center gap-3 px-3 py-2 text-sm font-bold rounded-lg text-white shadow-lg" style="background-color: #6D5CB3;">
+                        <span class="material-symbols-outlined text-[20px]">api</span> API Monitor
+                    </a>
+                    <a href="admin-manage-users.html" class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                        <span class="material-symbols-outlined text-[20px]">people</span> User Management
+                    </a>
+                    <a href="#" class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                        <span class="material-symbols-outlined text-[20px]">settings</span> Settings
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-8 md:p-12 relative overflow-y-auto">
+            
+            <!-- Decorative Background -->
+            <div class="absolute top-0 right-0 w-[500px] h-[500px] pointer-events-none opacity-5 dark:opacity-5 translate-x-1/4 -translate-y-1/4">
+                <svg class="fill-current" style="color: #6D5CB3;" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M45.7,-78.4C58.3,-71.4,67,-57.6,73.4,-43.8C79.8,-30,83.9,-15,82.4,-0.8C81,13.4,74.1,26.7,66.1,38.2C58.1,49.7,49,59.3,38,66.7C27,74.1,13.5,79.2,-1.1,81.1C-15.7,83,-31.4,81.7,-45.1,75.4C-58.8,69.1,-70.5,57.8,-77.7,44.4C-84.9,31,-87.6,15.5,-87,0.3C-86.4,-14.9,-82.5,-29.8,-74.6,-42.1C-66.7,-54.4,-54.8,-64.1,-41.6,-70.8C-28.4,-77.5,-14.2,-81.2,0.8,-82.6C15.8,-84,33.1,-85.4,45.7,-78.4Z" transform="translate(100 100)"></path>
+                </svg>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <span class="text-[120px] font-black opacity-30 select-none" style="color: #6D5CB3;">AI</span>
+                </div>
+            </div>
+
+            <div class="max-w-5xl mx-auto relative z-10">
+                
+                <!-- Header -->
+                <header class="mb-10">
+                    <h1 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white mb-2">API Connection Monitor</h1>
+                    <p class="text-slate-500 dark:text-slate-400">Real-time health status of DentaNet image evaluation services.</p>
+                </header>
+
+                <!-- Current Status -->
+                <section class="mb-12">
+                    <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6 shadow-sm flex items-center justify-between">
+                        <div>
+                            <p class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1">Current Status</p>
+                            <div class="flex items-center gap-3">
+                                <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Connected</h2>
+                                <span class="relative flex h-3 w-3">
+                                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                    <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-3 rounded-xl" style="background-color: rgba(109, 92, 179, 0.1);">
+                            <span class="material-symbols-outlined text-3xl" style="color: #6D5CB3;">wifi_tethering</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Statistics -->
+                <section class="mb-12">
+                    <h3 class="text-lg font-bold text-slate-800 dark:text-slate-200 mb-6 flex items-center gap-2">
+                        <span class="material-symbols-outlined" style="color: #6D5CB3;">analytics</span>
+                        Image Evaluation Function Status
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                            <p class="text-xs font-semibold text-slate-400 dark:text-slate-500 mb-4 uppercase">Total Images Processed</p>
+                            <p class="text-3xl font-bold text-slate-900 dark:text-white">1,234,567</p>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                            <p class="text-xs font-semibold text-slate-400 dark:text-slate-500 mb-4 uppercase">Images Pending</p>
+                            <p class="text-3xl font-bold text-slate-900 dark:text-white">42</p>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                            <p class="text-xs font-semibold text-slate-400 dark:text-slate-500 mb-4 uppercase">Success Rate</p>
+                            <p class="text-3xl font-bold" style="color: #6D5CB3;">99.98%</p>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                            <p class="text-xs font-semibold text-slate-400 dark:text-slate-500 mb-4 uppercase">Recent Errors</p>
+                            <p class="text-3xl font-bold text-slate-900 dark:text-white">0</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Last Sync -->
+                <section class="mb-12 flex items-center gap-4 text-sm">
+                    <div class="flex items-center gap-2 text-slate-500 dark:text-slate-400">
+                        <span class="material-symbols-outlined text-sm">sync</span>
+                        <span>Last Successful Synchronization:</span>
+                    </div>
+                    <span class="font-mono font-medium text-slate-700 dark:text-slate-200">2026-01-25 14:30:00</span>
+                </section>
+
+                <!-- Recent Errors Section -->
+                <section>
+                    <h3 class="text-lg font-bold text-slate-800 dark:text-slate-200 mb-6 flex items-center gap-2">
+                        <span class="material-symbols-outlined" style="color: #6D5CB3;">notification_important</span>
+                        Recent Error Notifications
+                    </h3>
+                    <div class="border-2 border-dashed border-slate-200 dark:border-slate-700 rounded-3xl p-12 flex flex-col items-center justify-center text-center bg-slate-50/50 dark:bg-slate-800/20">
+                        <div class="bg-white dark:bg-slate-800 w-16 h-16 rounded-full flex items-center justify-center mb-6 shadow-sm">
+                            <span class="material-symbols-outlined text-green-500 text-3xl">check_circle</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2">No recent errors</h4>
+                        <p class="text-slate-500 dark:text-slate-400 max-w-sm">
+                            All systems are functioning correctly. Check back later for any updates or automated alerts.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- API Endpoints Section -->
+                <section class="mt-12">
+                    <h3 class="text-lg font-bold text-slate-800 dark:text-slate-200 mb-6 flex items-center gap-2">
+                        <span class="material-symbols-outlined" style="color: #6D5CB3;">api</span>
+                        Active API Endpoints
+                    </h3>
+                    <div class="space-y-4">
+                        <!-- Endpoint 1 -->
+                        <div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-5 shadow-sm">
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="flex items-center gap-3">
+                                    <span class="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-bold rounded uppercase">GET</span>
+                                    <code class="text-sm font-mono text-slate-700 dark:text-slate-300">/api/v1/evaluate/image</code>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+                                    <span class="text-xs font-medium text-slate-600 dark:text-slate-400">Active</span>
+                                </div>
+                            </div>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Processes dental cavity images for AI evaluation</p>
+                        </div>
+
+                        <!-- Endpoint 2 -->
+                        <div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-5 shadow-sm">
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="flex items-center gap-3">
+                                    <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 text-xs font-bold rounded uppercase">POST</span>
+                                    <code class="text-sm font-mono text-slate-700 dark:text-slate-300">/api/v1/feedback/submit</code>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+                                    <span class="text-xs font-medium text-slate-600 dark:text-slate-400">Active</span>
+                                </div>
+                            </div>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Submits evaluation results and feedback to students</p>
+                        </div>
+
+                        <!-- Endpoint 3 -->
+                        <div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-5 shadow-sm">
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="flex items-center gap-3">
+                                    <span class="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-bold rounded uppercase">GET</span>
+                                    <code class="text-sm font-mono text-slate-700 dark:text-slate-300">/api/v1/stats/accuracy</code>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+                                    <span class="text-xs font-medium text-slate-600 dark:text-slate-400">Active</span>
+                                </div>
+                            </div>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Retrieves AI accuracy statistics and metrics</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-50 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 py-10 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-10 text-center md:text-left">
+                <div class="md:col-span-1">
+                    <div class="flex items-center gap-2 mb-4 justify-center md:justify-start">
+                        <div class="p-1 rounded-lg" style="background-color: #6D5CB3;">
+                            <span class="material-symbols-outlined text-white text-sm">medical_services</span>
+                        </div>
+                        <span class="text-lg font-bold tracking-tight" style="color: #6D5CB3;">DentaNET</span>
+                    </div>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                        Leading dental education through advanced AI-driven image evaluation and comprehensive learning management.
+                    </p>
+                </div>
+                <div class="md:col-span-2 grid grid-cols-2 sm:grid-cols-3 gap-8">
+                    <div>
+                        <h4 class="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-widest mb-4">Support</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-sm text-slate-600 dark:text-slate-400 hover:text-opacity-100 transition-colors" style="color: rgba(109, 92, 179, 0.8);">Privacy Policy</a></li>
+                            <li><a href="#" class="text-sm text-slate-600 dark:text-slate-400 hover:text-opacity-100 transition-colors" style="color: rgba(109, 92, 179, 0.8);">Terms of Service</a></li>
+                            <li><a href="#" class="text-sm text-slate-600 dark:text-slate-400 hover:text-opacity-100 transition-colors" style="color: rgba(109, 92, 179, 0.8);">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-widest mb-4">Academic</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-sm text-slate-600 dark:text-slate-400 hover:text-opacity-100 transition-colors" style="color: rgba(109, 92, 179, 0.8);">For Students</a></li>
+                            <li><a href="#" class="text-sm text-slate-600 dark:text-slate-400 hover:text-opacity-100 transition-colors" style="color: rgba(109, 92, 179, 0.8);">For Lecturers</a></li>
+                            <li><a href="#" class="text-sm text-slate-600 dark:text-slate-400 hover:text-opacity-100 transition-colors" style="color: rgba(109, 92, 179, 0.8);">Lab Services</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-span-2 sm:col-span-1 flex flex-col items-center sm:items-start">
+                        <h4 class="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-widest mb-4">Follow Us</h4>
+                        <div class="flex gap-4">
+                            <a href="#" class="transition-colors" style="color: rgba(109, 92, 179, 0.6);">
+                                <span class="material-symbols-outlined">public</span>
+                            </a>
+                            <a href="#" class="transition-colors" style="color: rgba(109, 92, 179, 0.6);">
+                                <span class="material-symbols-outlined">language</span>
+                            </a>
+                            <a href="#" class="transition-colors" style="color: rgba(109, 92, 179, 0.6);">
+                                <span class="material-symbols-outlined">alternate_email</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-slate-200 dark:border-slate-800 text-center">
+                <p class="text-xs text-slate-400 dark:text-slate-500">
+                    © 2025 DentaNet. All rights reserved. Professional Admin Monitoring Interface.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Dark Mode Toggle Button -->
+    <button onclick="toggleDarkMode()" class="fixed bottom-6 right-6 p-4 text-white rounded-full shadow-2xl z-50 hover:scale-110 transition-transform flex items-center justify-center" style="background-color: #6D5CB3;">
+        <span class="material-symbols-outlined">dark_mode</span>
+    </button>
+
+    <script src="assets/js/common.js"></script>
+</body>
+</html>

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Lab Dashboard - DentaNet</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+    <link rel="stylesheet" href="assets/css/common.css">
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-200 transition-colors duration-200">
+    
+    <!-- Top Navigation -->
+    <nav class="bg-admin text-white px-6 py-3 flex items-center justify-between sticky top-0 z-50 shadow-md" style="background-color: #6D5CB3;">
+        <div class="flex items-center space-x-2">
+            <span class="material-symbols-outlined text-3xl">medical_services</span>
+            <span class="text-xl font-bold tracking-tight">DentaNET</span>
+        </div>
+        <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
+            <a href="#" class="hover:opacity-80 transition-opacity">Home</a>
+            <a href="#" class="hover:opacity-80 transition-opacity">About</a>
+            <a href="#" class="hover:opacity-80 transition-opacity">Contact</a>
+            <button class="bg-white text-primary px-5 py-1.5 rounded-md font-semibold hover:bg-opacity-90 transition-all" style="color: #6D5CB3;">Log In</button>
+        </div>
+    </nav>
+
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <aside class="w-72 bg-secondary dark:bg-slate-800 p-6 flex flex-col space-y-8 text-white hidden lg:flex">
+            <div class="pt-4">
+                <h2 class="text-sm font-bold opacity-80 uppercase tracking-wider text-white">LMS</h2>
+                <p class="text-xs opacity-70">University of Peradeniya</p>
+            </div>
+            
+            <nav class="flex-1 space-y-2">
+                <a href="admin-dashboard.html" class="sidebar-active flex items-center space-x-3 px-4 py-3 rounded-lg shadow-sm">
+                    <span class="material-symbols-outlined text-xl">dashboard</span>
+                    <span class="font-semibold" style="color: #6D5CB3;">Dashboard</span>
+                </a>
+                <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-all text-white/90">
+                    <span class="material-symbols-outlined text-xl">calendar_today</span>
+                    <span class="font-medium">Lab Slot Time Table</span>
+                </a>
+                <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-all text-white/90">
+                    <span class="material-symbols-outlined text-xl">cloud_upload</span>
+                    <span class="font-medium">Upload Study Materials</span>
+                </a>
+                <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-all text-white/90">
+                    <span class="material-symbols-outlined text-xl">people_outline</span>
+                    <span class="font-medium">Manage User Accounts</span>
+                </a>
+            </nav>
+            
+            <div class="border-t border-white/20 pt-6">
+                <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-all text-white/90">
+                    <span class="material-symbols-outlined text-xl">help_outline</span>
+                    <span class="font-medium">Help and Support</span>
+                </a>
+            </div>
+            
+            <!-- Mini Calendar -->
+            <div class="bg-white/10 rounded-xl p-4 mt-auto">
+                <h3 class="text-xs font-bold uppercase mb-4 opacity-80">Confirmed Bookings</h3>
+                <div class="text-center">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="material-symbols-outlined cursor-pointer text-sm">chevron_left</span>
+                        <span class="text-xs font-bold">October 2024</span>
+                        <span class="material-symbols-outlined cursor-pointer text-sm">chevron_right</span>
+                    </div>
+                    <div class="grid grid-cols-7 gap-1 text-[10px] mb-2 font-bold opacity-60">
+                        <span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span>
+                    </div>
+                    <div class="grid grid-cols-7 gap-1 text-[10px]">
+                        <span class="py-1">1</span><span class="py-1">2</span><span class="py-1">3</span><span class="py-1">4</span>
+                        <span class="py-1 bg-white rounded-full font-bold" style="color: #6D5CB3;">5</span><span class="py-1">6</span><span class="py-1">7</span>
+                        <span class="py-1">8</span><span class="py-1">9</span><span class="py-1">10</span><span class="py-1">11</span><span class="py-1">12</span><span class="py-1">13</span><span class="py-1">14</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-6 md:p-10 bg-background-light dark:bg-background-dark overflow-y-auto">
+            
+            <!-- Header -->
+            <div class="flex flex-col md:flex-row justify-between items-start mb-8 gap-4">
+                <div>
+                    <h1 class="text-3xl font-bold text-slate-900 dark:text-white mb-1">Lab Assistant Dashboard</h1>
+                    <p class="text-slate-500 dark:text-slate-400">Welcome back, <span class="font-semibold" style="color: #6D5CB3;">Ms. Yonali</span></p>
+                </div>
+                <div class="flex items-center gap-4 bg-white dark:bg-slate-800 p-2 pr-6 rounded-full shadow-sm border border-slate-100 dark:border-slate-700">
+                    <div class="relative">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxeXiMGPrpKeXSnpcGwKooW7h23CnaqanyKXKt-0sJgIr2s30DSOxJFGwkEDVB9ECaEDLjCM84YUYjNkUoes7ZlQtkmXSxwm1q3svcy5LIoNCOXXgpi9EuPSDao7-i-m4DYruK-sN0D4CixZBNnMDI8Dqpv8vNvhXu_snrfO9BREHOW9p6J60WT0-e_Str14Zk1qH0NLYnA_gkfirWA8QXyjtuhNYEgp5_LLShBrnetxZywpEs66dm99IxrJ4ydbfp9oV2Se0jBHA" alt="Admin Profile" class="w-12 h-12 rounded-full border-2 object-cover" style="border-color: #6D5CB3;">
+                        <div class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-green-500 border-2 border-white dark:border-slate-800 rounded-full"></div>
+                    </div>
+                    <div class="hidden sm:block">
+                        <p class="text-xs font-bold text-slate-800 dark:text-white leading-none">Yonali Perera</p>
+                        <p class="text-[10px] text-slate-500 font-medium">Lab Administrator</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New Slot Requests Section -->
+            <section class="mb-10">
+                <div class="flex items-center justify-between mb-6 border-b border-slate-200 dark:border-slate-700">
+                    <div class="flex items-center gap-8">
+                        <h2 class="text-lg font-bold text-slate-800 dark:text-white">New Slot Requests</h2>
+                        <div class="flex space-x-6 h-full items-center translate-y-[1px]">
+                            <button class="tab-active px-1 pb-4 text-sm font-bold flex items-center gap-2" onclick="switchTab('practice', 'requests')" data-tab-group="requests" data-tab="practice">
+                                Practice Sessions
+                                <span class="px-2 py-0.5 rounded-full text-[10px]" style="background-color: rgba(109, 92, 179, 0.1); color: #6D5CB3;">3</span>
+                            </button>
+                            <button class="tab-inactive px-1 pb-4 text-sm font-semibold flex items-center gap-2" onclick="switchTab('exams', 'requests')" data-tab-group="requests" data-tab="exams">
+                                Practical Exams
+                                <span class="bg-slate-100 dark:bg-slate-700 text-slate-500 text-[10px] px-2 py-0.5 rounded-full">12</span>
+                            </button>
+                        </div>
+                    </div>
+                    <button class="text-sm font-bold hover:underline mb-4" style="color: #6D5CB3;">View All</button>
+                </div>
+
+                <!-- Practice Sessions Tab -->
+                <div data-content-group="requests" data-content="practice" class="grid grid-cols-1 xl:grid-cols-2 gap-4">
+                    <!-- Request Card 1 -->
+                    <div class="bg-white dark:bg-slate-800 p-5 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 group hover:border-opacity-50 transition-all" style="border-color: rgba(109, 92, 179, 0);">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-lg bg-accent dark:bg-slate-700 flex items-center justify-center" style="color: #6D5CB3;">
+                                    <span class="material-symbols-outlined text-xl">history_edu</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-slate-800 dark:text-white leading-tight">Cavity Preparation Practice</h3>
+                                    <div class="flex items-center gap-2 mt-1">
+                                        <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded" style="color: #6D5CB3; background-color: rgba(109, 92, 179, 0.1);">Practice Session</span>
+                                        <span class="text-slate-400">•</span>
+                                        <span class="text-xs text-slate-500 font-medium">Dec 10, 10:00 AM</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="text-[10px] font-bold text-slate-400">2 min ago</span>
+                        </div>
+                        <div class="bg-slate-50 dark:bg-slate-700/50 rounded-lg p-3 mb-4 flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <div class="w-6 h-6 rounded-full bg-slate-200 overflow-hidden">
+                                    <div class="w-full h-full flex items-center justify-center text-[10px] font-bold" style="background-color: rgba(109, 92, 179, 0.2); color: #6D5CB3;">SF</div>
+                                </div>
+                                <span class="text-xs font-semibold text-slate-700 dark:text-slate-300">Sheral Fernando</span>
+                            </div>
+                            <span class="text-xs text-slate-500">2 hours duration</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button class="flex-1 py-2 text-xs font-bold text-white rounded-lg hover:bg-opacity-90 transition-all shadow-md" style="background-color: #6D5CB3; box-shadow: 0 4px 6px -1px rgba(109, 92, 179, 0.2);">Approve</button>
+                            <button class="flex-1 py-2 text-xs font-bold text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-700 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors">Decline</button>
+                            <button class="p-2 text-slate-400 hover:text-opacity-100 transition-colors" style="color: rgba(109, 92, 179, 0.6);">
+                                <span class="material-symbols-outlined text-lg">visibility</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Request Card 2 -->
+                    <div class="bg-white dark:bg-slate-800 p-5 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 group hover:border-opacity-50 transition-all">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-lg bg-accent dark:bg-slate-700 flex items-center justify-center" style="color: #6D5CB3;">
+                                    <span class="material-symbols-outlined text-xl">history_edu</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-slate-800 dark:text-white leading-tight">Molar Extraction Practice</h3>
+                                    <div class="flex items-center gap-2 mt-1">
+                                        <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded" style="color: #6D5CB3; background-color: rgba(109, 92, 179, 0.1);">Practice Session</span>
+                                        <span class="text-slate-400">•</span>
+                                        <span class="text-xs text-slate-500 font-medium">Dec 11, 02:00 PM</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="text-[10px] font-bold text-slate-400">1 hour ago</span>
+                        </div>
+                        <div class="bg-slate-50 dark:bg-slate-700/50 rounded-lg p-3 mb-4 flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <div class="w-6 h-6 rounded-full bg-slate-200 overflow-hidden">
+                                    <div class="w-full h-full flex items-center justify-center text-[10px] font-bold" style="background-color: rgba(109, 92, 179, 0.2); color: #6D5CB3;">SN</div>
+                                </div>
+                                <span class="text-xs font-semibold text-slate-700 dark:text-slate-300">Sanara Fernando</span>
+                            </div>
+                            <span class="text-xs text-slate-500">2 hours duration</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button class="flex-1 py-2 text-xs font-bold text-white rounded-lg hover:bg-opacity-90 transition-all shadow-md" style="background-color: #6D5CB3; box-shadow: 0 4px 6px -1px rgba(109, 92, 179, 0.2);">Approve</button>
+                            <button class="flex-1 py-2 text-xs font-bold text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-700 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors">Decline</button>
+                            <button class="p-2 text-slate-400 transition-colors" style="color: rgba(109, 92, 179, 0.6);">
+                                <span class="material-symbols-outlined text-lg">visibility</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Practical Exams Tab (Hidden by default) -->
+                <div data-content-group="requests" data-content="exams" class="hidden">
+                    <p class="text-center text-slate-500 py-8">Practical exam requests will appear here</p>
+                </div>
+            </section>
+
+            <!-- Machine Status & Current Time Table -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-10">
+                
+                <!-- Machine Status -->
+                <section class="lg:col-span-1">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-lg font-bold text-slate-800 dark:text-white">Machine Status</h2>
+                        <button class="p-1 rounded transition-colors" style="color: #6D5CB3; background-color: rgba(109, 92, 179, 0.05);">
+                            <span class="material-symbols-outlined text-lg">edit</span>
+                        </button>
+                    </div>
+                    <div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 overflow-hidden shadow-sm">
+                        <table class="w-full text-left">
+                            <thead class="bg-slate-50 dark:bg-slate-700/50 text-slate-500 dark:text-slate-400 text-[10px] font-bold uppercase">
+                                <tr>
+                                    <th class="px-4 py-3">Machine</th>
+                                    <th class="px-4 py-3">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100 dark:divide-slate-700 text-xs">
+                                <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/30">
+                                    <td class="px-4 py-3 font-semibold text-slate-700 dark:text-slate-300">M-001</td>
+                                    <td class="px-4 py-3"><span class="text-[10px] font-bold text-green-600 bg-green-100 px-2 py-0.5 rounded-full uppercase">Ready</span></td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/30">
+                                    <td class="px-4 py-3 font-semibold text-slate-700 dark:text-slate-300">M-002</td>
+                                    <td class="px-4 py-3"><span class="text-[10px] font-bold text-amber-600 bg-amber-100 px-2 py-0.5 rounded-full uppercase">Repair</span></td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/30">
+                                    <td class="px-4 py-3 font-semibold text-slate-700 dark:text-slate-300">M-003</td>
+                                    <td class="px-4 py-3"><span class="text-[10px] font-bold text-green-600 bg-green-100 px-2 py-0.5 rounded-full uppercase">Ready</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="p-3 bg-slate-50 dark:bg-slate-700/50 border-t border-slate-100 dark:border-slate-700">
+                            <button class="w-full py-2 text-white text-[11px] font-bold rounded-lg shadow-lg hover:scale-[1.02] transition-transform" style="background-color: #6D5CB3; box-shadow: 0 10px 15px -3px rgba(109, 92, 179, 0.2);">Update Machine Status</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Current Time Table -->
+                <section class="lg:col-span-2">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-lg font-bold text-slate-800 dark:text-white">Current Time Table</h2>
+                        <div class="flex items-center gap-2">
+                            <span class="flex items-center gap-1 text-[10px] font-bold text-slate-400 uppercase tracking-tighter">
+                                <span class="w-2 h-2 rounded-full" style="background-color: #6D5CB3;"></span> Practice
+                            </span>
+                            <span class="flex items-center gap-1 text-[10px] font-bold text-slate-400 uppercase tracking-tighter">
+                                <span class="w-2 h-2 rounded-full bg-red-500"></span> Exam
+                            </span>
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 overflow-hidden shadow-sm">
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left min-w-[600px]">
+                                <thead class="bg-slate-50 dark:bg-slate-700/50 text-slate-500 dark:text-slate-400 text-[10px] font-bold uppercase tracking-wider">
+                                    <tr>
+                                        <th class="px-6 py-4">Machine ID</th>
+                                        <th class="px-6 py-4">Session Type</th>
+                                        <th class="px-6 py-4">Booked By</th>
+                                        <th class="px-6 py-4">Time Slot</th>
+                                        <th class="px-6 py-4">Lab</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-100 dark:divide-slate-700 text-sm">
+                                    <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/30 transition-colors">
+                                        <td class="px-6 py-4 font-bold text-slate-700 dark:text-slate-300">M-001</td>
+                                        <td class="px-6 py-4">
+                                            <span class="px-2 py-1 rounded-md text-[10px] font-bold uppercase" style="background-color: rgba(109, 92, 179, 0.1); color: #6D5CB3;">Practice</span>
+                                        </td>
+                                        <td class="px-6 py-4 font-medium">Kasun Perera</td>
+                                        <td class="px-6 py-4 text-xs font-semibold">10:00 - 12:00</td>
+                                        <td class="px-6 py-4 text-slate-500 font-medium">Lab 004</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/30 transition-colors">
+                                        <td class="px-6 py-4 font-bold text-slate-700 dark:text-slate-300">M-003</td>
+                                        <td class="px-6 py-4">
+                                            <span class="bg-red-50 text-red-600 px-2 py-1 rounded-md text-[10px] font-bold uppercase border border-red-100">Practical Exam</span>
+                                        </td>
+                                        <td class="px-6 py-4 font-medium">Dr. Saman Kumara</td>
+                                        <td class="px-6 py-4 text-xs font-semibold">01:00 - 04:00</td>
+                                        <td class="px-6 py-4 text-slate-500 font-medium">Lab 001</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/30 transition-colors">
+                                        <td class="px-6 py-4 font-bold text-slate-700 dark:text-slate-300">M-004</td>
+                                        <td class="px-6 py-4">
+                                            <span class="px-2 py-1 rounded-md text-[10px] font-bold uppercase" style="background-color: rgba(109, 92, 179, 0.1); color: #6D5CB3;">Practice</span>
+                                        </td>
+                                        <td class="px-6 py-4 font-medium">Senara Devindi</td>
+                                        <td class="px-6 py-4 text-xs font-semibold">02:00 - 04:00</td>
+                                        <td class="px-6 py-4 text-slate-500 font-medium">Lab 001</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/30 transition-colors">
+                                        <td class="px-6 py-4 font-bold text-slate-700 dark:text-slate-300">M-002</td>
+                                        <td class="px-6 py-4">
+                                            <span class="text-[10px] font-bold text-slate-400 italic">Maintenance</span>
+                                        </td>
+                                        <td class="px-6 py-4 text-slate-400 italic">-</td>
+                                        <td class="px-6 py-4 text-slate-400 italic">Unavailable</td>
+                                        <td class="px-6 py-4 text-slate-500 font-medium">Lab 002</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Promotional Banner -->
+    <div class="relative h-72 w-full overflow-hidden">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWwEGUM4ThnOleISWMMrqPZVmugpTpYOcRbT8J_c5MapLxfg5FzGU_Dt7iFdFMFTvGzdnm-e6J-y3Ruc5_47QXUqPJDXP-TldtsgmiZpPbURyOxwgWF-tkKhwyn-yxA8i5DR5jicCybYUTEfS9d1tswrhtL_nOiTwQnG0Y_P6zj_WpIv1OOqr_GUpiJAvyh1nnJN9-Tt9nnAhNdvBIptz_qdU8ntRICmj8weOpor1hvaMcsCFAcIZYhGgbNNfbCv9kFSaJnC6JDjg" alt="Students in dental lab" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-opacity-80 via-opacity-30 to-transparent" style="background: linear-gradient(to top, rgba(109, 92, 179, 0.8), rgba(109, 92, 179, 0.3), transparent);"></div>
+        <div class="absolute bottom-8 left-10 text-white">
+            <h3 class="text-2xl font-bold">Leading Dental Education</h3>
+            <p class="opacity-80">Faculty of Dental Sciences, University of Peradeniya</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-50 dark:bg-slate-950 pt-16 pb-8 border-t border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-wrap justify-center gap-x-12 gap-y-6 text-sm font-bold mb-12" style="color: #6D5CB3;">
+                <a href="#" class="hover:underline transition-all">Privacy Policy</a>
+                <a href="#" class="hover:underline transition-all">Terms of Service</a>
+                <a href="#" class="hover:underline transition-all">Contact Us</a>
+                <a href="#" class="hover:underline transition-all">For Students</a>
+                <a href="#" class="hover:underline transition-all">For Lecturers</a>
+                <a href="#" class="hover:underline transition-all">Lab Services</a>
+            </div>
+            <div class="flex justify-center space-x-6 mb-8" style="color: rgba(109, 92, 179, 0.6);">
+                <a href="#" class="transition-colors" style="color: rgba(109, 92, 179, 0.6);"><span class="material-symbols-outlined">public</span></a>
+                <a href="#" class="transition-colors" style="color: rgba(109, 92, 179, 0.6);"><span class="material-symbols-outlined">language</span></a>
+                <a href="#" class="transition-colors" style="color: rgba(109, 92, 179, 0.6);"><span class="material-symbols-outlined">alternate_email</span></a>
+            </div>
+            <div class="text-center text-xs text-slate-400 dark:text-slate-500 border-t border-slate-200 dark:border-slate-800 pt-8">
+                <p>© 2025 DentaNet LMS. Excellence in Dental Clinical Management.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Dark Mode Toggle Button -->
+    <button onclick="toggleDarkMode()" class="fixed bottom-6 right-6 p-4 text-white rounded-full shadow-2xl z-50 hover:scale-110 transition-transform flex items-center justify-center" style="background-color: #6D5CB3;">
+        <span class="material-symbols-outlined">dark_mode</span>
+    </button>
+
+    <script src="assets/js/common.js"></script>
+</body>
+</html>

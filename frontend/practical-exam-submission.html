@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DentaNet - Practical Exam Submission</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#2563eb",
+              "background-light": "#f1f5f9",
+              "background-dark": "#0f172a",
+              "sidebar-blue": "#93c5fd",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.75rem",
+            },
+          },
+        },
+      };
+    </script>
+<style>body {
+    font-family: "Inter", sans-serif
+    }
+.dashed-border {
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='12' ry='12' stroke='%233b82f6' stroke-width='3' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+    border-radius: 12px
+    }</style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col transition-colors duration-200">
+<nav class="bg-sidebar-blue dark:bg-blue-900 px-6 py-3 flex items-center justify-between sticky top-0 z-50">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+<span class="material-icons-outlined text-blue-600 text-xl">medical_services</span>
+</div>
+<span class="font-bold text-blue-900 dark:text-blue-100 text-lg">DentaNET</span>
+</div>
+<div class="hidden md:flex items-center gap-8 text-blue-900 dark:text-blue-100 font-medium">
+<a class="hover:opacity-75" href="student-dashboard.html">Dashboard</a>
+<a class="bg-white/30 px-4 py-1 rounded-full" href="#">Submissions</a>
+<a class="hover:opacity-75" href="#">Lab slots</a>
+<a class="hover:opacity-75" href="#">Grades</a>
+<a class="hover:opacity-75" href="#">Materials</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-blue-900 dark:text-blue-100">
+<span class="material-icons-outlined">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-white/50">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNlSKQ7J6xAyu-Br3QavNDRThcHVjWklbYCvyeLhuezssXqOJJo7Kb96pwCyS5ZJEfA9_WZC3S5ALGdA-g7cp8b7Glr1_3z7ITulkp9-WCJZF8bokQE6ofMRkpPl0lVZymHnzgjlMIWt8ZDDBjRGT-9F7w9AkOi4piXH9Ws_QHYsiACOrM69vzcefEnNAYXNizTgI5wfKn0scUM-yCvpqQJ1dO1xwVkR4cN2aAXvJx4JOQ8L5Pz-LWPgtC_XRQRRaIDCj458YdjMY"/>
+</div>
+</div>
+</nav>
+<div class="flex-1 flex container mx-auto p-6 gap-8">
+<aside class="w-64 bg-sidebar-blue dark:bg-blue-800/40 rounded-3xl p-6 hidden lg:flex flex-col gap-1 transition-colors">
+<div class="mb-6">
+<h3 class="font-bold text-blue-900 dark:text-blue-200">LMS</h3>
+<p class="text-xs text-blue-800 dark:text-blue-300 opacity-80">University of Peradeniya</p>
+</div>
+<nav class="space-y-2">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-blue-900 dark:text-blue-100 hover:bg-white/20 transition-all" href="student-dashboard.html">
+<span class="material-icons-outlined text-xl">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-white/90 dark:bg-white/10 text-primary dark:text-white shadow-sm transition-all" href="#">
+<span class="material-icons-outlined text-xl text-primary dark:text-blue-300">description</span>
+<span class="text-sm font-bold">Practical Exam Submission</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-blue-900 dark:text-blue-100 hover:bg-white/20 transition-all" href="lab-slot-booking.html">
+<span class="material-icons-outlined text-xl">event_available</span>
+<span class="text-sm font-medium">Lab Slot Booking</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-blue-900 dark:text-blue-100 hover:bg-white/20 transition-all" href="study-materials.html">
+<span class="material-icons-outlined text-xl">library_books</span>
+<span class="text-sm font-medium">Study Materials</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-blue-900 dark:text-blue-100 hover:bg-white/20 transition-all" href="grades-feedback.html">
+<span class="material-icons-outlined text-xl">grade</span>
+<span class="text-sm font-medium">Grades &amp; Feedback</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-blue-900 dark:text-blue-100 hover:bg-white/20 transition-all" href="student-profile.html">
+<span class="material-icons-outlined text-xl">analytics</span>
+<span class="text-sm font-medium">Progress Report</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-red-700 dark:text-red-400 hover:bg-red-100/20 transition-all mt-auto" href="login.html">
+<span class="material-icons-outlined text-xl">logout</span>
+<span class="text-sm font-medium">Logout</span>
+</a>
+</nav>
+</aside>
+<main class="flex-1 flex flex-col gap-8">
+<h1 class="text-3xl font-bold text-center text-slate-800 dark:text-white mb-2">Practical Exam Submission</h1>
+<section class="bg-white dark:bg-slate-800 rounded-3xl p-8 border border-slate-200 dark:border-slate-700 shadow-sm">
+<h2 class="text-xl font-bold mb-1">Submit your Work!</h2>
+<p class="text-sm text-slate-500 dark:text-slate-400 mb-8">Upload images of your practical exam and provide necessary details.</p>
+<form class="space-y-6" id="examSubmissionForm">
+<div>
+<label class="block text-sm font-semibold mb-2 text-slate-700 dark:text-slate-200">Student ID</label>
+<input class="w-full p-3 rounded-xl bg-slate-100 dark:bg-slate-700 border-none focus:ring-2 focus:ring-primary text-slate-900 dark:text-white transition-all" placeholder="Enter your ID" type="text" required/>
+</div>
+<div>
+<label class="block text-sm font-semibold mb-2 text-slate-700 dark:text-slate-200">Case Description</label>
+<textarea class="w-full p-3 rounded-xl bg-slate-100 dark:bg-slate-700 border-none focus:ring-2 focus:ring-primary text-slate-900 dark:text-white transition-all" placeholder="Describe your case..." rows="4" required></textarea>
+</div>
+<div class="dashed-border p-12 text-center bg-blue-50/50 dark:bg-blue-900/10">
+<div class="flex flex-col items-center gap-3">
+<span class="material-icons-outlined text-4xl text-primary">cloud_upload</span>
+<div class="space-y-1">
+<p class="font-semibold text-slate-800 dark:text-slate-200">Drag and drop or browse to upload images</p>
+<p class="text-xs text-slate-500">Supported formats: JPG, PNG. Max file size: 5MB</p>
+</div>
+<input type="file" id="fileInput" accept="image/jpeg,image/png" multiple class="hidden"/>
+<button type="button" onclick="document.getElementById('fileInput').click()" class="mt-4 px-6 py-2 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg text-sm font-semibold shadow-sm hover:shadow transition-all">Browse Files</button>
+<div id="fileList" class="mt-4 text-sm text-slate-600 dark:text-slate-400"></div>
+</div>
+</div>
+<div class="flex justify-end">
+<button type="submit" class="bg-primary hover:bg-blue-700 text-white px-8 py-3 rounded-xl font-bold shadow-lg shadow-blue-500/20 transition-all">Submit Exam</button>
+</div>
+</form>
+</section>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<div class="md:col-span-4 h-64 md:h-full rounded-3xl overflow-hidden shadow-sm">
+<img alt="Dental Procedure" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVO2d_vfufHYPXT9pDmzdScc7803wvWG3CTMp-qQtZ24OD3t1u3rSyY4zsZWekm3HdPPHr9OCfnxw3hcy6qvlbrJSCHZI-eAZawLGPDEYi7-Y2c7DEwuZE1Rs8GEowsHXOH_swUWfZDTBHkxmIgFxmHZTnQMMakMluB_-yY3byT0h8bmciJqTmUgvd_E83altW8TqvWcsLiTBiF90w81fIg7pPImJ4QMPT50Hvx-2PJV5uKFCPt1zAk0Rm9gFwRL8dQUGA51WUyHs"/>
+</div>
+<section class="md:col-span-8 bg-white dark:bg-slate-800 rounded-3xl p-8 border border-slate-200 dark:border-slate-700 shadow-sm">
+<h2 class="text-xl font-bold mb-6">Submission Details</h2>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+<div>
+<p class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1">Exam</p>
+<p class="text-sm font-medium">Practical Exam 1</p>
+</div>
+<div>
+<p class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1">Course</p>
+<p class="text-sm font-medium text-slate-700 dark:text-slate-200">Cavity Preparation</p>
+</div>
+<div>
+<p class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1">Status</p>
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400">
+                                Pending
+                            </span>
+</div>
+<div>
+<p class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1">Submission Date</p>
+<p class="text-sm font-medium">January 25, 2026</p>
+</div>
+<div>
+<p class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1">Submission Time</p>
+<p class="text-sm font-medium">2:35 P.M.</p>
+</div>
+</div>
+</section>
+</div>
+</main>
+</div>
+<footer class="mt-12 bg-white border-t border-slate-200 py-8 transition-colors">
+<div class="container mx-auto px-6 text-center">
+<p class="text-sm text-slate-600 mb-2">© 2026 University of Peradeniya - Faculty of Dental Sciences</p>
+<p class="text-xs text-slate-400">DentaNet Learning Management System. All rights reserved.</p>
+</div>
+</footer>
+<button class="fixed bottom-4 right-4 bg-white dark:bg-slate-800 p-3 rounded-full shadow-lg border border-slate-200 dark:border-slate-700" onclick="document.documentElement.classList.toggle('dark')">
+<span class="material-icons-outlined dark:text-white">dark_mode</span>
+</button>
+
+<script>
+// File upload handling
+document.getElementById('fileInput').addEventListener('change', function(e) {
+    const fileList = document.getElementById('fileList');
+    const files = e.target.files;
+    
+    if (files.length > 0) {
+        let fileNames = '<div class="space-y-1">';
+        for (let i = 0; i < files.length; i++) {
+            fileNames += `<div class="flex items-center gap-2 justify-center"><span class="material-icons-outlined text-green-500 text-sm">check_circle</span><span>${files[i].name}</span></div>`;
+        }
+        fileNames += '</div>';
+        fileList.innerHTML = fileNames;
+    }
+});
+
+// Form submission
+document.getElementById('examSubmissionForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Exam submitted successfully! You will be notified once it has been graded.');
+});
+</script>
+
+</body></html>
