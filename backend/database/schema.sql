@@ -5,7 +5,7 @@
 CREATE DATABASE IF NOT EXISTS dentanet_lms;
 USE dentanet_lms;
 
--- 1. Users Table (Students, Lecturers, Admins)
+-- 1. Users Table (Base table for all users)
 CREATE TABLE users (
     user_id INT PRIMARY KEY AUTO_INCREMENT,
     email VARCHAR(255) UNIQUE NOT NULL,
@@ -13,19 +13,62 @@ CREATE TABLE users (
     first_name VARCHAR(100) NOT NULL,
     last_name VARCHAR(100) NOT NULL,
     role ENUM('student', 'lecturer', 'admin') NOT NULL,
-    batch_year INT,
-    registration_number VARCHAR(50) UNIQUE,
     phone VARCHAR(20),
     profile_image_url VARCHAR(500),
     is_active BOOLEAN DEFAULT TRUE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     INDEX idx_email (email),
-    INDEX idx_role (role),
-    INDEX idx_batch (batch_year)
+    INDEX idx_role (role)
 );
 
--- 2. Lab Machines Table
+-- 1a. Students Table (Student-specific data)
+CREATE TABLE students (
+    student_id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT UNIQUE NOT NULL,
+    batch_year INT NOT NULL,
+    registration_number VARCHAR(50) UNIQUE NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
+    INDEX idx_batch (batch_year),
+    INDEX idx_reg_number (registration_number)
+);
+
+-- 1b. Lecturers Table (Lecturer-specific data)
+CREATE TABLE lecturers (
+    lecturer_id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT UNIQUE NOT NULL,
+    department VARCHAR(100),
+    specialization VARCHAR(100),
+    office_location VARCHAR(100),
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
+);
+
+-- 1c. Admins Table (Admin-specific data)
+CREATE TABLE admins (
+    admin_id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT UNIQUE NOT NULL,
+    admin_level ENUM('super_admin', 'lab_assistant', 'moderator') DEFAULT 'moderator',
+    permissions JSON,
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
+);
+
+-- 2. Password Reset Tokens Table
+CREATE TABLE password_reset_tokens (
+    token_id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    otp_code VARCHAR(6) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    expires_at TIMESTAMP NOT NULL,
+    verified_at TIMESTAMP NULL,
+    is_used BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
+    INDEX idx_email (email),
+    INDEX idx_otp (otp_code),
+    INDEX idx_expires (expires_at)
+);
+
+-- 3. Lab Machines Table
 CREATE TABLE lab_machines (
     machine_id INT PRIMARY KEY AUTO_INCREMENT,
     machine_code VARCHAR(20) UNIQUE NOT NULL,
@@ -250,10 +293,22 @@ CREATE TABLE system_settings (
 
 -- Insert Sample Data
 
--- Insert Admin User (password: admin123 - use bcrypt in production)
--- Sample Admin User (email: admin@dentanet.ac.lk, password: admin123)
-INSERT INTO users (email, password_hash, first_name, last_name, role) 
-VALUES ('admin@dentanet.ac.lk', '$2b$10$JUUsqHXqj1evwH8mFBwPweDI4106gGX4bdrLd7QzuA4TG1vhH0zTi', 'Admin', 'User', 'admin');
+-- Insert Sample Users
+INSERT INTO users (email, password_hash, first_name, last_name, role) VALUES
+('admin@dental.pdn.ac.lk', '$2b$10$JUUsqHXqj1evwH8mFBwPweDI4106gGX4bdrLd7QzuA4TG1vhH0zTi', 'Admin', 'User', 'admin'),
+('lecturer@dental.pdn.ac.lk', '$2b$10$JUUsqHXqj1evwH8mFBwPweDI4106gGX4bdrLd7QzuA4TG1vhH0zTi', 'John', 'Smith', 'lecturer'),
+('student@dental.pdn.ac.lk', '$2b$10$JUUsqHXqj1evwH8mFBwPweDI4106gGX4bdrLd7QzuA4TG1vhH0zTi', 'Jane', 'Doe', 'student');
+
+-- Insert Admin Data
+INSERT INTO admins (user_id, admin_level) VALUES (1, 'super_admin');
+
+-- Insert Lecturer Data
+INSERT INTO lecturers (user_id, department, specialization) VALUES 
+(2, 'Operative Dentistry', 'Cavity Preparation');
+
+-- Insert Student Data
+INSERT INTO students (user_id, batch_year, registration_number) VALUES 
+(3, 2023, 'DENT/2023/001');
 
 -- Insert Lab Machines
 INSERT INTO lab_machines (machine_code, lab_number, status) VALUES

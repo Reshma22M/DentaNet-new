@@ -30,8 +30,15 @@ router.post('/login', async (req, res) => {
 
         const user = users[0];
 
+        console.log(`🔐 Login attempt for: ${email}`);
+        console.log(`User ID: ${user.user_id}, Role: ${user.role}`);
+        console.log(`Stored hash: ${user.password_hash.substring(0, 20)}...`);
+
         // Verify password
         const passwordMatch = await bcrypt.compare(password, user.password_hash);
+        
+        console.log(`Password match result: ${passwordMatch}`);
+        
         if (!passwordMatch) {
             return res.status(401).json({ 
                 error: 'Invalid credentials' 
@@ -78,6 +85,16 @@ router.post('/register', async (req, res) => {
             });
         }
 
+        // Email format validation temporarily disabled - will enforce xxx@dental.pdn.ac.lk later
+        // if (role === 'student') {
+        //     const studentEmailRegex = /^[a-zA-Z0-9._%+-]+@dental\.pdn\.ac\.lk$/;
+        //     if (!studentEmailRegex.test(email)) {
+        //         return res.status(400).json({ 
+        //             error: 'Student email must be in format: xxx@dental.pdn.ac.lk' 
+        //         });
+        //     }
+        // }
+
         // Check if user already exists
         const [existingUsers] = await promisePool.query(
             'SELECT user_id FROM users WHERE email = ?',
@@ -93,16 +110,41 @@ router.post('/register', async (req, res) => {
         // Hash password
         const passwordHash = await bcrypt.hash(password, 10);
 
-        // Insert user
+        // Insert into users table
         const [result] = await promisePool.query(
-            `INSERT INTO users (email, password_hash, first_name, last_name, role, batch_year, registration_number) 
-             VALUES (?, ?, ?, ?, ?, ?, ?)`,
-            [email, passwordHash, firstName, lastName, role, batchYear || null, registrationNumber || null]
+            `INSERT INTO users (email, password_hash, first_name, last_name, role, phone) 
+             VALUES (?, ?, ?, ?, ?, ?)`,
+            [email, passwordHash, firstName, lastName, role, req.body.phone || null]
         );
+
+        const userId = result.insertId;
+
+        // Insert into role-specific table
+        if (role === 'student') {
+            if (!batchYear || !registrationNumber) {
+                return res.status(400).json({ 
+                    error: 'Students must provide batch year and registration number' 
+                });
+            }
+            await promisePool.query(
+                'INSERT INTO students (user_id, batch_year, registration_number) VALUES (?, ?, ?)',
+                [userId, batchYear, registrationNumber]
+            );
+        } else if (role === 'lecturer') {
+            await promisePool.query(
+                'INSERT INTO lecturers (user_id, department, specialization) VALUES (?, ?, ?)',
+                [userId, req.body.department || null, req.body.specialization || null]
+            );
+        } else if (role === 'admin') {
+            await promisePool.query(
+                'INSERT INTO admins (user_id, admin_level) VALUES (?, ?)',
+                [userId, req.body.adminLevel || 'moderator']
+            );
+        }
 
         res.status(201).json({
             message: 'User registered successfully',
-            userId: result.insertId
+            userId: userId
         });
 
     } catch (error) {

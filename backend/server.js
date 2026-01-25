@@ -26,6 +26,8 @@ const submissionRoutes = require('./routes/submissions');
 const evaluationRoutes = require('./routes/evaluations');
 const materialRoutes = require('./routes/materials');
 const notificationRoutes = require('./routes/notifications');
+const passwordResetRoutes = require('./routes/password-reset');
+const registrationRoutes = require('./routes/registration');
 
 // API Routes
 app.use('/api/auth', authRoutes);
@@ -35,6 +37,8 @@ app.use('/api/submissions', submissionRoutes);
 app.use('/api/evaluations', evaluationRoutes);
 app.use('/api/materials', materialRoutes);
 app.use('/api/notifications', notificationRoutes);
+app.use('/api/password-reset', passwordResetRoutes);
+app.use('/api/registration', registrationRoutes);
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {
