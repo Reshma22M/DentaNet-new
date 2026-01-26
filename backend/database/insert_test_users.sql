@@ -8,7 +8,7 @@ USE dentanet_lms;
 INSERT INTO users (email, password_hash, full_name, first_name, last_name, role, is_active)
 VALUES (
     'admin@dentanet.lk',
-    '$2b$10$YourHashedPasswordHereForAdmin123',
+    '$2b$10$KvKem9j4pstwvBLHy0ZgGuvFtrSeYUZVdKdVVKxqX2ZEDQ8ys7FGO',
     'System Administrator',
     'System',
     'Administrator',

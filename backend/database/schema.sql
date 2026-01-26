@@ -342,4 +342,3 @@ INSERT INTO system_settings (setting_key, setting_value, description) VALUES
 ('api_endpoint', 'https://api.dentanet.com', 'AI Evaluation API endpoint'),
 ('email_notifications', 'true', 'Enable email notifications');
 
-
