@@ -1,224 +1,245 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DentaNet Student Dashboard</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link rel="stylesheet" href="assets/css/common.css">
+﻿<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DentaNet Student Dashboard Purple</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#6366f1", // Vibrant Purple
+                        "primary-light": "#8B5CF6",
+                        "primary-dark": "#4C1D95",
+                        "background-light": "#F5F3FF",
+                        "background-dark": "#0F172A",
+                        "card-light": "#FFFFFF",
+                        "card-dark": "#1E293B",
+                        "sidebar-light": "#EDE9FE",
+                        "sidebar-dark": "#111827",
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.75rem",
+                    },
+                },
+            },
+        };
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+    </style>
 </head>
-<body class="bg-[var(--bg-main)] text-[#111418]">
-    <div class="flex min-h-screen">
-        <aside class="w-72 bg-[var(--sidebar-bg)] p-6 flex flex-col gap-8 shadow-inner">
-            <div class="flex flex-col gap-1">
-                <h1 class="text-xl font-extrabold text-[#003d73] tracking-tight">DentaNet LMS</h1>
-                <p class="text-xs font-semibold text-[#005a9e] opacity-80">University of Dental Sciences</p>
-            </div>
-            <nav class="flex flex-col gap-2">
-                <a class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/40 text-[#003d73] font-semibold transition-all" href="#">
-                    <span class="material-symbols-outlined">dashboard</span>
-                    <span class="text-sm">Dashboard</span>
-                </a>
-                <a class="flex items-center gap-3 px-4 py-3 rounded-xl text-[#003d73] hover:bg-white/20 font-medium transition-all" href="practical-exam-submission.html">
-                    <span class="material-symbols-outlined">edit_document</span>
-                    <span class="text-sm">Exam Submission</span>
-                </a>
-                <a class="flex items-center gap-3 px-4 py-3 rounded-xl text-[#003d73] hover:bg-white/20 font-medium transition-all" href="lab-slot-booking.html">
-                    <span class="material-symbols-outlined">calendar_today</span>
-                    <span class="text-sm">Lab Booking</span>
-                </a>
-                <a class="flex items-center gap-3 px-4 py-3 rounded-xl text-[#003d73] hover:bg-white/20 font-medium transition-all" href="study-materials.html">
-                    <span class="material-symbols-outlined">menu_book</span>
-                    <span class="text-sm">Study Materials</span>
-                </a>
-                <a class="flex items-center gap-3 px-4 py-3 rounded-xl text-[#003d73] hover:bg-white/20 font-medium transition-all" href="grades-feedback.html">
-                    <span class="material-symbols-outlined">bar_chart</span>
-                    <span class="text-sm">Reports & Feedback</span>
-                </a>
-                <a class="flex items-center gap-3 px-4 py-3 rounded-xl text-[#003d73] hover:bg-white/20 font-medium transition-all mt-auto" href="login.html">
-                    <span class="material-symbols-outlined">logout</span>
-                    <span class="text-sm">Logout</span>
-                </a>
-            </nav>
-        </aside>
-        
-        <main class="flex-1 flex flex-col overflow-y-auto">
-            <header class="h-20 bg-white border-b flex items-center justify-between px-8">
-                <div class="flex flex-col">
-                    <h2 class="text-2xl font-bold">Dashboard</h2>
-                    <p class="text-sm text-slate-500">Welcome back, Emily Carter</p>
-                </div>
-                <div class="flex items-center gap-4">
-                    <div class="flex flex-col items-end">
-                        <span class="text-sm font-bold">Emily Carter</span>
-                        <span class="text-xs text-slate-500">Student Profile</span>
-                    </div>
-                    <div class="w-10 h-10 rounded-full bg-slate-200 overflow-hidden">
-                        <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGZNq2xl9JZ7C9l3YREfomx01tKefmcCnV-DoqzOcSYZwE5cN6hRcrDljuIkOBwEqem1IpPLl9YUgAOPgQi4NCJKDVTYGTMtyQsHrbbRSVJJ_-cfXhjAk5lsspBzz-G2uJcfZna5FV2Ew0Efa7kTqv4zbqTBs7zfxRea5Y6U3bzrQ-CGCVY24yP-ooIwdA5ENVFVJuPC5MzyVGugwwHJdhMyvMJNzVyOnTo6ewmkYzn1_R3Vz977yf-xyQeA7YO2wf5Qml6wQSs9c"/>
-                    </div>
-                </div>
-            </header>
-            
-            <div class="p-8 grid grid-cols-12 gap-8">
-                <div class="col-span-8 flex flex-col gap-8">
-                    <section class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-                        <h3 class="text-lg font-bold mb-4 flex items-center gap-2">
-                            <span class="material-symbols-outlined text-[var(--primary-blue)]">bolt</span>
-                            Quick Actions
-                        </h3>
-                        <div class="flex flex-wrap gap-4">
-                            <button onclick="window.location.href='practical-exam-submission.html'" class="flex-1 flex items-center justify-center gap-2 bg-[var(--primary-blue)] hover:bg-[#0e5fa6] text-white px-6 py-4 rounded-xl font-bold transition-all shadow-md active:scale-95">
-                                <span class="material-symbols-outlined">upload_file</span>
+<body class="bg-background-light dark:bg-background-dark transition-colors duration-300">
+<nav class="sticky top-0 z-50 w-full bg-white dark:bg-gray-900 border-b border-purple-100 dark:border-gray-800 px-6 py-4 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
+<span class="material-icons-round text-white text-2xl">medical_services</span>
+</div>
+<span class="text-xl font-bold tracking-tight text-primary">DentaNET</span>
+</div>
+<div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600 dark:text-gray-300">
+<a class="hover:text-primary transition-colors" href="#">Home</a>
+<a class="hover:text-primary transition-colors" href="#">About</a>
+<a class="hover:text-primary transition-colors" href="#">Contact</a>
+<button id="logoutBtn" class="px-5 py-2.5 bg-primary text-white rounded-full font-semibold shadow-lg shadow-purple-200 dark:shadow-none hover:bg-primary-dark transition-all">
+                Log Out
+            </button>
+</div>
+</nav>
+<div class="flex min-h-screen">
+<aside class="w-72 bg-sidebar-light dark:bg-sidebar-dark p-6 hidden lg:block border-r border-purple-100 dark:border-gray-800">
+<div class="mb-8">
+<h2 class="text-xs font-bold uppercase tracking-widest text-primary mb-1">LMS</h2>
+<p class="text-sm font-semibold text-gray-700 dark:text-gray-400">University of Peradeniya</p>
+</div>
+<nav class="space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 bg-primary text-white rounded-xl shadow-md" href="#">
+<span class="material-icons-round text-[20px]">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-gray-600 dark:text-gray-400 hover:bg-purple-100 dark:hover:bg-gray-800 rounded-xl transition-colors" href="practical-exam-submission.html">
+<span class="material-icons-round text-[20px]">assignment</span>
+<span class="font-medium">Exam Submission</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-gray-600 dark:text-gray-400 hover:bg-purple-100 dark:hover:bg-gray-800 rounded-xl transition-colors" href="lab-slot-booking.html">
+<span class="material-icons-round text-[20px]">event_available</span>
+<span class="font-medium">Lab Slot Booking</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-gray-600 dark:text-gray-400 hover:bg-purple-100 dark:hover:bg-gray-800 rounded-xl transition-colors" href="study-materials.html">
+<span class="material-icons-round text-[20px]">auto_stories</span>
+<span class="font-medium">Study Materials</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-gray-600 dark:text-gray-400 hover:bg-purple-100 dark:hover:bg-gray-800 rounded-xl transition-colors" href="grades-feedback.html">
+<span class="material-icons-round text-[20px]">insights</span>
+<span class="font-medium">Grades & Feedback</span>
+</a>
+</nav>
+
+</aside>
+<main class="flex-1 p-6 md:p-10">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
+<div>
+<h1 class="text-3xl font-bold text-gray-900 dark:text-white">Student Dashboard</h1>
+<p class="text-gray-500 dark:text-gray-400">Welcome back, Senara! Here's what's happening today.</p>
+</div>
+<div class="flex items-center gap-4 bg-white dark:bg-card-dark p-2 pr-6 rounded-full shadow-sm border border-gray-100 dark:border-gray-800">
+<img alt="Student Profile" class="w-12 h-12 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgEWyiHX3htSUw_sWb5Xnjz2_s7M3VHyGrfW-zCqrxgZT060BiYD_bjXMZUqSVssenIgekh2yjWgPIjo2AlmBolAPsQ3z_6UVRFM-mejHc0eEnqSRbaoJe78gFfQiz5dl-AO6q2DlBgzz2o0A7Uv45BsKdsLyC_7AjAuIVyeaUQtydpWk1h_IGwQZ7KlgayJ_xxTTsHPNHzoX9Hf13dExyLEzwdhx2C0JNERZIgxP0NGzRXkQDRSBeg5p4i9UyxtnD8BrD-C1VONo"/>
+<div>
+<p class="text-sm font-bold text-gray-900 dark:text-white">Senara Perera</p>
+<p class="text-[10px] text-primary font-bold uppercase tracking-wider">Dental Student</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-8">
+<div class="xl:col-span-2 space-y-8">
+<section>
+<h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Quick Actions</h3>
+<div class="flex flex-wrap gap-4">
+<button onclick="window.location.href='practical-exam-submission.html'" class="flex items-center gap-3 px-6 py-4 bg-primary text-white rounded-2xl font-semibold hover:bg-primary-dark transition-all transform hover:-translate-y-1 shadow-lg shadow-purple-200 dark:shadow-none">
+<span class="material-icons-round">upload_file</span>
                                 Submit Practical Exam
                             </button>
-                            <button onclick="window.location.href='lab-slot-booking.html'" class="flex-1 flex items-center justify-center gap-2 bg-[#f0f9ff] border-2 border-[#bae6fd] text-[var(--primary-blue)] hover:bg-[#e0f2fe] px-6 py-4 rounded-xl font-bold transition-all active:scale-95">
-                                <span class="material-symbols-outlined">event_available</span>
+<button onclick="window.location.href='lab-slot-booking.html'" class="flex items-center gap-3 px-6 py-4 bg-white dark:bg-card-dark text-primary border border-purple-200 dark:border-gray-700 rounded-2xl font-semibold hover:bg-purple-50 dark:hover:bg-gray-800 transition-all transform hover:-translate-y-1">
+<span class="material-icons-round">calendar_month</span>
                                 Book Lab Slot
                             </button>
-                        </div>
-                    </section>
-                    
-                    <section class="flex flex-col gap-4">
-                        <h3 class="text-lg font-bold flex items-center gap-2 px-2">
-                            <span class="material-symbols-outlined text-amber-500">notifications</span>
-                            Notifications
-                        </h3>
-                        <div class="space-y-3">
-                            <div class="bg-white p-4 rounded-xl border border-slate-100 flex items-center gap-4 hover:shadow-md transition-shadow">
-                                <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center text-blue-600">
-                                    <span class="material-symbols-outlined">history_edu</span>
-                                </div>
-                                <div class="flex-1">
-                                    <h4 class="font-bold text-slate-800">Practical Exam Submission</h4>
-                                    <p class="text-sm text-slate-500">Deadline: 2024-04-15 (5 days remaining)</p>
-                                </div>
-                                <span class="bg-amber-100 text-amber-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Urgent</span>
-                            </div>
-                            <div class="bg-white p-4 rounded-xl border border-slate-100 flex items-center gap-4 hover:shadow-md transition-shadow">
-                                <div class="w-12 h-12 rounded-lg bg-emerald-50 flex items-center justify-center text-emerald-600">
-                                    <span class="material-symbols-outlined">biotech</span>
-                                </div>
-                                <div class="flex-1">
-                                    <h4 class="font-bold text-slate-800">Lab Slot Booking Confirmed</h4>
-                                    <p class="text-sm text-slate-500">Slot: 2024-04-20, 10:00 AM in Lab B</p>
-                                </div>
-                                <span class="bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Confirmed</span>
-                            </div>
-                            <div class="bg-white p-4 rounded-xl border border-slate-100 flex items-center gap-4 hover:shadow-md transition-shadow">
-                                <div class="w-12 h-12 rounded-lg bg-indigo-50 flex items-center justify-center text-indigo-600">
-                                    <span class="material-symbols-outlined">book</span>
-                                </div>
-                                <div class="flex-1">
-                                    <h4 class="font-bold text-slate-800">New Study Materials</h4>
-                                    <p class="text-sm text-slate-500">Prosthodontics Module 4 uploaded by Dr. Smith</p>
-                                </div>
-                                <span class="bg-indigo-100 text-indigo-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">New</span>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-                
-                <div class="col-span-4 flex flex-col gap-6">
-                    <section class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-                        <h3 class="text-md font-bold mb-4">Upcoming Lab Sessions</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-start gap-3">
-                                <div class="bg-slate-100 p-2 rounded text-xs font-bold text-center min-w-[48px]">
-                                    <div class="text-slate-400">APR</div>
-                                    <div class="text-lg">20</div>
-                                </div>
-                                <div>
-                                    <p class="text-sm font-bold">Orthodontics Practical</p>
-                                    <p class="text-xs text-slate-500">Room 204 • 10:00 AM</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3 opacity-60">
-                                <div class="bg-slate-100 p-2 rounded text-xs font-bold text-center min-w-[48px]">
-                                    <div class="text-slate-400">APR</div>
-                                    <div class="text-lg">23</div>
-                                </div>
-                                <div>
-                                    <p class="text-sm font-bold">Clinical Procedures</p>
-                                    <p class="text-xs text-slate-500">Room 102 • 02:00 PM</p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    
-                    <section class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-                        <h3 class="text-md font-bold mb-4">Recent Grades</h3>
-                        <div class="space-y-4">
-                            <div class="flex justify-between items-center">
-                                <div>
-                                    <p class="text-sm font-bold">Oral Pathology</p>
-                                    <p class="text-xs text-slate-500">End-term Exam</p>
-                                </div>
-                                <span class="text-lg font-extrabold text-[var(--primary-blue)]">A-</span>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <div>
-                                    <p class="text-sm font-bold">Periodontics Lab</p>
-                                    <p class="text-xs text-slate-500">Skills Assessment</p>
-                                </div>
-                                <span class="text-lg font-extrabold text-emerald-600">A+</span>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-            </div>
-            
-            <section class="mx-8 mb-8">
-                <div class="bg-gradient-to-r from-slate-50 to-orange-50 rounded-3xl shadow-lg overflow-hidden">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 p-12 items-center">
-                        <div class="space-y-6">
-                            <h2 class="text-4xl font-extrabold text-[#1e3a8a] leading-tight">Elevate Your Dental Practice</h2>
-                            <p class="text-slate-600 text-lg leading-relaxed">
-                                Access our premium clinical resource library and master advanced surgical techniques with step-by-step video tutorials.
-                            </p>
-                            <button class="bg-[#1e3a8a] hover:bg-[#1e40af] text-white px-8 py-4 rounded-full font-bold text-lg shadow-xl transition-all transform hover:scale-105 active:scale-95">
-                                Explore Resources
-                            </button>
-                        </div>
-                        <div class="flex items-center justify-center">
-                            <div class="bg-white rounded-3xl shadow-2xl p-8 w-80 h-80 flex items-center justify-center">
-                                <svg viewBox="0 0 200 240" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                                    <!-- Tooth Crown -->
-                                    <path d="M 60 40 Q 50 20 70 10 Q 100 0 130 10 Q 150 20 140 40 L 135 80 Q 133 90 125 95 Q 100 105 75 95 Q 67 90 65 80 Z" fill="#f5f5f0" stroke="#d1d1c8" stroke-width="2"/>
-                                    
-                                    <!-- Gum Line -->
-                                    <ellipse cx="100" cy="95" rx="45" ry="15" fill="#ff9999" opacity="0.8"/>
-                                    
-                                    <!-- Left Root -->
-                                    <path d="M 75 95 Q 65 110 70 140 Q 72 160 80 180 Q 82 190 85 180 Q 87 170 88 140 Q 88 110 85 95" fill="#f5e6d3" stroke="#d1c4b0" stroke-width="1.5"/>
-                                    
-                                    <!-- Center Root -->
-                                    <path d="M 95 95 Q 93 120 95 160 Q 97 190 100 210 Q 100 220 102 210 Q 105 190 105 160 Q 107 120 105 95" fill="#f5e6d3" stroke="#d1c4b0" stroke-width="1.5"/>
-                                    
-                                    <!-- Right Root -->
-                                    <path d="M 125 95 Q 127 110 122 140 Q 120 160 112 180 Q 110 190 115 180 Q 118 170 120 140 Q 122 110 115 95" fill="#f5e6d3" stroke="#d1c4b0" stroke-width="1.5"/>
-                                    
-                                    <!-- Left Gum Curve -->
-                                    <path d="M 55 95 Q 40 105 35 120 Q 32 130 40 135 Q 50 138 60 130" fill="#ffccb3" opacity="0.6"/>
-                                    
-                                    <!-- Right Gum Curve -->
-                                    <path d="M 145 95 Q 160 105 165 120 Q 168 130 160 135 Q 150 138 140 130" fill="#ffccb3" opacity="0.6"/>
-                                    
-                                    <!-- Enamel line -->
-                                    <line x1="70" y1="50" x2="130" y2="50" stroke="#e8e8e0" stroke-width="2"/>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <footer class="mt-auto bg-white border-t border-slate-200 py-8 px-8">
-                <div class="max-w-6xl mx-auto text-center">
-                    <p class="text-sm text-slate-600 mb-2">© 2026 University of Peradeniya - Faculty of Dental Sciences</p>
-                    <p class="text-xs text-slate-400">DentaNet Learning Management System. All rights reserved.</p>
-                </div>
-            </footer>
-        </main>
-    </div>
-</body>
-</html>
+</div>
+</section>
+<section class="bg-white dark:bg-card-dark rounded-3xl p-8 shadow-sm border border-purple-50 dark:border-gray-800">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-lg font-bold text-gray-900 dark:text-white">Notifications</h3>
+<button class="text-primary text-sm font-semibold hover:underline">Mark all as read</button>
+</div>
+<div class="space-y-4">
+<div class="flex items-start gap-4 p-4 rounded-2xl bg-gray-50 dark:bg-gray-800/50 hover:bg-purple-50 dark:hover:bg-gray-800 transition-colors">
+<div class="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900/30 text-blue-600 flex items-center justify-center shrink-0">
+<span class="material-icons-round">description</span>
+</div>
+<div class="flex-1">
+<h4 class="font-semibold text-gray-900 dark:text-white">Practical Exam Submission</h4>
+<p class="text-sm text-gray-500 dark:text-gray-400">Deadline: 2026-02-15. Please ensure all files are in PDF format.</p>
+</div>
+<span class="text-[10px] font-bold text-blue-500 uppercase tracking-widest px-2 py-1 bg-blue-50 dark:bg-blue-900/20 rounded">New</span>
+</div>
+<div class="flex items-start gap-4 p-4 rounded-2xl bg-gray-50 dark:bg-gray-800/50 hover:bg-purple-50 dark:hover:bg-gray-800 transition-colors">
+<div class="w-12 h-12 rounded-xl bg-orange-100 dark:bg-orange-900/30 text-orange-600 flex items-center justify-center shrink-0">
+<span class="material-icons-round">alarm</span>
+</div>
+<div class="flex-1">
+<h4 class="font-semibold text-gray-900 dark:text-white">Lab Slot Booking</h4>
+<p class="text-sm text-gray-500 dark:text-gray-400">Slot: 2026-02-15, 10:00 AM at Laboratory B.</p>
+</div>
+<span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">2h ago</span>
+</div>
+<div class="flex items-start gap-4 p-4 rounded-2xl bg-gray-50 dark:bg-gray-800/50 hover:bg-purple-50 dark:hover:bg-gray-800 transition-colors">
+<div class="w-12 h-12 rounded-xl bg-purple-100 dark:bg-purple-900/30 text-purple-600 flex items-center justify-center shrink-0">
+<span class="material-icons-round">library_books</span>
+</div>
+<div class="flex-1">
+<h4 class="font-semibold text-gray-900 dark:text-white">Study Materials</h4>
+<p class="text-sm text-gray-500 dark:text-gray-400">Updated: 2026-02-10. "Advanced Orthodontics Module 4" added.</p>
+</div>
+<span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Yesterday</span>
+</div>
+<div class="flex items-start gap-4 p-4 rounded-2xl bg-gray-50 dark:bg-gray-800/50 hover:bg-purple-50 dark:hover:bg-gray-800 transition-colors">
+<div class="w-12 h-12 rounded-xl bg-green-100 dark:bg-green-900/30 text-green-600 flex items-center justify-center shrink-0">
+<span class="material-icons-round">analytics</span>
+</div>
+<div class="flex-1">
+<h4 class="font-semibold text-gray-900 dark:text-white">Grades & Feedback</h4>
+<p class="text-sm text-gray-500 dark:text-gray-400">Feedback: 2026-02-05. Your viva results are now available.</p>
+</div>
+<span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">3 days ago</span>
+</div>
+</div>
+</section>
+</div>
+<div class="space-y-8">
+<section class="bg-white dark:bg-card-dark rounded-3xl p-8 shadow-sm border border-purple-50 dark:border-gray-800">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-lg font-bold text-gray-900 dark:text-white">Upcoming Events</h3>
+<span class="material-icons-round text-primary/40">event</span>
+</div>
+<div class="space-y-6">
+<div class="flex items-center gap-4 p-3 rounded-2xl border border-transparent hover:border-purple-100 dark:hover:border-gray-700 hover:bg-purple-50/30 dark:hover:bg-gray-800/30 transition-all">
+<div class="w-14 h-14 rounded-2xl bg-primary/10 dark:bg-primary/20 flex flex-col items-center justify-center shrink-0">
+<span class="text-[10px] font-bold text-primary uppercase">APR</span>
+<span class="text-lg font-bold text-primary">22</span>
+</div>
+<div>
+<p class="text-sm font-bold text-gray-900 dark:text-white">Dental Anatomy Viva</p>
+<p class="text-xs text-gray-500">Room 402 • 09:00 AM</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-3 rounded-2xl border border-transparent hover:border-purple-100 dark:hover:border-gray-700 hover:bg-purple-50/30 dark:hover:bg-gray-800/30 transition-all">
+<div class="w-14 h-14 rounded-2xl bg-gray-100 dark:bg-gray-800 flex flex-col items-center justify-center shrink-0">
+<span class="text-[10px] font-bold text-gray-500 uppercase">MAY</span>
+<span class="text-lg font-bold text-gray-900 dark:text-white">05</span>
+</div>
+<div>
+<p class="text-sm font-bold text-gray-900 dark:text-white">Clinical Workshop</p>
+<p class="text-xs text-gray-500">Main Hall • 02:00 PM</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-3 rounded-2xl border border-transparent hover:border-purple-100 dark:hover:border-gray-700 hover:bg-purple-50/30 dark:hover:bg-gray-800/30 transition-all">
+<div class="w-14 h-14 rounded-2xl bg-gray-100 dark:bg-gray-800 flex flex-col items-center justify-center shrink-0">
+<span class="text-[10px] font-bold text-gray-500 uppercase">MAY</span>
+<span class="text-lg font-bold text-gray-900 dark:text-white">12</span>
+</div>
+<div>
+<p class="text-sm font-bold text-gray-900 dark:text-white">Radiology Lab</p>
+<p class="text-xs text-gray-500">Imaging Suite • 10:30 AM</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-8 py-3 bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-2xl text-sm font-bold hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                            View All Events
+                        </button>
+</section>
+</div>
+</div>
+</main>
+</div>
+<footer class="bg-sidebar-light dark:bg-sidebar-dark border-t border-purple-100 dark:border-gray-800 py-12 px-6">
+<div class="max-w-7xl mx-auto flex flex-col items-center">
+<div class="flex flex-wrap justify-center gap-8 mb-8 text-sm font-medium text-gray-500 dark:text-gray-400">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">Contact Us</a>
+<a class="hover:text-primary transition-colors" href="#">For Students</a>
+<a class="hover:text-primary transition-colors" href="#">For Lecturers</a>
+<a class="hover:text-primary transition-colors" href="#">Lab Services</a>
+</div>
+<div class="flex gap-6 mb-8 text-gray-400">
+<a class="hover:text-primary transition-colors" href="#"><i class="material-icons-round">facebook</i></a>
+<a class="hover:text-primary transition-colors" href="#"><i class="material-icons-round">alternate_email</i></a>
+<a class="hover:text-primary transition-colors" href="#"><i class="material-icons-round">groups</i></a>
+</div>
+<p class="text-xs text-gray-400 dark:text-gray-500 font-medium">© 2025 DentaNet LMS. All rights reserved. Professional Dental Education Platform.</p>
+</div>
+</footer>
+<button class="fixed bottom-6 right-6 w-14 h-14 bg-white dark:bg-gray-800 rounded-full shadow-2xl flex items-center justify-center border border-purple-100 dark:border-gray-700 hover:scale-110 transition-transform" onclick="document.documentElement.classList.toggle('dark')">
+<span class="material-icons-round text-primary dark:text-yellow-400">dark_mode</span>
+</button>
+<script>
+// Logout button functionality
+document.getElementById('logoutBtn').onclick = function() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    window.location.href = 'login.html';
+};
+// Redirect to login if not authenticated
+const token = localStorage.getItem('token');
+if (!token) {
+    window.location.href = 'login.html';
+}
+</script>
+</body></html>

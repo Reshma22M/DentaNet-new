@@ -34,27 +34,97 @@ router.get('/', authenticateToken, async (req, res) => {
     }
 });
 
-// Create booking
+// Create booking with validations
 router.post('/', authenticateToken, async (req, res) => {
     try {
         const { machineId, bookingType, bookingDate, startTime, endTime, purpose } = req.body;
         const userId = req.user.userId;
+
+        // Validate required fields
+        if (!machineId || !bookingType || !bookingDate || !startTime || !endTime) {
+            return res.status(400).json({ 
+                error: 'Machine ID, booking type, date, start time, and end time are required' 
+            });
+        }
+
+        // Validate booking type
+        const allowedTypes = ['practice', 'exam'];
+        if (!allowedTypes.includes(bookingType)) {
+            return res.status(400).json({ 
+                error: 'Booking type must be either "practice" or "exam"' 
+            });
+        }
+
+        // Check if machine exists and is available
+        const [machines] = await promisePool.query(
+            'SELECT * FROM lab_machines WHERE machine_id = ?',
+            [machineId]
+        );
+
+        if (machines.length === 0) {
+            return res.status(404).json({ error: 'Machine not found' });
+        }
+
+        const machine = machines[0];
+
+        if (machine.status !== 'ready') {
+            return res.status(400).json({ 
+                error: `Machine is not available. Current status: ${machine.status}` 
+            });
+        }
+
+        // Check for overlapping bookings on the same machine
+        const [overlapping] = await promisePool.query(
+            `SELECT booking_id FROM lab_bookings 
+             WHERE machine_id = ? 
+             AND booking_date = ? 
+             AND status NOT IN ('cancelled', 'declined')
+             AND (
+                 (start_time < ? AND end_time > ?) OR
+                 (start_time < ? AND end_time > ?) OR
+                 (start_time >= ? AND end_time <= ?)
+             )`,
+            [machineId, bookingDate, endTime, startTime, endTime, startTime, startTime, endTime]
+        );
+
+        if (overlapping.length > 0) {
+            return res.status(409).json({ 
+                error: 'This time slot is already booked for the selected machine. Please choose a different time or machine.' 
+            });
+        }
 
         // Calculate duration
         const start = new Date(`2000-01-01 ${startTime}`);
         const end = new Date(`2000-01-01 ${endTime}`);
         const durationHours = (end - start) / (1000 * 60 * 60);
 
+        if (durationHours <= 0) {
+            return res.status(400).json({ 
+                error: 'End time must be after start time' 
+            });
+        }
+
+        // Check max booking duration (e.g., 4 hours max)
+        const maxDuration = 4;
+        if (durationHours > maxDuration) {
+            return res.status(400).json({ 
+                error: `Booking duration cannot exceed ${maxDuration} hours` 
+            });
+        }
+
         const [result] = await promisePool.query(
             `INSERT INTO lab_bookings 
              (user_id, machine_id, booking_type, booking_date, start_time, end_time, duration_hours, purpose, status)
              VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'pending')`,
-            [userId, machineId, bookingType, bookingDate, startTime, endTime, durationHours, purpose]
+            [userId, machineId, bookingType, bookingDate, startTime, endTime, durationHours, purpose || null]
         );
 
-        res.status(201).json({
-            message: 'Booking created successfully',
-            bookingId: result.insertId
+        console.log(`✅ Booking created: User ${userId}, Machine ${machineId}, Date ${bookingDate}`);
+
+        res.status(201).json({ 
+            message: 'Booking request submitted. Awaiting admin approval.',
+            bookingId: result.insertId,
+            status: 'pending'
         });
 
     } catch (error) {

@@ -1,259 +1,400 @@
 <!DOCTYPE html>
 <html lang="en"><head>
 <meta charset="utf-8"/>
-<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
-<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<title>DentaNet LMS - Study Materials</title>
-<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Simplified DentaNet Study Materials</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<style type="text/tailwindcss">
-      :root {
-        --primary-blue: #a3c9f1;
-        --sidebar-blue: #93bde8;
-        --footer-blue: #c5dff8;
-        --text-main: #111418;
-      }
-      .material-symbols-outlined {
-        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-      }
-      .group:hover .preview-overlay {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-      }
-      .preview-overlay {
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(10px);
-        transition: all 0.3s ease;
-      }
-    </style>
-</head>
-<body class="bg-slate-50">
-<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden" style='font-family: Inter, "Noto Sans", sans-serif;'>
-<div class="layout-container flex h-full grow flex-col">
-<header class="flex items-center justify-between whitespace-nowrap bg-[var(--sidebar-blue)] px-10 py-3 shadow-sm">
-<div class="flex items-center gap-4 text-white">
-<div class="size-6">
-<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path d="M24 4C25.7818 14.2173 33.7827 22.2182 44 24C33.7827 25.7818 25.7818 33.7827 24 44C22.2182 33.7827 14.2173 25.7818 4 24C14.2173 22.2182 22.2182 14.2173 24 4Z" fill="currentColor"></path>
-</svg>
-</div>
-<h2 class="text-white text-xl font-bold leading-tight tracking-tight">DentaNet</h2>
-</div>
-<div class="flex flex-1 justify-end gap-8">
-<div class="flex items-center gap-9">
-<a class="text-white text-sm font-medium hover:opacity-80" href="student-dashboard.html">Dashboard</a>
-<a class="text-white text-sm font-medium hover:opacity-80" href="practical-exam-submission.html">Submissions</a>
-<a class="text-white text-sm font-medium hover:opacity-80" href="lab-slot-booking.html">Lab Slots</a>
-<a class="text-white text-sm font-medium hover:opacity-80" href="grades-feedback.html">Grades</a>
-<a class="text-white text-sm font-medium border-b-2 border-white pb-1" href="#">Materials</a>
-</div>
-<div class="flex items-center gap-4">
-<button class="flex items-center justify-center rounded-full bg-white/20 p-2 text-white">
-<span class="material-symbols-outlined">notifications</span>
-</button>
-<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-white/50" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCZkg6OJn283isamWlp5-NvTZtfmy3uhgaYV_q9elhNSlqzjvbjaHGMgg6Yob0cTkEfhJvUPa8qA68lfttISZcXwtWsn4RCZGt_4tXEB8kyLpmVN36Ubw15mTkkG3Z2lVl6H9VBKDbBekk0ub7i2cciH0ImapH7Gi1CtdUt6AQrEjYi_lss_dHabMh1wCIdUooJ61ckLT9Sr6IcnsfHAhAioVyVEVS9rOEzXOLRZk7PekTIL8udMkjhOZcp92poGUWYk3cv6Ljyx5A");'></div>
-</div>
-</div>
-</header>
-<div class="flex flex-1">
-<aside class="w-72 bg-[var(--sidebar-blue)]/20 border-r border-blue-100 p-6 hidden lg:block">
-<div class="space-y-1">
-<p class="text-[var(--text-main)] text-xs font-bold uppercase tracking-wider mb-4 opacity-60">LMS Navigation</p>
-<a class="flex items-center gap-3 px-4 py-3 text-slate-700 hover:bg-white/50 rounded-xl transition-colors" href="student-dashboard.html">
-<span class="material-symbols-outlined text-xl">dashboard</span>
-<span class="font-medium text-sm">Dashboard</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 text-slate-700 hover:bg-white/50 rounded-xl transition-colors" href="practical-exam-submission.html">
-<span class="material-symbols-outlined text-xl">assignment</span>
-<span class="font-medium text-sm">Exam Submission</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 text-slate-700 hover:bg-white/50 rounded-xl transition-colors" href="lab-slot-booking.html">
-<span class="material-symbols-outlined text-xl">calendar_month</span>
-<span class="font-medium text-sm">Lab Booking</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 bg-white text-blue-600 shadow-sm rounded-xl transition-colors" href="#">
-<span class="material-symbols-outlined text-xl">library_books</span>
-<span class="font-medium text-sm">Study Materials</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 text-slate-700 hover:bg-white/50 rounded-xl transition-colors" href="grades-feedback.html">
-<span class="material-symbols-outlined text-xl">grade</span>
-<span class="font-medium text-sm">Grades &amp; Feedback</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 text-slate-700 hover:bg-white/50 rounded-xl transition-colors" href="student-profile.html">
-<span class="material-symbols-outlined text-xl">bar_chart</span>
-<span class="font-medium text-sm">Progress Report</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 text-red-600 hover:bg-red-50 rounded-xl transition-colors mt-8" href="login.html">
-<span class="material-symbols-outlined text-xl">logout</span>
-<span class="font-medium text-sm">Logout</span>
-</a>
-</div>
-</aside>
-<main class="flex-1 px-8 py-10 overflow-y-auto">
-<div class="max-w-5xl mx-auto">
-<div class="mb-8">
-<h1 class="text-[#111418] text-4xl font-bold tracking-tight mb-2">Cavity Tooth Test Materials</h1>
-<p class="text-slate-500">Access all your cavity tooth test materials and video resources in one place.</p>
-</div>
-<div class="mb-8">
-<div class="relative max-w-2xl">
-<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">search</span>
-<input class="w-full h-12 pl-12 pr-4 rounded-xl border-none bg-white shadow-sm ring-1 ring-slate-200 focus:ring-2 focus:ring-blue-400 transition-all text-slate-700" placeholder="Search for materials, videos, or authors..." type="text"/>
-</div>
-</div>
-<div class="flex gap-2 mb-10 overflow-x-auto pb-2">
-<button class="px-6 py-2 bg-blue-600 text-white rounded-full text-sm font-semibold shadow-md">All</button>
-<button class="px-6 py-2 bg-white text-slate-600 border border-slate-200 rounded-full text-sm font-medium hover:bg-slate-50">Diagnosis</button>
-<button class="px-6 py-2 bg-white text-slate-600 border border-slate-200 rounded-full text-sm font-medium hover:bg-slate-50">Preparation</button>
-<button class="px-6 py-2 bg-white text-slate-600 border border-slate-200 rounded-full text-sm font-medium hover:bg-slate-50">Restoration</button>
-<button class="px-6 py-2 bg-white text-slate-600 border border-slate-200 rounded-full text-sm font-medium hover:bg-slate-50">Video Guides</button>
-</div>
-<section class="mb-12">
-<div class="flex items-center gap-3 mb-6">
-<span class="material-symbols-outlined text-blue-600">play_circle</span>
-<h2 class="text-2xl font-bold text-slate-800">Video Guides</h2>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-<div class="group relative flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer">
-<div class="relative aspect-video">
-<div class="w-full h-full bg-center bg-cover" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAV3nxhs0FEj-jWYtKH9UNBN9baZOB_D38DF-en0bH2_HymroKB_BHanwp7Qm7Aa6X0mVy0mCYJTMw_N0qxP_sanE0JSmT-g6ct-VVJlFkGWAm5-pDn2AbfcREzGrVWLvMFAj5NJOkArkGFE8n31dqroSmJ6u8pWDq0-DKBTu1zJjHD6rekh-X9uetthJbw4NEskoiR5eidcSqxww60NmPJuvYm5dGqV9xzCRjRnNZbprO4RAnWwSCl3McqXKjCtO0RcZJ8aOfHVuM");'></div>
-<div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-<span class="material-symbols-outlined text-6xl text-white">play_arrow</span>
-</div>
-<div class="absolute bottom-2 right-2 bg-black/70 text-white text-[10px] font-bold px-2 py-1 rounded">12:45</div>
-</div>
-<div class="p-4">
-<div class="flex items-center gap-2 mb-2">
-<span class="text-[10px] font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2 py-0.5 rounded">Video Resource</span>
-</div>
-<h3 class="font-bold text-slate-800 mb-1 group-hover:text-blue-600 transition-colors">Cavity Prep Tutorial</h3>
-<p class="text-xs text-slate-500">Uploaded by Dr. Smith</p>
-</div>
-</div>
-<div class="group relative flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer">
-<div class="relative aspect-video">
-<div class="w-full h-full bg-center bg-cover" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB0H8I3JA-q3hXhTOKmZ5HAYX_k2ANiXVXlww5LbBE6V7BcKd6c5BCvnV6byHe74wGbpsuauZh_RPgkNWe6rdy8engnO0yae5pxHnEiRvegok_fB0ZF-xD2MFH-8ySLNj73JYCvHq_nkZehuFXObEXfz0lsziPhUuJOz0024MlujwprYELZr3_oBbv0IBT-EnFIZSk-Bt8ZhTVlALEkHOwI_La0IvAJ-Mq8BL1TgEB9LNFlYkkPDxUFjIkhTNvlog2Gbc2ettsLcaU");'></div>
-<div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-<span class="material-symbols-outlined text-6xl text-white">play_arrow</span>
-</div>
-<div class="absolute bottom-2 right-2 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded">YouTube Link</div>
-</div>
-<div class="p-4">
-<div class="flex items-center gap-2 mb-2">
-<span class="text-[10px] font-bold uppercase tracking-wider text-red-600 bg-red-50 px-2 py-0.5 rounded">External Resource</span>
-</div>
-<h3 class="font-bold text-slate-800 mb-1 group-hover:text-blue-600 transition-colors">Advanced Restoration Techniques</h3>
-<p class="text-xs text-slate-500">Uploaded by Dr. Smith</p>
-</div>
-</div>
-<div class="group relative flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer">
-<div class="relative aspect-video">
-<div class="w-full h-full bg-center bg-cover" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDYubO8De7H8SK1hc2VWlrlOG7G8ME5d3bYlxxv0jVvmnAmh6Enj2aXYDSiG10dqTbjrsomA8QL9oj7B9VNgeX5KG2K_FG1dhtcjejNwpyiDJGFIbJgMAr3KZvOeiuOJ8I-W22YF6U3TVgfR1mhTt3Q1FOOSCspcNBTN5NKviSO1p3tleipDnTt4-7EEM31R6cjtYWp3DidY9RiQg2GfG7hj3s7VX44ZqstuPjzin48JDp04pCHjcoZJsjLYT-JfSMMahWlMdLFT_U");'></div>
-<div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-<span class="material-symbols-outlined text-6xl text-white">play_arrow</span>
-</div>
-<div class="absolute bottom-2 right-2 bg-black/70 text-white text-[10px] font-bold px-2 py-1 rounded">08:20</div>
-</div>
-<div class="p-4">
-<div class="flex items-center gap-2 mb-2">
-<span class="text-[10px] font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2 py-0.5 rounded">Video Resource</span>
-</div>
-<h3 class="font-bold text-slate-800 mb-1 group-hover:text-blue-600 transition-colors">Class II Composite Guide</h3>
-<p class="text-xs text-slate-500">Uploaded by Dr. Jones</p>
-</div>
-</div>
-</div>
-</section>
-<section class="mb-12">
-<h2 class="text-2xl font-bold text-slate-800 mb-6">Diagnosis</h2>
-<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-<div class="group relative flex flex-col gap-3">
-<div class="relative cursor-pointer">
-<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl shadow-sm border border-slate-100" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAV3nxhs0FEj-jWYtKH9UNBN9baZOB_D38DF-en0bH2_HymroKB_BHanwp7Qm7Aa6X0mVy0mCYJTMw_N0qxP_sanE0JSmT-g6ct-VVJlFkGWAm5-pDn2AbfcREzGrVWLvMFAj5NJOkArkGFE8n31dqroSmJ6u8pWDq0-DKBTu1zJjHD6rekh-X9uetthJbw4NEskoiR5eidcSqxww60NmPJuvYm5dGqV9xzCRjRnNZbprO4RAnWwSCl3McqXKjCtO0RcZJ8aOfHVuM");'></div>
-<div class="preview-overlay absolute -top-4 left-0 right-0 z-20 bg-white p-4 rounded-xl shadow-2xl border border-blue-100 w-64 pointer-events-none">
-<div class="flex items-center gap-2 mb-2 pb-2 border-b border-slate-50">
-<span class="material-symbols-outlined text-blue-500 text-sm">visibility</span>
-<span class="text-[10px] font-bold text-slate-400 uppercase">Quick Preview</span>
-</div>
-<p class="text-xs font-bold text-slate-800 mb-1">Diagnosis Notes</p>
-<p class="text-[11px] text-slate-600 leading-relaxed italic">"Primary indicators for carious lesions include color changes and loss of translucency..."</p>
-<div class="mt-2 flex items-center justify-between">
-<span class="text-[10px] text-blue-600 font-semibold">12 Pages</span>
-<span class="text-[10px] text-slate-400">PDF • 2.4MB</span>
-</div>
-</div>
-</div>
-<div>
-<p class="text-slate-800 text-base font-bold leading-normal">Diagnosis Notes</p>
-<p class="text-slate-500 text-xs font-normal">Uploaded by Dr. Harper</p>
-</div>
-</div>
-<div class="group relative flex flex-col gap-3">
-<div class="relative cursor-pointer">
-<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl shadow-sm border border-slate-100" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB0H8I3JA-q3hXhTOKmZ5HAYX_k2ANiXVXlww5LbBE6V7BcKd6c5BCvnV6byHe74wGbpsuauZh_RPgkNWe6rdy8engnO0yae5pxHnEiRvegok_fB0ZF-xD2MFH-8ySLNj73JYCvHq_nkZehuFXObEXfz0lsziPhUuJOz0024MlujwprYELZr3_oBbv0IBT-EnFIZSk-Bt8ZhTVlALEkHOwI_La0IvAJ-Mq8BL1TgEB9LNFlYkkPDxUFjIkhTNvlog2Gbc2ettsLcaU");'></div>
-<div class="preview-overlay absolute -top-4 left-0 right-0 z-20 bg-white p-4 rounded-xl shadow-2xl border border-blue-100 w-64 pointer-events-none">
-<p class="text-[10px] font-bold text-slate-400 uppercase mb-2">Lecture Highlights</p>
-<ul class="text-[11px] text-slate-600 space-y-1">
-<li>• Radiographic identification</li>
-<li>• Visual tactile methods</li>
-<li>• Fluorescence assessment</li>
-</ul>
-</div>
-</div>
-<div>
-<p class="text-slate-800 text-base font-bold leading-normal">Diagnosis Slides</p>
-<p class="text-slate-500 text-xs font-normal">Uploaded by Dr. Harper</p>
-</div>
-</div>
-<div class="flex flex-col gap-3 cursor-pointer">
-<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl shadow-sm" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDYubO8De7H8SK1hc2VWlrlOG7G8ME5d3bYlxxv0jVvmnAmh6Enj2aXYDSiG10dqTbjrsomA8QL9oj7B9VNgeX5KG2K_FG1dhtcjejNwpyiDJGFIbJgMAr3KZvOeiuOJ8I-W22YF6U3TVgfR1mhTt3Q1FOOSCspcNBTN5NKviSO1p3tleipDnTt4-7EEM31R6cjtYWp3DidY9RiQg2GfG7hj3s7VX44ZqstuPjzin48JDp04pCHjcoZJsjLYT-JfSMMahWlMdLFT_U");'></div>
-<div>
-<p class="text-slate-800 text-base font-bold leading-normal">Diagnosis Workbook</p>
-<p class="text-slate-500 text-xs font-normal">Uploaded by Student Ethan Walker</p>
-</div>
-</div>
-<div class="flex flex-col gap-3 cursor-pointer">
-<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl shadow-sm" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD_Ob3rQW0JsBBdnA1j9T8eJAFRzz3XJa_NgtP6yYQ7i0TrAtiL_bOn9CulJ80n7tNZAw__v-lTyxjhfeY8ypV6vOZlWXoEB9synlj8RiDiGkVQIcXox3h-72j-OQ9WMbB_HCTG64DOLlJXImfxkSSBIkyLT_sjH-p7At3V4Q04PpTxhPKvpFdD4NX0SjzVIhEOs1YjD2IvW4lrRzzeQnhwTXXJkNjO61cWH4prEuVlih333hYJpmA_WMXoV9GXLhw8fNI5zOSrGdA");'></div>
-<div>
-<p class="text-slate-800 text-base font-bold leading-normal">Diagnosis Cheat Sheet</p>
-<p class="text-slate-500 text-xs font-normal">Uploaded by Student Ethan Walker</p>
-</div>
-</div>
-</div>
-</section>
-<section class="mb-12">
-<h2 class="text-2xl font-bold text-slate-800 mb-6">Preparation</h2>
-<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-<div class="flex flex-col gap-3 cursor-pointer">
-<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl shadow-sm" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB0TGDJhv0hZfURIjKi5TgAiXP0zVxDNVfmm4vpBkiIYqQDEInt3G5lFllW15BEyMowxb3MLVDdAe8kQ8C-TIA00YijQ5o5SpkX2CpVpk6GbBMdQuFItUqIEKdtH_mwOLTdtu1s9YeAA9IJyPOposexgbjNKJXk550-d34mN0AvfWQFG2g0fpHf81sYohOqTzcwpRe-BLoq1GCDQx-K89Hz__2bXubivm6z_-gxf7otp3QyURwbfPAQ4GBp29H-nKOZgbx3Gvw6t7c");'></div>
-<p class="text-slate-800 text-base font-bold">Preparation Lecture Notes</p>
-<p class="text-slate-500 text-xs">Uploaded by Dr. Harper</p>
-</div>
-<div class="flex flex-col gap-3 cursor-pointer">
-<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl shadow-sm" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDtseexgzv0RPb-ahyCYF-WpdwmLfJwP0C3lfB7Dfaps4I6w85nn087tQI_Bi6O0ZosWQnFFVu8P6Kg87CzxKjhlVXZZ2SOq6TMEqZ13dbBPAe30BsUahxcB3B5IuVK54QjclwAvMbKYIhE8ppvTfqvpPKbw_uEvG_4Wj9R0OIw5utOYkCU8oYj0q5wgh_e8QXFaGZ84xjWN2ArYrDpgykCN20bg_z_D3fqMhzp2x-KAzQSsMaaylc0tBFGBOK-j2cwtw2IOelbVD0");'></div>
-<p class="text-slate-800 text-base font-bold">Preparation Problem Sets</p>
-<p class="text-slate-500 text-xs">Uploaded by Dr. Harper</p>
-</div>
-<div class="flex flex-col gap-3 cursor-pointer">
-<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl shadow-sm" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAQmXiqg0Ha4SexLrAwAjPW5Fk2LcQXmm5iKpA62jZ0P6mNTybKhGtP6aEzIcytLjaZaLS59SmnETyw7MxD59_28mgr8rTMDNG2kY771y_sJQgf77-j8GGKCPnb6LrZ08qoiaSkLryVVPdqg48juDuynSBxjs47Oz6plA148Sx-29HmRHIMC-gFO9bgHOjMULCdg3gt79l1y-DCi02MLVE2byatg4Q-7woULb0bUIeycE_PvJTD0HbEo14banALje69RYppd1JBL_s");'></div>
-<p class="text-slate-800 text-base font-bold">Preparation Study Guide</p>
-<p class="text-slate-500 text-xs">Uploaded by Student Ethan Walker</p>
-</div>
-</div>
-</section>
-</div>
-</main>
-</div>
-<footer class="bg-white border-t border-slate-200 py-8 px-10">
-<div class="max-w-6xl mx-auto text-center">
-<p class="text-sm text-slate-600 mb-2">© 2026 University of Peradeniya - Faculty of Dental Sciences</p>
-<p class="text-xs text-slate-400">DentaNet Learning Management System. All rights reserved.</p>
-</div>
-</footer>
-</div>
-</div>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!DOCTYPE html>
+<html lang="en" class="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Study Materials - DentaNet LMS</title>
 
-</body></html>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#6366f1",
+              "background-light": "#f8fafc",
+              "background-dark": "#0f172a",
+              "sidebar-light": "#818cf8",
+              "sidebar-dark": "#1e1b4b",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.75rem",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style type="text/tailwindcss">
+      body { font-family: 'Inter', sans-serif; }
+      .scrollbar-hide::-webkit-scrollbar { display: none; }
+      .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+      .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+  </head>
+
+  <body
+    class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 min-h-screen flex flex-col transition-colors duration-200"
+  >
+    <!-- HEADER (same theme as Grades page) -->
+    <header class="bg-indigo-50 dark:bg-slate-900 border-b border-indigo-100 dark:border-slate-800 sticky top-0 z-50">
+      <div class="max-w-screen-2xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+          <img src="public/images/logo.jpg" alt="DentaNet Logo" style="height:40px; width:auto; display:inline-block; vertical-align:middle;" />
+      </div>
+
+        <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600 dark:text-slate-400">
+          <a class="hover:text-primary transition-colors" href="student-dashboard.html">Dashboard</a>
+          <a class="hover:text-primary transition-colors" href="practical-exam-submission.html">Submissions</a>
+          <a class="hover:text-primary transition-colors" href="lab-slot-booking.html">Lab Booking</a>
+          <a class="hover:text-primary transition-colors text-primary font-bold" href="study-materials.html">Study Materials</a>
+          <a class="hover:text-primary transition-colors" href="grades-feedback.html">Grades</a>
+          <button
+            class="bg-white dark:bg-slate-800 px-5 py-2 rounded-lg border border-slate-200 dark:border-slate-700 hover:shadow-sm transition-all text-slate-700 dark:text-slate-200"
+            onclick="window.location.href='login.html'"
+          >
+            Log Out
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- LAYOUT (same container + sidebar style as Grades page) -->
+    <div class="flex-grow flex max-w-screen-2xl mx-auto w-full px-4 sm:px-6 py-8 gap-8">
+      <!-- SIDEBAR -->
+      <aside class="w-72 hidden lg:block shrink-0">
+        <div
+          class="bg-indigo-500 dark:bg-indigo-950 text-white rounded-3xl p-6 shadow-xl shadow-indigo-200 dark:shadow-none min-h-[600px] flex flex-col"
+        >
+          <div class="mb-10">
+            <p class="text-xs uppercase tracking-widest text-indigo-100 opacity-80 font-bold">LMS</p>
+            <p class="text-sm font-medium">University of Peradeniya</p>
+          </div>
+
+          <nav class="space-y-2 flex-grow">
+            <a class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition-colors" href="student-dashboard.html">
+              <span class="material-symbols-outlined">dashboard</span>
+              <span>Dashboard</span>
+            </a>
+
+            <a class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition-colors" href="practical-exam-submission.html">
+              <span class="material-symbols-outlined">upload_file</span>
+              <span>Practical Exam Submission</span>
+            </a>
+
+            <a class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition-colors" href="lab-slot-booking.html">
+              <span class="material-symbols-outlined">event_seat</span>
+              <span>Lab Slot Booking</span>
+            </a>
+
+            <!-- ACTIVE -->
+            <a class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white text-primary shadow-lg font-semibold" href="study-materials.html">
+              <span class="material-symbols-outlined">menu_book</span>
+              <span>Study Materials</span>
+            </a>
+
+            <a class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition-colors" href="grades-feedback.html">
+              <span class="material-symbols-outlined">grade</span>
+              <span>Grades &amp; Feedback</span>
+            </a>
+          </nav>
+
+          <div class="mt-auto pt-6 border-t border-indigo-400/30 flex items-center gap-3">
+            <img
+              alt="Student Profile"
+              class="w-10 h-10 rounded-full border-2 border-white/50 object-cover"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCz-RUUGf0g0CLprvORqdce-cgEMeLQV1nEl8XvG8dcncEkYVIHXv7meeOmGZIG_Zii8zwUCqbmbBYQfgCJFWBJlltXUtgnwpjQR-J92hnZZNIMkbIji78nRTtZGrN6cq9R52ukE9g3QxhT3klO624it3eL9JI989fvtruCRYLx7sDKqcjMzEWsuHPaUnD0HGXQCmwG7ehk-DlRUa5Nz7aUdVkk8oGoqn3UuEJVPepx7X11GKOOx-K8-xYOY49JdkpVFdiHiGH40Bc"
+            />
+            <div>
+              <p class="text-xs text-indigo-100">Welcome back,</p>
+              <p class="text-sm font-bold">Senara</p>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- MAIN -->
+      <main class="flex-grow">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+          <div>
+            <h1 class="text-3xl font-bold text-slate-900 dark:text-white mb-1">Study Materials</h1>
+            <p class="text-slate-500 dark:text-slate-400">Resources and guides for your clinical practice.</p>
+          </div>
+
+          <div class="w-full md:w-[360px]">
+            <label class="relative block">
+              <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">
+                search
+              </span>
+              <input
+                type="text"
+                placeholder="Search resources..."
+                class="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl py-2.5 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition-all"
+              />
+            </label>
+          </div>
+        </div>
+
+        <!-- FILTER CHIPS -->
+        <div class="flex items-center gap-2 overflow-x-auto pb-4 scrollbar-hide mb-8">
+          <button class="px-5 py-2 rounded-full text-sm font-semibold bg-primary text-white shadow-sm">All</button>
+          <button
+            class="px-5 py-2 rounded-full text-sm font-semibold bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-primary/60 hover:text-primary transition-colors"
+          >
+            Preparation
+          </button>
+          <button
+            class="px-5 py-2 rounded-full text-sm font-semibold bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-primary/60 hover:text-primary transition-colors"
+          >
+            Restoration
+          </button>
+          <button
+            class="px-5 py-2 rounded-full text-sm font-semibold bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-primary/60 hover:text-primary transition-colors"
+          >
+            Video Guides
+          </button>
+          <button
+            class="px-5 py-2 rounded-full text-sm font-semibold bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-primary/60 hover:text-primary transition-colors"
+          >
+            PDF Handouts
+          </button>
+        </div>
+
+        <!-- CARDS -->
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          <!-- VIDEO CARD -->
+          <article class="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-700 overflow-hidden hover:shadow-md transition-shadow">
+            <div class="relative aspect-video">
+              <div class="absolute inset-0 bg-black/20 hover:bg-black/35 transition-colors"></div>
+              <div
+                class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity"
+              >
+                <span class="material-symbols-outlined text-white text-5xl">play_circle</span>
+              </div>
+              <div
+                class="w-full h-full bg-cover bg-center"
+                style="background-image:url('https://lh3.googleusercontent.com/aida-public/AB6AXuACj8BNpK3djA31v3_l0fCVLkGJfG3a9Chpo1zFQn7pL010RYQv8VsidwOMXiS_XPKdyJ0F7yP41gzFiv7CN14NO_qVJ1keNqmigK6gIwB8gRn_l9hiKvh6zTzQg4dh7GLcLWcbxgs2z8RY-2WCBOKyD1WXDTh6DyUYxGIjsGXf2vWEi0LPZ34AqFQNAl5khInL7e9ZmlpCS25DS_OS5k5apn-jDfJcfbVEP7kgMVSwcwL0ye2uukMmKClOnvqjy-jHwZ6xulSpy2o');"
+              ></div>
+              <span class="absolute bottom-3 right-3 bg-black/80 text-white text-[10px] font-bold px-2 py-1 rounded-full">12:45</span>
+            </div>
+
+            <div class="p-6">
+              <div class="flex items-start justify-between gap-3 mb-3">
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white leading-snug">
+                  Mastering Cavity Preparation: Class I &amp; II
+                </h3>
+                <span class="material-symbols-outlined text-primary">smart_display</span>
+              </div>
+
+              <div class="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 border-t border-slate-100 dark:border-slate-700 pt-4">
+                <span class="font-semibold">Dr. Kasun Perera</span>
+                <span>2 days ago</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- PDF CARD -->
+          <article class="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-700 overflow-hidden hover:shadow-md transition-shadow">
+            <div class="aspect-video bg-slate-50 dark:bg-slate-900/50 flex items-center justify-center">
+              <span class="material-symbols-outlined text-primary/30 text-7xl">description</span>
+            </div>
+
+            <div class="p-6">
+              <div class="flex items-start justify-between gap-3 mb-3">
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white leading-snug">
+                  Anterior Composite Layering Technique
+                </h3>
+                <span class="material-symbols-outlined text-primary">picture_as_pdf</span>
+              </div>
+
+              <div class="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 border-t border-slate-100 dark:border-slate-700 pt-4">
+                <span class="font-semibold">Academic Dept.</span>
+                <span>PDF • 4.2 MB</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- VIDEO CARD -->
+          <article class="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-700 overflow-hidden hover:shadow-md transition-shadow">
+            <div class="relative aspect-video">
+              <div class="absolute inset-0 bg-black/20 hover:bg-black/35 transition-colors"></div>
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                <span class="material-symbols-outlined text-white text-5xl">play_circle</span>
+              </div>
+              <div
+                class="w-full h-full bg-cover bg-center"
+                style="background-image:url('https://lh3.googleusercontent.com/aida-public/AB6AXuA05rZMRQ_Uee6edM7GQW3pqsNNRyL7nCtSCKuDgdKptFLCVBsFkSHh8WYdDAuwkrYhaBeVpYWz8Kna0JteyEJDKbi-JIjedS9ZS4JWKDf9ORVuel07DS8nBHSUDQ5ZW3Xrm2djO-UxVHnILA93yW_8AbGEEbhtSBOyHtlls_XdxIFwJg0z_DQTj7CV-q7x2j7aDEBiLLua5XK-jSP8mm4DkYVsE5w-oIQ8SuJvaGooLNUe9HB_4bHOSi-T5ENe6GP03LfZmXQpMdU');"
+              ></div>
+              <span class="absolute bottom-3 right-3 bg-black/80 text-white text-[10px] font-bold px-2 py-1 rounded-full">05:20</span>
+            </div>
+
+            <div class="p-6">
+              <div class="flex items-start justify-between gap-3 mb-3">
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white leading-snug">
+                  Lab Safety Protocol &amp; Instrument Handling
+                </h3>
+                <span class="material-symbols-outlined text-primary">video_file</span>
+              </div>
+
+              <div class="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 border-t border-slate-100 dark:border-slate-700 pt-4">
+                <span class="font-semibold">Dr. Sarah Smith</span>
+                <span>1 week ago</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- VIDEO CARD -->
+          <article class="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-700 overflow-hidden hover:shadow-md transition-shadow">
+            <div class="relative aspect-video">
+              <div class="absolute inset-0 bg-black/20 hover:bg-black/35 transition-colors"></div>
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                <span class="material-symbols-outlined text-white text-5xl">play_circle</span>
+              </div>
+              <div
+                class="w-full h-full bg-cover bg-center"
+                style="background-image:url('https://lh3.googleusercontent.com/aida-public/AB6AXuB5TeB7si9yg19GxoGQz_kzHQa6wEZDWPHcxl7tlQ_Njce2_CR5sxOgMmZStkr7npCC7JoHxfOKD7s21JJg5ZFydpQRWhvKNW-PUjWhaqHVdk4L3VK25GGAUWYqTZTrhyxUYYGut0h1_3At9bw-PGY8-11bw-Br9RQt21So1Mp8Fx7TpDHeQEPfeXis5J1VISCmbuUP4QloU280UTQafyzhA1AefaUW85jFKXd_6wS8N4yjhGXulAEZ1wcmUCfEu-sFKAL9mArn2Ww');"
+              ></div>
+              <span class="absolute bottom-3 right-3 bg-black/80 text-white text-[10px] font-bold px-2 py-1 rounded-full">18:10</span>
+            </div>
+
+            <div class="p-6">
+              <div class="flex items-start justify-between gap-3 mb-3">
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white leading-snug">
+                  Complex Amalgam Restoration: Step-by-Step
+                </h3>
+                <span class="material-symbols-outlined text-primary">smart_display</span>
+              </div>
+
+              <div class="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 border-t border-slate-100 dark:border-slate-700 pt-4">
+                <span class="font-semibold">Prof. Ahmed Ali</span>
+                <span>3 days ago</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- ARTICLE / CASE -->
+          <article class="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-700 overflow-hidden hover:shadow-md transition-shadow">
+            <div class="aspect-video bg-emerald-50 dark:bg-emerald-900/10 flex items-center justify-center">
+              <span class="material-symbols-outlined text-emerald-600/30 text-7xl">clinical_notes</span>
+            </div>
+
+            <div class="p-6">
+              <div class="flex items-start justify-between gap-3 mb-3">
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white leading-snug">
+                  Periodontal Diagnosis &amp; Case Planning
+                </h3>
+                <span class="material-symbols-outlined text-primary">article</span>
+              </div>
+
+              <div class="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 border-t border-slate-100 dark:border-slate-700 pt-4">
+                <span class="font-semibold">Review Board</span>
+                <span>Case Study</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- VIDEO CARD -->
+          <article class="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-700 overflow-hidden hover:shadow-md transition-shadow">
+            <div class="relative aspect-video">
+              <div class="absolute inset-0 bg-black/20 hover:bg-black/35 transition-colors"></div>
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                <span class="material-symbols-outlined text-white text-5xl">play_circle</span>
+              </div>
+              <div
+                class="w-full h-full bg-cover bg-center"
+                style="background-image:url('https://lh3.googleusercontent.com/aida-public/AB6AXuBGLxTyGS9JVGZ34Zbp4X2IcgcL5OeCoHJjjZ0mKQfDUl1g9_o_yBRWEb9Up9CmeAgEMK31GKPMfxjM0qBEu6mjnuRMkonxQgHIQZAZGqtHoORCbuVr7b_x2XWQlmt9aBeCBEG7N80EjFaXNOB-JdQqCDkzPbbIznK_yxdlIE9fUBYMk3izbRtUb2L3Z8Qp-V-nm8xuAWezm_xFcRc5lqmQubpLyvyPDamAWc0xz6FTmZWwLTPX8dxMAlB3owTK4Tji-GxnQkHvCYs');"
+              ></div>
+              <span class="absolute bottom-3 right-3 bg-black/80 text-white text-[10px] font-bold px-2 py-1 rounded-full">24:30</span>
+            </div>
+
+            <div class="p-6">
+              <div class="flex items-start justify-between gap-3 mb-3">
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white leading-snug">
+                  Removable Partial Denture Design
+                </h3>
+                <span class="material-symbols-outlined text-primary">smart_display</span>
+              </div>
+
+              <div class="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 border-t border-slate-100 dark:border-slate-700 pt-4">
+                <span class="font-semibold">Dr. Nilmini Silva</span>
+                <span>1 month ago</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- PAGINATION -->
+        <div class="mt-12 flex items-center justify-center gap-2">
+          <button class="p-2 rounded-xl hover:bg-white dark:hover:bg-slate-800 border border-transparent hover:border-slate-200 dark:hover:border-slate-700 transition-colors text-slate-500">
+            <span class="material-symbols-outlined text-[20px]">chevron_left</span>
+          </button>
+
+          <button class="w-10 h-10 rounded-xl text-sm font-bold bg-primary text-white shadow-sm">1</button>
+          <button class="w-10 h-10 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700 transition-colors">2</button>
+          <button class="w-10 h-10 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700 transition-colors">3</button>
+          <span class="px-2 text-slate-400">…</span>
+          <button class="w-10 h-10 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700 transition-colors">12</button>
+
+          <button class="p-2 rounded-xl hover:bg-white dark:hover:bg-slate-800 border border-transparent hover:border-slate-200 dark:hover:border-slate-700 transition-colors text-slate-500">
+            <span class="material-symbols-outlined text-[20px]">chevron_right</span>
+          </button>
+        </div>
+      </main>
+    </div>
+
+    <!-- FOOTER (same theme as Grades page) -->
+    <footer class="bg-indigo-50 dark:bg-slate-900 border-t border-indigo-100 dark:border-slate-800 py-12 mt-12">
+      <div class="max-w-screen-2xl mx-auto px-6">
+        <div class="flex flex-wrap justify-center gap-8 md:gap-16 mb-8 text-sm font-medium text-slate-500 dark:text-slate-400">
+          <a class="hover:text-primary" href="#">Privacy Policy</a>
+          <a class="hover:text-primary" href="#">Terms of Service</a>
+          <a class="hover:text-primary" href="#">Contact Us</a>
+          <a class="hover:text-primary" href="#">For Students</a>
+          <a class="hover:text-primary" href="#">For Lecturers</a>
+          <a class="hover:text-primary" href="#">Lab Services</a>
+        </div>
+
+        <div class="flex justify-center gap-6 mb-8">
+          <a class="text-slate-400 hover:text-primary transition-colors" href="#">
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+              <path
+                d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"
+              ></path>
+            </svg>
+          </a>
+
+          <a class="text-slate-400 hover:text-primary transition-colors" href="#">
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+              ></path>
+            </svg>
+          </a>
+        </div>
+
+        <p class="text-center text-slate-400 text-xs font-medium">© 2025 DentaNet. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

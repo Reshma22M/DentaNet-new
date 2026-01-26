@@ -3,7 +3,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>DentaNet - Lab Slot Booking</title>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
 <script>
@@ -32,72 +32,65 @@
     </script>
 <style>
         body { font-family: 'Inter', sans-serif; }
-        .sidebar-active { background-color: rgba(255, 255, 255, 0.9); color: #1d72d2; }
+        .sidebar-active { background-color: rgba(255, 255, 255, 0.9); color: #471dd2; }
         .nav-active { background-color: white; border-radius: 9999px; padding: 4px 12px; }
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
-<nav class="bg-nav-light dark:bg-nav-dark px-6 py-3 flex items-center justify-between sticky top-0 z-50 shadow-sm">
-<div class="flex items-center gap-2">
-<div class="bg-white p-1 rounded border-2 border-primary">
-<span class="material-icons-outlined text-primary text-2xl">biotech</span>
-</div>
-<span class="font-bold text-xl tracking-tight text-primary dark:text-blue-400">DentaNET</span>
-</div>
-<div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-700 dark:text-slate-300">
-<a class="hover:text-primary transition-colors" href="student-dashboard.html">Dashboard</a>
-<a class="hover:text-primary transition-colors" href="practical-exam-submission.html">Submissions</a>
-<a class="nav-active text-primary shadow-sm" href="lab-slot-booking.html">Lab slots</a>
-<a class="hover:text-primary transition-colors" href="grades-feedback.html">Grades</a>
-<a class="hover:text-primary transition-colors" href="study-materials.html">Materials</a>
-</div>
-<div class="flex items-center gap-4">
-<button class="relative p-2 text-slate-600 dark:text-slate-400 hover:bg-white/50 dark:hover:bg-slate-700 rounded-full transition-all">
-<span class="material-icons-outlined">notifications</span>
-<span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-nav-light dark:border-nav-dark"></span>
-</button>
-<div class="flex items-center gap-2 pl-2 border-l border-slate-300 dark:border-slate-600">
-<img alt="User Avatar" class="w-8 h-8 rounded-full object-cover ring-2 ring-white dark:ring-slate-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXnnlUctY7uzu6VWc8RRlR78gSe9CQtrbAyKI4twZdQ3AcVK4KPwtKzLmJBiagoluzKmmB79cxgCBh7bvSKXqhKVarYdSOgcaFYY_WUwI8aSsgOI4F4lmp8S4A9aPeUtc7q02DlsTdcQboSVQusGIK9s9ISZ_zkx4X_0O9paYKOGfwoEDvrjui8OOAqfZ-Qpt5jtDRXHBrXG3PItUYS7E_dAocvOQ2gO3mNr3K0ZeOASUVR9sNQPWvyy_PxIprF1wZcduUWQLDcVE"/>
-<span class="hidden lg:block text-xs font-semibold">Senara Perera</span>
-</div>
-</div>
-</nav>
+<header class="bg-indigo-50 dark:bg-slate-900 border-b border-indigo-100 dark:border-slate-800 sticky top-0 z-50">
+  <div class="max-w-screen-2xl mx-auto px-6 h-16 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <span class="material-symbols-outlined text-primary text-3xl">dentistry</span>
+      <span class="text-xl font-bold text-primary tracking-tight">DentaNet</span>
+    </div>
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600 dark:text-slate-400">
+      <a class="hover:text-primary transition-colors" href="student-dashboard.html">Home</a>
+      <a class="hover:text-primary transition-colors" href="study-materials.html">Courses</a>
+      <a class="hover:text-primary transition-colors" href="#">Support</a>
+      <button class="bg-white dark:bg-slate-800 px-5 py-2 rounded-lg border border-slate-200 dark:border-slate-700 hover:shadow-sm transition-all text-slate-700 dark:text-slate-200" onclick="window.location.href='login.html'">
+        Log Out
+      </button>
+    </nav>
+  </div>
+</header>
 <div class="flex flex-1 overflow-hidden">
-<aside class="w-72 bg-blue-400 dark:bg-blue-900/40 m-4 rounded-xl p-6 hidden lg:block shadow-lg">
-<div class="mb-8">
-<h3 class="text-white font-bold text-lg">LMS</h3>
-<p class="text-blue-100 text-xs opacity-80">University of Peradeniya</p>
-</div>
-<nav class="space-y-1">
-<a class="flex items-center gap-3 px-4 py-3 text-white/90 hover:bg-white/10 rounded-lg transition-all" href="student-dashboard.html">
-<span class="material-icons-outlined text-xl">home</span>
-<span class="font-medium">Dashboard</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 text-white/90 hover:bg-white/10 rounded-lg transition-all" href="practical-exam-submission.html">
-<span class="material-icons-outlined text-xl">assignment</span>
-<span class="font-medium">Practical Exam Submission</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 sidebar-active rounded-lg shadow-md transition-all" href="lab-slot-booking.html">
-<span class="material-icons-outlined text-xl">calendar_today</span>
-<span class="font-medium">Lab Slot Booking</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 text-white/90 hover:bg-white/10 rounded-lg transition-all" href="study-materials.html">
-<span class="material-icons-outlined text-xl">menu_book</span>
-<span class="font-medium">Study Materials</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 text-white/90 hover:bg-white/10 rounded-lg transition-all" href="grades-feedback.html">
-<span class="material-icons-outlined text-xl">grade</span>
-<span class="font-medium">Grades &amp; Feedback</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 text-white/90 hover:bg-white/10 rounded-lg transition-all" href="student-profile.html">
-<span class="material-icons-outlined text-xl">assessment</span>
-<span class="font-medium">Progress Report</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 text-red-600 dark:text-red-400 hover:bg-red-100/20 rounded-lg transition-all mt-8" href="login.html">
-<span class="material-icons-outlined text-xl">logout</span>
-<span class="font-medium">Logout</span>
-</a>
-</nav>
+<aside class="w-72 hidden lg:block shrink-0">
+  <div class="bg-indigo-500 dark:bg-indigo-950 text-white rounded-3xl p-6 shadow-xl shadow-indigo-200 dark:shadow-none min-h-[600px] flex flex-col">
+    <div class="mb-10">
+      <p class="text-xs uppercase tracking-widest text-indigo-100 opacity-80 font-bold">LMS</p>
+      <p class="text-sm font-medium">University of Peradeniya</p>
+    </div>
+    <nav class="space-y-2 flex-grow">
+      <a class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition-colors" href="student-dashboard.html">
+        <span class="material-symbols-outlined">dashboard</span>
+        <span>Dashboard</span>
+      </a>
+      <a class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition-colors" href="practical-exam-submission.html">
+        <span class="material-symbols-outlined">upload_file</span>
+        <span>Practical Exam Submission</span>
+      </a>
+      <!-- ACTIVE -->
+      <a class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white text-primary shadow-lg font-semibold" href="#">
+        <span class="material-symbols-outlined">event_seat</span>
+        <span>Lab Slot Booking</span>
+      </a>
+      <a class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition-colors" href="study-materials.html">
+        <span class="material-symbols-outlined">menu_book</span>
+        <span>Study Materials</span>
+      </a>
+      <a class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition-colors" href="grades-feedback.html">
+        <span class="material-symbols-outlined">grade</span>
+        <span>Grades & Feedback</span>
+      </a>
+    </nav>
+    <div class="mt-auto pt-6 border-t border-indigo-400/30 flex items-center gap-3">
+      <img alt="Student Profile" class="w-10 h-10 rounded-full border-2 border-white/50 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXnnlUctY7uzu6VWc8RRlR78gSe9CQtrbAyKI4twZdQ3AcVK4KPwtKzLmJBiagoluzKmmB79cxgCBh7bvSKXqhKVarYdSOgcaFYY_WUwI8aSsgOI4F4lmp8S4A9aPeUtc7q02DlsTdcQboSVQusGIK9s9ISZ_zkx4X_0O9paYKOGfwoEDvrjui8OOAqfZ-Qpt5jtDRXHBrXG3PItUYS7E_dAocvOQ2gO3mNr3K0ZeOASUVR9sNQPWvyy_PxIprF1wZcduUWQLDcVE"/>
+      <div>
+        <p class="text-xs text-indigo-100">Welcome back,</p>
+        <p class="text-sm font-bold">Senara</p>
+      </div>
+    </div>
+  </div>
 </aside>
 <main class="flex-1 overflow-y-auto p-4 md:p-8">
 <div class="max-w-7xl mx-auto">
@@ -111,13 +104,13 @@
 <div class="flex gap-1 p-2">
 <button onclick="switchTab('exam')" id="examTab" class="flex-1 px-6 py-3 rounded-lg font-semibold transition-all bg-primary text-white shadow-sm">
 <span class="flex items-center justify-center gap-2">
-<span class="material-icons-outlined text-xl">assignment</span>
+<span class="material-symbols-outlined text-xl">assignment</span>
 Exam Slot Booking
                         </span>
 </button>
 <button onclick="switchTab('practice')" id="practiceTab" class="flex-1 px-6 py-3 rounded-lg font-semibold transition-all text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700">
 <span class="flex items-center justify-center gap-2">
-<span class="material-icons-outlined text-xl">science</span>
+<span class="material-symbols-outlined text-xl">science</span>
 Practice Sessions
                         </span>
 </button>
@@ -128,7 +121,7 @@ Practice Sessions
 <div id="examContent" class="bg-white dark:bg-slate-800 rounded-b-2xl shadow-lg p-8">
 <div class="mb-6 p-4 bg-amber-50 dark:bg-amber-900/20 border-l-4 border-amber-500 rounded-r-lg">
 <div class="flex items-start gap-3">
-<span class="material-icons-outlined text-amber-600 dark:text-amber-400">info</span>
+<span class="material-symbols-outlined text-amber-600 dark:text-amber-400">info</span>
 <div>
 <h3 class="font-bold text-amber-900 dark:text-amber-200 mb-1">Important Information</h3>
 <p class="text-sm text-amber-800 dark:text-amber-300">Exam Date: <strong>February 15, 2026</strong> • Duration: <strong>1 hour</strong> • Machines per slot: <strong>20</strong></p>
@@ -139,7 +132,7 @@ Practice Sessions
 
 <!-- Exam Slots Grid -->
 <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
-<span class="material-icons-outlined text-primary">schedule</span>
+<span class="material-symbols-outlined text-primary">schedule</span>
                 Available Exam Slots - February 15, 2026
             </h2>
 
@@ -151,7 +144,7 @@ Practice Sessions
 <h3 class="font-bold text-lg text-slate-900 dark:text-white">8:00 AM - 9:00 AM</h3>
 <p class="text-sm text-slate-500 dark:text-slate-400">Morning Session</p>
 </div>
-<span class="material-icons-outlined text-emerald-500">check_circle</span>
+<span class="material-symbols-outlined text-emerald-500">check_circle</span>
 </div>
 <div class="flex items-center justify-between mb-3">
 <span class="text-sm font-medium text-slate-600 dark:text-slate-400">Capacity</span>
@@ -172,7 +165,7 @@ Practice Sessions
 <h3 class="font-bold text-lg text-slate-900 dark:text-white">9:00 AM - 10:00 AM</h3>
 <p class="text-sm text-slate-500 dark:text-slate-400">Morning Session</p>
 </div>
-<span class="material-icons-outlined text-amber-500">schedule</span>
+<span class="material-symbols-outlined text-amber-500">schedule</span>
 </div>
 <div class="flex items-center justify-between mb-3">
 <span class="text-sm font-medium text-slate-600 dark:text-slate-400">Capacity</span>
@@ -193,7 +186,7 @@ Practice Sessions
 <h3 class="font-bold text-lg text-slate-900 dark:text-white">10:00 AM - 11:00 AM</h3>
 <p class="text-sm text-slate-500 dark:text-slate-400">Morning Session</p>
 </div>
-<span class="material-icons-outlined text-emerald-500">check_circle</span>
+<span class="material-symbols-outlined text-emerald-500">check_circle</span>
 </div>
 <div class="flex items-center justify-between mb-3">
 <span class="text-sm font-medium text-slate-600 dark:text-slate-400">Capacity</span>
@@ -214,7 +207,7 @@ Practice Sessions
 <h3 class="font-bold text-lg text-slate-900 dark:text-white">11:00 AM - 12:00 PM</h3>
 <p class="text-sm text-slate-500 dark:text-slate-400">Morning Session</p>
 </div>
-<span class="material-icons-outlined text-emerald-500">check_circle</span>
+<span class="material-symbols-outlined text-emerald-500">check_circle</span>
 </div>
 <div class="flex items-center justify-between mb-3">
 <span class="text-sm font-medium text-slate-600 dark:text-slate-400">Capacity</span>
@@ -235,7 +228,7 @@ Practice Sessions
 <h3 class="font-bold text-lg text-slate-900 dark:text-white">1:00 PM - 2:00 PM</h3>
 <p class="text-sm text-slate-500 dark:text-slate-400">Afternoon Session</p>
 </div>
-<span class="material-icons-outlined text-red-500">cancel</span>
+<span class="material-symbols-outlined text-red-500">cancel</span>
 </div>
 <div class="flex items-center justify-between mb-3">
 <span class="text-sm font-medium text-slate-600 dark:text-slate-400">Capacity</span>
@@ -256,7 +249,7 @@ Practice Sessions
 <h3 class="font-bold text-lg text-slate-900 dark:text-white">2:00 PM - 3:00 PM</h3>
 <p class="text-sm text-slate-500 dark:text-slate-400">Afternoon Session</p>
 </div>
-<span class="material-icons-outlined text-emerald-500">check_circle</span>
+<span class="material-symbols-outlined text-emerald-500">check_circle</span>
 </div>
 <div class="flex items-center justify-between mb-3">
 <span class="text-sm font-medium text-slate-600 dark:text-slate-400">Capacity</span>
@@ -274,7 +267,7 @@ Practice Sessions
 <!-- My Booking Status -->
 <div class="mt-8 p-6 bg-blue-50 dark:bg-blue-900/20 border-2 border-blue-200 dark:border-blue-800 rounded-xl">
 <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-3 flex items-center gap-2">
-<span class="material-icons-outlined text-blue-600">event_note</span>
+<span class="material-symbols-outlined text-blue-600">event_note</span>
                     Your Exam Slot
                 </h3>
 <p class="text-slate-600 dark:text-slate-400 text-sm">You haven't booked an exam slot yet. Select a slot above to confirm your booking.</p>
@@ -285,7 +278,7 @@ Practice Sessions
 <div id="practiceContent" class="bg-white dark:bg-slate-800 rounded-b-2xl shadow-lg p-8 hidden">
 <div class="mb-6 p-4 bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 rounded-r-lg">
 <div class="flex items-start gap-3">
-<span class="material-icons-outlined text-blue-600 dark:text-blue-400">lightbulb</span>
+<span class="material-symbols-outlined text-blue-600 dark:text-blue-400">lightbulb</span>
 <div>
 <h3 class="font-bold text-blue-900 dark:text-blue-200 mb-1">Practice Before Your Exam</h3>
 <p class="text-sm text-blue-800 dark:text-blue-300">Book practice sessions to prepare. Upload images and get instant automated grading feedback!</p>
@@ -326,7 +319,7 @@ Practice Sessions
 
 <button class="w-full bg-primary hover:bg-blue-600 text-white font-bold py-4 rounded-lg transition-all shadow-md hover:shadow-lg active:scale-[0.98]" type="submit">
 <span class="flex items-center justify-center gap-2">
-<span class="material-icons-outlined">add_circle</span>
+<span class="material-symbols-outlined">add_circle</span>
                             Book Practice Session
                         </span>
 </button>
@@ -336,7 +329,7 @@ Practice Sessions
 <!-- My Practice Sessions -->
 <div>
 <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
-<span class="material-icons-outlined text-primary">history</span>
+<span class="material-symbols-outlined text-primary">history</span>
                     My Practice Sessions
                 </h2>
 
@@ -377,7 +370,7 @@ Practice Sessions
 <p class="text-xs text-slate-600 dark:text-slate-400">Accuracy: 85% • Images Analyzed: 4</p>
 </div>
 <button class="w-full mt-3 px-4 py-2 bg-slate-100 dark:bg-slate-600 text-slate-700 dark:text-slate-200 font-semibold rounded-lg hover:bg-slate-200 dark:hover:bg-slate-500 transition-all flex items-center justify-center gap-2">
-<span class="material-icons-outlined text-lg">visibility</span>
+<span class="material-symbols-outlined text-lg">visibility</span>
                         View Detailed Feedback
                     </button>
 </div>
@@ -399,7 +392,7 @@ Practice Sessions
 <p class="text-xs text-slate-600 dark:text-slate-400">Accuracy: 92% • Images Analyzed: 3</p>
 </div>
 <button class="w-full mt-3 px-4 py-2 bg-slate-100 dark:bg-slate-600 text-slate-700 dark:text-slate-200 font-semibold rounded-lg hover:bg-slate-200 dark:hover:bg-slate-500 transition-all flex items-center justify-center gap-2">
-<span class="material-icons-outlined text-lg">visibility</span>
+<span class="material-symbols-outlined text-lg">visibility</span>
                         View Detailed Feedback
                     </button>
 </div>
@@ -416,7 +409,7 @@ Practice Sessions
 </div>
 </footer>
 <button class="fixed bottom-4 right-4 bg-white dark:bg-slate-800 p-3 rounded-full shadow-lg border border-slate-200 dark:border-slate-700" onclick="document.documentElement.classList.toggle('dark')">
-<span class="material-icons-outlined dark:text-white">dark_mode</span>
+<span class="material-symbols-outlined dark:text-white">dark_mode</span>
 </button>
 
 <script>

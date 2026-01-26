@@ -6,11 +6,27 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Request timeout middleware (30 seconds)
+app.use((req, res, next) => {
+    req.setTimeout(30000, () => {
+        console.log('Request timeout:', req.method, req.url);
+        res.status(408).json({ error: 'Request timeout' });
+    });
+    res.setTimeout(30000, () => {
+        console.log('Response timeout:', req.method, req.url);
+    });
+    next();
+});
+
 // Middleware
 app.use(cors({
-    origin: process.env.FRONTEND_URL || 'http://localhost:8080',
-    credentials: true
+    origin: true, // allow any origin in dev (especially localhost random ports)
+    credentials: true,
+    methods: ["GET","POST","PUT","PATCH","DELETE","OPTIONS"],
+    allowedHeaders: ["Content-Type","Authorization"]
 }));
+
+app.options("*", cors()); // handle preflight
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/uploads', express.static('uploads'));
@@ -88,7 +104,7 @@ app.use((req, res) => {
 });
 
 // Start server
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
     console.log(`
 ╔═══════════════════════════════════════╗
 ║   🦷 DentaNet LMS API Server         ║
@@ -97,6 +113,42 @@ app.listen(PORT, () => {
 ║   📚 Environment: ${process.env.NODE_ENV || 'development'}      ║
 ╚═══════════════════════════════════════╝
     `);
+});
+
+// Set keep-alive timeout (default is 5s, increase to 65s)
+server.keepAliveTimeout = 65000;
+server.headersTimeout = 66000;
+
+// Graceful shutdown
+const gracefulShutdown = () => {
+    console.log('\n🛑 Received shutdown signal, closing server gracefully...');
+    server.close(() => {
+        console.log('✅ Server closed');
+        const { pool } = require('./config/database');
+        pool.end(() => {
+            console.log('✅ Database connection pool closed');
+            process.exit(0);
+        });
+    });
+    
+    // Force close after 10 seconds
+    setTimeout(() => {
+        console.error('⚠️  Forced shutdown after timeout');
+        process.exit(1);
+    }, 10000);
+};
+
+process.on('SIGTERM', gracefulShutdown);
+process.on('SIGINT', gracefulShutdown);
+
+// Handle uncaught exceptions
+process.on('uncaughtException', (err) => {
+    console.error('💥 Uncaught Exception:', err);
+    gracefulShutdown();
+});
+
+process.on('unhandledRejection', (reason, promise) => {
+    console.error('💥 Unhandled Rejection at:', promise, 'reason:', reason);
 });
 
 // Graceful shutdown
