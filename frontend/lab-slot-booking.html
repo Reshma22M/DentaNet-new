@@ -38,23 +38,22 @@
 </head>
 <body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
 <header class="bg-indigo-50 dark:bg-slate-900 border-b border-indigo-100 dark:border-slate-800 sticky top-0 z-50">
-  <div class="max-w-screen-2xl mx-auto px-4 h-12 flex items-center justify-between">
-  <div class="flex items-center gap-2">
-      <img src="purple-logo.svg" alt="DentaNet Logo" class="h-20 w-auto" />
-  </div>
-    <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-400">
-      <a class="hover:text-primary transition-colors" href="student-dashboard.html">Home</a>
-      <a class="hover:text-primary transition-colors" href="study-materials.html">Courses</a>
-      <a class="hover:text-primary transition-colors" href="#">Support</a>
-      <button class="bg-white dark:bg-slate-800 px-4 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 hover:shadow-sm transition-all text-slate-700 dark:text-slate-200" onclick="window.location.href='login.html'">
-        Log Out
-      </button>
+  <div class="max-w-screen-2xl mx-auto px-6 h-16 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <img src="purple-logo.svg" alt="DentaNet Logo" class="h-32 w-auto" />
+    </div>
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600 dark:text-slate-400">
+      <a class="hover:text-primary transition-colors" href="student-dashboard.html">Dashboard</a>
+      <a class="hover:text-primary transition-colors" href="practical-exam-submission.html">Submissions</a>
+      <a class="hover:text-primary transition-colors text-primary font-bold" href="lab-slot-booking.html">Lab Booking</a>
+      <a class="hover:text-primary transition-colors" href="study-materials.html">Study Materials</a>
+      <a class="hover:text-primary transition-colors" href="grades-feedback.html">Grades</a>
+      <button class="bg-white dark:bg-slate-800 px-5 py-2 rounded-lg border border-slate-200 dark:border-slate-700 hover:shadow-sm transition-all text-slate-700 dark:text-slate-200" onclick="window.location.href='login.html'">Log Out</button>
     </nav>
   </div>
 </header>
-<div class="flex flex-1 overflow-hidden">
-<aside class="w-72 hidden lg:block shrink-0">
-  <div class="bg-indigo-500 dark:bg-indigo-950 text-white rounded-3xl p-6 shadow-xl shadow-indigo-200 dark:shadow-none min-h-[600px] flex flex-col">
+<div class="flex flex-row flex-1 min-h-0">
+  <aside class="w-72 hidden lg:flex flex-col bg-indigo-500 dark:bg-indigo-950 text-white rounded-3xl p-6 shadow-xl shadow-indigo-200 dark:shadow-none min-h-[600px] my-8 ml-6">
     <div class="mb-10">
       <p class="text-xs uppercase tracking-widest text-indigo-100 opacity-80 font-bold">LMS</p>
       <p class="text-sm font-medium">University of Peradeniya</p>
@@ -83,15 +82,12 @@
       </a>
     </nav>
     <div class="mt-auto pt-6 border-t border-indigo-400/30 flex items-center gap-3">
-      <img alt="Student Profile" class="w-10 h-10 rounded-full border-2 border-white/50 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXnnlUctY7uzu6VWc8RRlR78gSe9CQtrbAyKI4twZdQ3AcVK4KPwtKzLmJBiagoluzKmmB79cxgCBh7bvSKXqhKVarYdSOgcaFYY_WUwI8aSsgOI4F4lmp8S4A9aPeUtc7q02DlsTdcQboSVQusGIK9s9ISZ_zkx4X_0O9paYKOGfwoEDvrjui8OOAqfZ-Qpt5jtDRXHBrXG3PItUYS7E_dAocvOQ2gO3mNr3K0ZeOASUVR9sNQPWvyy_PxIprF1wZcduUWQLDcVE"/>
-      <div>
-        <p class="text-xs text-indigo-100">Welcome back,</p>
-        <p class="text-sm font-bold">Senara</p>
-      </div>
+      <img alt="Student Profile" class="w-10 h-10 rounded-full border-2 border-white/50" src="public/images/stu.jpg"/>
+      <p class="text-xs text-indigo-100">Welcome back,</p>
+      <p class="text-sm font-bold">Senara</p>
     </div>
-  </div>
-</aside>
-<main class="flex-1 overflow-y-auto p-4 md:p-8">
+  </aside>
+  <main class="flex-1 overflow-y-auto p-4 md:p-8">
 <div class="max-w-7xl mx-auto">
 <div class="mb-8">
 <h1 class="text-3xl font-bold text-slate-900 dark:text-white mb-2">Lab Slot Booking</h1>
