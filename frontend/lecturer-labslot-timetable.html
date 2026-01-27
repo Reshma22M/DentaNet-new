@@ -1,0 +1,457 @@
+<!-- Sidebar navigation for lecturer/admin -->
+<a class="flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl transition-all group sidebar-labslot" href="labslot-timetable.html" id="labSlotBtn">
+  <span class="material-symbols-outlined text-slate-400 group-hover:text-primary">calendar_view_week</span>
+  Lab Slot Timetable
+</a>
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>DentaNet | Lecturer Exam Slot Monitor</title>
+
+  <!-- Fonts + Icons (match the BLUE submissions page) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+
+  <!-- Tailwind config (match the BLUE submissions page) -->
+  <script>
+    // Sidebar nav handler for lab slot timetable
+    document.addEventListener('DOMContentLoaded', function() {
+      var labSlotBtn = document.getElementById('labSlotBtn');
+      if (labSlotBtn) {
+        labSlotBtn.onclick = function(e) {
+          e.preventDefault();
+          window.location.href = 'labslot-timetable.html';
+        };
+      }
+    });
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#3B82F6",
+            "background-light": "#F8FAFC",
+            "background-dark": "#0F172A",
+          },
+          fontFamily: {
+            display: ["Inter", "sans-serif"],
+          },
+          borderRadius: {
+            DEFAULT: "0.75rem",
+          },
+        },
+      },
+    };
+  </script>
+
+  <style type="text/tailwindcss">
+    body { font-family: 'Inter', sans-serif; }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+    .dark .custom-scrollbar::-webkit-scrollbar-thumb { background: #334155; }
+  </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-200 transition-colors duration-300">
+
+  <!-- TOP NAV (match the BLUE submissions page) -->
+  <nav class="fixed top-0 z-[60] w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+    <div class="px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+
+        <div class="flex items-center gap-2">
+          <img src="blue-logo.svg" alt="DentaNet Logo" class="h-32 w-auto" />
+        </div>
+
+        <div class="flex items-center space-x-4">
+          <button class="relative p-2 text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-white transition-colors" aria-label="Notifications">
+            <span class="material-icons-round">notifications</span>
+            <span class="absolute top-2 right-2 flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+            </span>
+          </button>
+
+          <div class="h-9 w-9 rounded-full overflow-hidden border-2 border-primary/20">
+            <img
+              alt="Lecturer Profile Small"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuALWuF6B5oX9ygl8OyWrBzwQ5hcxBZfSmOfVC2mhbqNuZydzqe-vKZ9WSckygK9rL6x0ziev2B08UbefEelTkqB5VDxMRfESSF0_5ISWheGiSRb83eXQgtKBICXptyJbqXp5lRAz-_Cd8I9CM2YUYR0i4nSNxJvyCJB6r9TYRaxUm-JRxlHhDwYej-YeryjUpQb5GbK8kmSRFqOw94ONvM5Lnq9qSyQ5rI2QR7pTUtHLtvBRTaoGpWTW-9kQoxsue3uziHWW_37jXU"
+            />
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+
+  <div class="flex pt-16 min-h-screen">
+    <!-- SIDEBAR (match BLUE submissions page layout) -->
+    <aside class="fixed left-0 top-16 w-64 h-[calc(100vh-64px)] bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 hidden lg:flex flex-col z-50">
+      <div class="p-4 space-y-2 flex-1 overflow-y-auto custom-scrollbar">
+        <a class="flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl transition-all group" href="lecturer-dashboard.html" id="dashboardBtn">
+          <span class="material-symbols-outlined text-slate-400 group-hover:text-primary">dashboard</span>
+          Dashboard
+        </a>
+        <a class="flex items-center gap-3 px-4 py-4 text-sm font-bold text-white bg-primary rounded-xl shadow-lg shadow-primary/20 hover:scale-[1.02] transition-all" href="lecturer-evaluate-submission.html" id="scheduleExamBtn">
+          <span class="material-symbols-outlined">event_available</span>
+          Schedule an Exam
+        </a>
+        <div class="pt-4 pb-2 px-4">
+          <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Management</p>
+        </div>
+        <a class="flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl transition-all group" href="lecturer-eva-submissions1.html" id="submissionsBtn">
+          <span class="material-symbols-outlined text-slate-400 group-hover:text-primary">assignment</span>
+          Student Submissions
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl transition-all group" href="lecturer-labslot-timetable.html" id="labSlotBtn">
+          <span class="material-symbols-outlined text-slate-400 group-hover:text-primary">calendar_view_week</span>
+          Lab Slot Timetable
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl transition-all group" href="lecturer-upload-materials.html" id="uploadBtn">
+          <span class="material-symbols-outlined text-slate-400 group-hover:text-primary">upload_file</span>
+          Upload Study Materials
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl transition-all group" href="lecturer-reports.html" id="reportsBtn">
+          <span class="material-symbols-outlined text-slate-400 group-hover:text-primary">monitoring</span>
+          Performance Report
+        </a>
+      </div>
+
+      <div class="p-4 border-t border-slate-100 dark:border-slate-800">
+        <button class="flex w-full items-center gap-3 px-4 py-3 text-sm font-medium text-red-500 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-xl transition-all">
+          <span class="material-symbols-outlined">logout</span>
+          Logout
+        </button>
+      </div>
+    </aside>
+
+    <!-- MAIN (keep your content, just restyled to blue theme) -->
+    <main class="flex-1 lg:ml-64 bg-slate-50 dark:bg-slate-950">
+      <div class="p-8 max-w-7xl mx-auto">
+
+        <div class="mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <h1 class="text-2xl font-bold text-slate-900 dark:text-white">Exam Slot Monitoring</h1>
+            <p class="text-sm text-slate-500 dark:text-slate-400">Real-time capacity tracking and machine status for practical exams.</p>
+          </div>
+        </div>
+
+        <!-- Overview card -->
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5 rounded-2xl mb-8 shadow-sm flex gap-4 items-start">
+          <div class="w-10 h-10 bg-blue-50 dark:bg-blue-900/20 rounded-xl flex items-center justify-center text-primary">
+            <span class="material-symbols-outlined">info</span>
+          </div>
+          <div>
+            <h3 class="font-bold text-slate-900 dark:text-white">Exam Monitoring Overview</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">
+              Scheduled Date: <span class="font-bold">February 15, 2026</span> • Session Duration: <span class="font-bold">1 hour</span> • Capacity per Slot: <span class="font-bold">20 Students</span>
+            </p>
+            <p class="text-sm text-slate-500 dark:text-slate-400 mt-1 italic">
+              Real-time capacity tracking and machine status for the final practical exam.
+            </p>
+          </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 mb-8 flex flex-wrap gap-4 items-center">
+          <div class="flex-1 min-w-[220px]">
+            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1 ml-1">Select Lab</label>
+            <div class="relative">
+              <select class="w-full bg-slate-100 dark:bg-slate-800 border-slate-400 dark:border-slate-400 rounded-xl text-sm focus:ring-primary focus:border-primary transition-all pr-10 appearance-none">
+                <option selected>General Dentistry Lab A</option>
+                <option>Prosthodontics Lab B</option>
+              </select>
+              <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">expand_more</span>
+            </div>
+          </div>
+
+          <div class="flex-1 min-w-[220px]">
+            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1 ml-1">Select Date</label>
+            <div class="relative">
+              <select class="w-full bg-slate-100 dark:bg-slate-800 border-slate-400 dark:border-slate-400 rounded-xl text-sm focus:ring-primary focus:border-primary transition-all pr-10 appearance-none">
+                <option selected>February 15, 2026</option>
+                <option>February 16, 2026</option>
+              </select>
+              <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">calendar_month</span>
+            </div>
+          </div>
+
+          <div class="md:mt-5 flex gap-2">
+            <button class="bg-primary text-white px-6 py-2.5 rounded-xl font-semibold text-sm hover:bg-blue-600 transition-all flex items-center gap-2">
+              <span class="material-symbols-outlined text-lg">filter_list</span>
+              Apply Filters
+            </button>
+            <button class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-4 py-2.5 rounded-xl font-semibold text-sm hover:bg-slate-200 dark:hover:bg-slate-700 transition-all">
+              Reset
+            </button>
+          </div>
+        </div>
+
+        <!-- Capacity title -->
+        <div class="mb-4 flex items-center gap-2 text-slate-600 dark:text-slate-300 font-semibold">
+          <span class="material-symbols-outlined text-primary">analytics</span>
+          <h2>Capacity Monitoring - February 15, 2026</h2>
+        </div>
+
+        <!-- Slot cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+
+          <!-- Card template (1) -->
+          <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 hover:shadow-lg hover:shadow-primary/5 transition-all">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white">8:00 AM - 9:00 AM</h3>
+                <p class="text-slate-500 text-sm">Morning Session</p>
+              </div>
+              <span class="px-2 py-1 bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 rounded text-xs font-bold uppercase tracking-wider">Scheduled</span>
+            </div>
+
+            <div class="mb-6">
+              <div class="flex justify-between text-xs mb-1">
+                <span class="text-slate-500">Current Occupancy</span>
+                <span class="font-bold text-green-600">12/20 Students</span>
+              </div>
+              <div class="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+                <div class="bg-green-500 h-full w-[60%]"></div>
+              </div>
+            </div>
+
+            <button class="w-full py-2.5 border border-primary text-primary hover:bg-primary/5 font-semibold rounded-xl transition-all flex items-center justify-center gap-2">
+              <span class="material-symbols-outlined text-lg">info</span>
+              View Details
+            </button>
+          </div>
+
+          <!-- (2) -->
+          <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 hover:shadow-lg hover:shadow-primary/5 transition-all">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white">9:00 AM - 10:00 AM</h3>
+                <p class="text-slate-500 text-sm">Morning Session</p>
+              </div>
+              <span class="px-2 py-1 bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 rounded text-xs font-bold uppercase tracking-wider">Scheduled</span>
+            </div>
+
+            <div class="mb-6">
+              <div class="flex justify-between text-xs mb-1">
+                <span class="text-slate-500">Current Occupancy</span>
+                <span class="font-bold text-amber-600">17/20 Students</span>
+              </div>
+              <div class="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+                <div class="bg-amber-500 h-full w-[85%]"></div>
+              </div>
+            </div>
+
+            <button class="w-full py-2.5 border border-primary text-primary hover:bg-primary/5 font-semibold rounded-xl transition-all flex items-center justify-center gap-2">
+              <span class="material-symbols-outlined text-lg">info</span>
+              View Details
+            </button>
+          </div>
+
+          <!-- (3) -->
+          <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 hover:shadow-lg hover:shadow-primary/5 transition-all">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white">10:00 AM - 11:00 AM</h3>
+                <p class="text-slate-500 text-sm">Morning Session</p>
+              </div>
+              <span class="px-2 py-1 bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 rounded text-xs font-bold uppercase tracking-wider">Scheduled</span>
+            </div>
+
+            <div class="mb-6">
+              <div class="flex justify-between text-xs mb-1">
+                <span class="text-slate-500">Current Occupancy</span>
+                <span class="font-bold text-green-600">8/20 Students</span>
+              </div>
+              <div class="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+                <div class="bg-green-500 h-full w-[40%]"></div>
+              </div>
+            </div>
+
+            <button class="w-full py-2.5 border border-primary text-primary hover:bg-primary/5 font-semibold rounded-xl transition-all flex items-center justify-center gap-2">
+              <span class="material-symbols-outlined text-lg">info</span>
+              View Details
+            </button>
+          </div>
+
+          <!-- (4) -->
+          <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 hover:shadow-lg hover:shadow-primary/5 transition-all">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white">11:00 AM - 12:00 PM</h3>
+                <p class="text-slate-500 text-sm">Morning Session</p>
+              </div>
+              <span class="px-2 py-1 bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 rounded text-xs font-bold uppercase tracking-wider">Scheduled</span>
+            </div>
+
+            <div class="mb-6">
+              <div class="flex justify-between text-xs mb-1">
+                <span class="text-slate-500">Current Occupancy</span>
+                <span class="font-bold text-green-600">5/20 Students</span>
+              </div>
+              <div class="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+                <div class="bg-green-500 h-full w-[25%]"></div>
+              </div>
+            </div>
+
+            <button class="w-full py-2.5 border border-primary text-primary hover:bg-primary/5 font-semibold rounded-xl transition-all flex items-center justify-center gap-2">
+              <span class="material-symbols-outlined text-lg">info</span>
+              View Details
+            </button>
+          </div>
+
+          <!-- (5) FULL -->
+          <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-red-200 dark:border-red-900/30 hover:shadow-lg hover:shadow-primary/5 transition-all">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white">1:00 PM - 2:00 PM</h3>
+                <p class="text-slate-500 text-sm">Afternoon Session</p>
+              </div>
+              <span class="px-2 py-1 bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400 rounded text-xs font-bold uppercase tracking-wider">Full</span>
+            </div>
+
+            <div class="mb-6">
+              <div class="flex justify-between text-xs mb-1">
+                <span class="text-slate-500">Current Occupancy</span>
+                <span class="font-bold text-red-600">20/20 Students</span>
+              </div>
+              <div class="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+                <div class="bg-red-500 h-full w-[100%]"></div>
+              </div>
+            </div>
+
+            <button class="w-full py-2.5 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-semibold rounded-xl transition-all flex items-center justify-center gap-2">
+              <span class="material-symbols-outlined text-lg">group</span>
+              View Participants
+            </button>
+          </div>
+
+          <!-- (6) -->
+          <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 hover:shadow-lg hover:shadow-primary/5 transition-all">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white">2:00 PM - 3:00 PM</h3>
+                <p class="text-slate-500 text-sm">Afternoon Session</p>
+              </div>
+              <span class="px-2 py-1 bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 rounded text-xs font-bold uppercase tracking-wider">Scheduled</span>
+            </div>
+
+            <div class="mb-6">
+              <div class="flex justify-between text-xs mb-1">
+                <span class="text-slate-500">Current Occupancy</span>
+                <span class="font-bold text-green-600">15/20 Students</span>
+              </div>
+              <div class="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+                <div class="bg-green-500 h-full w-[75%]"></div>
+              </div>
+            </div>
+
+            <button class="w-full py-2.5 border border-primary text-primary hover:bg-primary/5 font-semibold rounded-xl transition-all flex items-center justify-center gap-2">
+              <span class="material-symbols-outlined text-lg">info</span>
+              View Details
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Machine deployment table -->
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm">
+          <div class="p-6 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary text-2xl">precision_manufacturing</span>
+              <h2 class="text-lg font-bold text-slate-900 dark:text-white">Machine Deployment Status</h2>
+            </div>
+            <span class="text-xs text-slate-500 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded-xl">Live Updates</span>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left">
+              <thead>
+                <tr class="bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-semibold uppercase tracking-wider">
+                  <th class="px-6 py-4">Machine ID</th>
+                  <th class="px-6 py-4">Current Status</th>
+                  <th class="px-6 py-4">Assigned Student</th>
+                  <th class="px-6 py-4">Current Active Slot</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100 dark:divide-slate-800 text-sm">
+                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors">
+                  <td class="px-6 py-4 font-medium text-slate-900 dark:text-slate-200">Machine 01</td>
+                  <td class="px-6 py-4">
+                    <span class="px-3 py-1 bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 rounded-full text-xs font-bold">Ready</span>
+                  </td>
+                  <td class="px-6 py-4 text-slate-400">None</td>
+                  <td class="px-6 py-4 text-slate-400">-</td>
+                </tr>
+
+                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors">
+                  <td class="px-6 py-4 font-medium text-slate-900 dark:text-slate-200">Machine 02</td>
+                  <td class="px-6 py-4">
+                    <span class="px-3 py-1 bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 rounded-full text-xs font-bold">Maintenance</span>
+                  </td>
+                  <td class="px-6 py-4 text-slate-400">N/A</td>
+                  <td class="px-6 py-4 text-slate-400">-</td>
+                </tr>
+
+                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors">
+                  <td class="px-6 py-4 font-medium text-slate-900 dark:text-slate-200">Machine 03</td>
+                  <td class="px-6 py-4">
+                    <span class="px-3 py-1 bg-primary text-white rounded-full text-xs font-bold">In Session</span>
+                  </td>
+                  <td class="px-6 py-4 text-slate-600 dark:text-slate-400 font-medium">Senara Perera</td>
+                  <td class="px-6 py-4 text-slate-600 dark:text-slate-400">2:00 PM - 3:00 PM</td>
+                </tr>
+
+                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors">
+                  <td class="px-6 py-4 font-medium text-slate-900 dark:text-slate-200">Machine 04</td>
+                  <td class="px-6 py-4">
+                    <span class="px-3 py-1 bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 rounded-full text-xs font-bold">Ready</span>
+                  </td>
+                  <td class="px-6 py-4 text-slate-400">None</td>
+                  <td class="px-6 py-4 text-slate-400">-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Dark mode button (same as BLUE page) -->
+  <button
+    class="fixed bottom-6 right-6 p-4 bg-white dark:bg-slate-800 rounded-full shadow-2xl border border-slate-200 dark:border-slate-700 hover:scale-110 transition-transform z-[70]"
+    onclick="document.documentElement.classList.toggle('dark')"
+    aria-label="Toggle dark mode"
+  >
+    <span class="material-icons-round dark:hidden text-slate-800">dark_mode</span>
+    <span class="material-icons-round hidden dark:block text-yellow-400">light_mode</span>
+  </button>
+
+  <!-- FOOTER (match BLUE submissions page) -->
+  <footer class="lg:ml-64 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-6 px-8">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-sm text-slate-500 dark:text-slate-400">© 2026 DentaNet LMS. All rights reserved.</p>
+      <div class="flex items-center gap-6">
+        <a class="text-xs font-medium text-slate-400 hover:text-primary transition-colors" href="#">Privacy Policy</a>
+        <a class="text-xs font-medium text-slate-400 hover:text-primary transition-colors" href="#">Terms of Service</a>
+        <a class="text-xs font-medium text-slate-400 hover:text-primary transition-colors" href="#">Contact Support</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

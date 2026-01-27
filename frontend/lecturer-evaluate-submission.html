@@ -43,8 +43,9 @@
 <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white">
 <span class="material-icons-round">medical_services</span>
 </div>
-<span class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Denta<span class="text-primary">NET</span></span>
-</div>
+  <div class="flex items-center gap-2">
+      <img src="blue-logo.svg" alt="DentaNet Logo" class="h-32 w-auto" />
+  </div></div>
 <div class="hidden md:flex items-center gap-8">
 <a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors font-medium text-sm" href="lecturer-dashboard.html">Dashboard</a>
 <a class="text-primary dark:text-blue-400 border-b-2 border-primary font-semibold text-sm pb-1" href="#">Submissions</a>
@@ -72,7 +73,7 @@
 <!-- Header -->
 <div class="mb-8">
 <div class="flex items-center gap-3 mb-2">
-<a href="#" class="text-slate-500 hover:text-primary transition-colors">
+<a href="lecturer-eva-submissions1.html" class="text-slate-500 hover:text-primary transition-colors">
 <span class="material-symbols-outlined">arrow_back</span>
 </a>
 <h1 class="text-3xl font-bold text-slate-900 dark:text-white">Cavity Preparation Exam - Evaluation</h1>
@@ -169,20 +170,20 @@
 <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
                             Final Grade (0-100) <span class="text-red-500">*</span>
 </label>
-<input id="finalGrade" class="w-full md:w-1/3 px-4 py-3 bg-blue-50 dark:bg-blue-900/30 border-2 border-blue-200 dark:border-blue-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary text-slate-900 dark:text-white font-bold text-lg" max="100" min="0" required type="number" value="90"/>
+<input id="finalGrade" class="w-full md:w-1/3 px-4 py-3 bg-slate-100 dark:bg-slate-800/60 border-2 border-slate-400 dark:border-slate-400 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary text-slate-900 dark:text-white font-bold text-lg" max="100" min="0" required type="number" value="90"/>
 </div>
 
 <div>
 <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
                             Lecturer Feedback <span class="text-red-500">*</span>
 </label>
-<textarea id="lecturerFeedback" class="w-full px-4 py-3 bg-blue-50 dark:bg-blue-900/30 border-2 border-blue-200 dark:border-blue-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary text-slate-700 dark:text-slate-200 resize-none" placeholder="Provide detailed feedback to the student..." required rows="5">Outstanding work, Reshma. The cavity preparation is precise and meets all requirements. The minor adjustment suggested by the AI has been addressed perfectly. Keep up the excellent work!</textarea>
+<textarea id="lecturerFeedback" class="w-full px-4 py-3 bg-slate-100 dark:bg-slate-800/60 border-2 border-slate-400 dark:border-slate-400 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary text-slate-700 dark:text-slate-200 resize-none" placeholder="Provide detailed feedback to the student..." required rows="5">Outstanding work, Reshma. The cavity preparation is precise and meets all requirements. The minor adjustment suggested by the AI has been addressed perfectly. Keep up the excellent work!</textarea>
 </div>
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 <div>
 <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Status</label>
-<select class="w-full px-4 py-3 bg-blue-50 dark:bg-blue-900/30 border-2 border-blue-200 dark:border-blue-700 rounded-lg focus:ring-2 focus:ring-primary text-slate-900 dark:text-white">
+<select class="w-full px-4 py-3 bg-slate-100 dark:bg-slate-800/60 border-2 border-slate-400 dark:border-slate-400 rounded-lg focus:ring-2 focus:ring-primary text-slate-900 dark:text-white">
 <option value="pass">Pass</option>
 <option value="fail">Fail</option>
 <option value="retake">Retake Required</option>
@@ -191,7 +192,7 @@
 
 <div>
 <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Evaluation Date</label>
-<input class="w-full px-4 py-3 bg-slate-100 dark:bg-slate-700 border-2 border-slate-200 dark:border-slate-600 rounded-lg text-slate-700 dark:text-slate-300" readonly type="text" value="January 25, 2026"/>
+<input class="w-full px-4 py-3 bg-slate-100 dark:bg-slate-800/60 border-2 border-slate-400 dark:border-slate-400 rounded-lg text-slate-700 dark:text-slate-300" readonly type="text" value="January 25, 2026"/>
 </div>
 </div>
 </form>
@@ -257,45 +258,46 @@
 <h3 class="text-sm font-bold text-slate-900 dark:text-white mb-4 uppercase tracking-wider">AI Evaluation Criteria</h3>
 <div class="space-y-4">
 <div>
-<div class="flex justify-between text-xs mb-1.5">
-<span class="font-medium text-slate-700 dark:text-slate-300">Smooth Outline</span>
-<span class="text-primary dark:text-blue-400 font-bold">25%</span>
-</div>
-<div class="h-2 w-full bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
-<div class="h-full bg-gradient-to-r from-blue-400 to-blue-600 transition-all" style="width: 25%"></div>
-</div>
+    <div class="flex justify-between text-xs mb-1.5">
+        <span class="font-medium text-slate-700 dark:text-slate-300">Smooth Outline</span>
+        <span id="smoothOutlineResult" class="font-bold"></span>
+    </div>
 </div>
 <div>
-<div class="flex justify-between text-xs mb-1.5">
-<span class="font-medium text-slate-700 dark:text-slate-300">Flat Floor</span>
-<span class="text-primary dark:text-blue-400 font-bold">20%</span>
-</div>
-<div class="h-2 w-full bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
-<div class="h-full bg-gradient-to-r from-blue-400 to-blue-600 transition-all" style="width: 20%"></div>
-</div>
+    <div class="flex justify-between text-xs mb-1.5">
+        <span class="font-medium text-slate-700 dark:text-slate-300">Flat Floor</span>
+        <span id="flatFloorResult" class="font-bold"></span>
+    </div>
 </div>
 <div>
-<div class="flex justify-between text-xs mb-1.5">
-<span class="font-medium text-slate-700 dark:text-slate-300">Depth</span>
-<span class="text-primary dark:text-blue-400 font-bold">15%</span>
-</div>
-<div class="h-2 w-full bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
-<div class="h-full bg-gradient-to-r from-blue-400 to-blue-600 transition-all" style="width: 15%"></div>
-</div>
+    <div class="flex justify-between text-xs mb-1.5">
+        <span class="font-medium text-slate-700 dark:text-slate-300">Depth</span>
+        <span id="depthResult" class="font-bold"></span>
+    </div>
 </div>
 <div>
-<div class="flex justify-between text-xs mb-1.5">
-<span class="font-medium text-slate-700 dark:text-slate-300">Undercut</span>
-<span class="text-primary dark:text-blue-400 font-bold">25%</span>
-</div>
-<div class="h-2 w-full bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
-<div class="h-full bg-gradient-to-r from-blue-400 to-blue-600 transition-all" style="width: 25%"></div>
-</div>
+    <div class="flex justify-between text-xs mb-1.5">
+        <span class="font-medium text-slate-700 dark:text-slate-300">Undercut</span>
+        <span id="undercutResult" class="font-bold"></span>
+    </div>
 </div>
 
 <div class="pt-4 mt-4 border-t border-slate-200 dark:border-slate-700">
+<script>
+// Example: Replace with actual API results
+const aiResults = {
+    smoothOutline: 'Acceptable',
+    flatFloor: 'Non Acceptable',
+    depth: 'Acceptable',
+    undercut: 'Acceptable'
+};
+document.getElementById('smoothOutlineResult').textContent = aiResults.smoothOutline;
+document.getElementById('flatFloorResult').textContent = aiResults.flatFloor;
+document.getElementById('depthResult').textContent = aiResults.depth;
+document.getElementById('undercutResult').textContent = aiResults.undercut;
+</script>
 <label class="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-2">Override Reason (Optional)</label>
-<textarea class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary text-slate-700 dark:text-slate-200 text-xs resize-none" placeholder="Enter reason for overriding AI evaluation..." rows="3"></textarea>
+<textarea class="w-full px-3 py-2 bg-slate-100 dark:bg-slate-800/60 border border-slate-400 dark:border-slate-400 rounded-lg focus:ring-2 focus:ring-primary text-slate-700 dark:text-slate-200 text-xs resize-none" placeholder="Enter reason for overriding AI evaluation..." rows="3"></textarea>
 </div>
 </div>
 </div>
