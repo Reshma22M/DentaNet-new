@@ -189,7 +189,7 @@ System prevents:
 #### Database
 - `backend/database/schema.sql`
   - Added: `full_name`, `login_attempts`, `locked_until`, `last_login_at`, `last_login_ip`
-  - Updated: Students table with `department`, `academic_status`
+  - Updated: Students table with `department`
   - Updated: Lecturers table with `staff_id`, `department`, `designation`
 
 #### Middleware
@@ -373,7 +373,6 @@ npm run dev
 ```sql
 ALTER TABLE users 
 ADD COLUMN full_name VARCHAR(200) NOT NULL AFTER password_hash,
-ADD COLUMN profile_image_size_mb DECIMAL(3,2),
 ADD COLUMN login_attempts INT DEFAULT 0,
 ADD COLUMN locked_until TIMESTAMP NULL,
 ADD COLUMN last_login_at TIMESTAMP NULL,
@@ -384,7 +383,6 @@ ADD COLUMN last_login_ip VARCHAR(45);
 ```sql
 ALTER TABLE students
 ADD COLUMN department ENUM('Basic Sciences', 'Community Dental Health', ...) AFTER registration_number,
-ADD COLUMN academic_status ENUM('Active', 'Suspended', 'Graduated') DEFAULT 'Active';
 ```
 
 ### Lecturers Table

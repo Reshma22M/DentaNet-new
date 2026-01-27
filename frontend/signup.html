@@ -121,22 +121,38 @@
                                 <p class="text-xs font-semibold mt-2 text-primary">Student</p>
                             </button>
                         </div>
-                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 text-center">Admin accounts are managed separately</p>
                     </div>
                     
                     <!-- Student-specific fields -->
-                    <div id="studentFields" class="space-y-4">
+                    <div id="studentFields" class="space-y-4 hidden">
                         <div class="grid grid-cols-2 gap-4">
+
+                            <div>
+                               <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Registration Number</label>
+                               <input class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent dark:text-white transition-all" id="regNumber" type="text" placeholder="DENT/2023/001" required />
+                               <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">(e.g., DENT/2023/001)</p>
+                               <span id="regNumberError" class="text-xs text-red-600 dark:text-red-400 mt-1 hidden"></span>
+                            </div>
+
                             <div>
                                 <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Batch Year</label>
                                 <input class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent dark:text-white transition-all" id="batchYear" type="number" placeholder="2023" min="2000" max="2030"/>
                                 <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Year between 2000-2030</p>
                             </div>
                             <div>
-                                <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Registration Number</label>
-                                <input class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent dark:text-white transition-all" id="regNumber" type="text" placeholder="DENT/2023/001"/>
-                                <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Format: DENT/YYYY/XXX (001-200)</p>
+                                <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Department</label>
+                                <select class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent dark:text-white transition-all" id="studentDepartment" required>
+                                  <option value="">Select Department</option>
+                                  <option value="Basic Sciences">Basic Sciences</option>
+                                  <option value="Community Dental Health">Community Dental Health</option>
+                                  <option value="Oral Medicine & Periodontology">Oral Medicine & Periodontology</option>
+                                  <option value="Oral & Maxillofacial Surgery">Oral & Maxillofacial Surgery</option>
+                                  <option value="Oral Pathology">Oral Pathology</option>
+                                  <option value="Prosthetic Dentistry">Prosthetic Dentistry</option>
+                                  <option value="Restorative Dentistry">Restorative Dentistry</option>
+                                </select>
                             </div>
+
                         </div>
                     </div>
                     
@@ -145,12 +161,30 @@
                         <div class="grid grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Department</label>
-                                <input class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent dark:text-white transition-all" id="department" type="text" placeholder="Prosthetic Dentistry"/>
+                                <select class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent dark:text-white transition-all" id="department" required>
+                                  <option value="">Select Department</option>
+                                  <option value="Basic Sciences">Basic Sciences</option>
+                                  <option value="Community Dental Health">Community Dental Health</option>
+                                  <option value="Oral Medicine & Periodontology">Oral Medicine & Periodontology</option>
+                                  <option value="Oral & Maxillofacial Surgery">Oral & Maxillofacial Surgery</option>
+                                  <option value="Oral Pathology">Oral Pathology</option>
+                                  <option value="Prosthetic Dentistry">Prosthetic Dentistry</option>
+                                  <option value="Restorative Dentistry">Restorative Dentistry</option>
+                                </select>
                             </div>
                             <div>
-                                <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Specialization</label>
-                                <input class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent dark:text-white transition-all" id="specialization" type="text" placeholder="Crown & Bridge"/>
+                                <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Designation</label>
+                                <select class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent dark:text-white transition-all" id="designation" required>
+                                  <option value="">Select Designation</option>
+                                  <option value="Lecturer">Lecturer</option>
+                                  <option value="Consultant">Consultant</option>
+                                  <option value="Demonstrator">Demonstrator</option>
+                                </select>
                             </div>
+                        </div>
+                        <div class="mt-4">
+                            <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Office Location</label>
+                            <input class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent dark:text-white transition-all" id="officeLocation" type="text" placeholder="e.g. Building A, Room 201" />
                         </div>
                     </div>
                     
@@ -162,9 +196,9 @@
                 <!-- Step 2: OTP Verification -->
                 <div id="step2" class="space-y-5 hidden">
                     <div class="bg-green-50 dark:bg-green-900/20 border-2 border-green-300 dark:border-green-700 rounded-xl p-5 mb-4">
-                        <p class="text-base text-green-800 dark:text-green-200 font-bold mb-2">📧 OTP Sent Successfully!</p>
-                        <p class="text-sm text-green-700 dark:text-green-300 mb-2">✅ Check your email inbox and spam folder</p>
-                        <p class="text-xs text-green-600 dark:text-green-400 mt-3">⏱️ Code expires in 5 minutes</p>
+                        <p class="text-base text-green-800 dark:text-green-200 font-bold mb-2">OTP Sent Successfully!</p>
+                        <p class="text-sm text-green-700 dark:text-green-300 mb-2">Check your email inbox and spam folder</p>
+                        <p class="text-xs text-green-600 dark:text-green-400 mt-3">Code expires in 5 minutes</p>
                     </div>
                     
                     <div>
@@ -300,14 +334,12 @@
                     document.getElementById('batchYear').required = true;
                     document.getElementById('regNumber').required = true;
                     document.getElementById('department').required = false;
-                    document.getElementById('specialization').required = false;
                 } else if (selectedRole === 'lecturer') {
                     document.getElementById('studentFields').classList.add('hidden');
                     document.getElementById('lecturerFields').classList.remove('hidden');
                     document.getElementById('batchYear').required = false;
                     document.getElementById('regNumber').required = false;
                     document.getElementById('department').required = false;
-                    document.getElementById('specialization').required = false;
                 }
             });
         });
@@ -364,7 +396,8 @@
                 // Validate registration number format
                 const regNumberPattern = /^DENT\/\d{4}\/\d{3}$/;
                 if (!regNumberPattern.test(regNumber)) {
-                    alert('Registration number must follow format: DENT/YYYY/XXX (e.g., DENT/2023/001)');
+                    regNumberError.textContent = 'Registration number must follow format: DENT/YYYY/XXX (e.g., DENT/2023/001)';
+                    regNumberError.classList.remove('hidden');
                     return;
                 }
                 
@@ -374,12 +407,14 @@
                 const num = parseInt(parts[2]);
                 
                 if (year < 2000 || year > 2030) {
-                    alert('Registration number year must be between 2000-2030');
+                    regNumberError.textContent = 'Year must be between 2000-2030.';
+                    regNumberError.classList.remove('hidden');
                     return;
                 }
                 
                 if (num < 1 || num > 200) {
-                    alert('Registration number must be between 001-200');
+                    regNumberError.textContent = 'Number must be between 001-200.';
+                    regNumberError.classList.remove('hidden');
                     return;
                 }
             }
@@ -398,9 +433,9 @@
             if (selectedRole === 'student') {
                 formData.batchYear = parseInt(document.getElementById('batchYear').value);
                 formData.registrationNumber = document.getElementById('regNumber').value.trim();
+                formData.department = document.getElementById('studentDepartment').value;
             } else if (selectedRole === 'lecturer') {
                 formData.department = document.getElementById('department').value.trim() || null;
-                formData.specialization = document.getElementById('specialization').value.trim() || null;
             }
             
             this.disabled = true;
@@ -416,16 +451,16 @@
                 const data = await response.json();
                 
                 if (response.ok) {
-                    alert('✅ OTP sent successfully!\n\nPlease check your email inbox and spam folder for the verification code.');
+                    alert('OTP sent successfully!\n\nPlease check your email inbox and spam folder for the verification code.');
                     document.getElementById('step1').classList.add('hidden');
                     document.getElementById('step2').classList.remove('hidden');
                     document.getElementById('otp').focus();
                 } else {
-                    alert('❌ Error: ' + (data.error || 'Failed to send OTP. Please try again.'));
+                    alert('Error: ' + (data.error || 'Failed to send OTP. Please try again.'));
                 }
             } catch (error) {
                 console.error('Error:', error);
-                alert('❌ Connection error. Make sure the backend server is running on port 3000.');
+                alert('Connection error. Make sure the backend server is running on port 3000.');
             } finally {
                 this.disabled = false;
                 this.innerHTML = 'Send OTP to Email';
@@ -454,15 +489,15 @@
                 const data = await response.json();
                 
                 if (response.ok) {
-                    alert('✅ Registration successful! Please login with your credentials.');
+                    alert('Registration successful! Please login with your credentials.');
                     window.location.href = 'login.html';
                 } else {
                     console.error('Registration error:', data);
-                    alert('❌ Registration Failed\n\n' + (data.error || 'Unknown error. Please try again.'));
+                    alert('Registration Failed\n\n' + (data.error || 'Unknown error. Please try again.'));
                 }
             } catch (error) {
                 console.error('Network error:', error);
-                alert('❌ Connection Error\n\nCannot reach the server. Please ensure the backend is running and try again.');
+                alert('Connection Error\n\nCannot reach the server. Please ensure the backend is running and try again.');
             } finally {
                 this.disabled = false;
                 this.innerHTML = 'Verify OTP & Create Account';
@@ -480,6 +515,83 @@
         document.getElementById('otp').addEventListener('input', function(e) {
             this.value = this.value.replace(/[^0-9]/g, '');
         });
+        
+        // Registration number inline validation
+// Registration number inline validation
+const regNumberInput = document.getElementById('regNumber');
+const regNumberError = document.getElementById('regNumberError');
+
+if (regNumberInput && regNumberError) {
+  regNumberInput.addEventListener('input', function () {
+
+    // Only validate for students
+    if (selectedRole !== 'student') {
+      regNumberError.classList.add('hidden');
+      return;
+    }
+
+    const raw = regNumberInput.value.trim();
+
+    // Hide error first
+    regNumberError.classList.add('hidden');
+
+    // If empty, do nothing
+    if (raw.length === 0) return;
+
+    // Convert to uppercase for validation
+    const value = raw.toUpperCase();
+
+    // Allow typing "DENT" step by step (no error yet)
+    if (
+      value === "D" ||
+      value === "DE" ||
+      value === "DEN" ||
+      value === "DENT" ||
+      value === "DENT/"
+    ) {
+      regNumberError.classList.add("hidden");
+      return;
+    }
+
+    // If NOT starting with DENT/, show error
+    if (!value.startsWith("DENT/")) {
+      regNumberError.textContent = 'Registration number must start with "DENT/".';
+      regNumberError.classList.remove("hidden");
+      return;
+    }
+
+    // Check full format: DENT/YYYY/XXX
+    const regNumberPattern = /^DENT\/\d{4}\/\d{3}$/;
+
+    if (!regNumberPattern.test(value)) {
+      regNumberError.textContent =
+        'Registration number must be in format: DENT/YYYY/XXX (e.g., DENT/2023/001)';
+      regNumberError.classList.remove("hidden");
+      return;
+    }
+
+    // Split and validate year & number
+    const parts = value.split('/');
+    const year = parseInt(parts[1], 10);
+    const num = parseInt(parts[2], 10);
+
+    if (year < 2000 || year > 2030) {
+      regNumberError.textContent = 'Year must be between 2000 and 2030.';
+      regNumberError.classList.remove("hidden");
+      return;
+    }
+
+    if (num < 1 || num > 200) {
+      regNumberError.textContent = 'Number must be between 001 and 200.';
+      regNumberError.classList.remove("hidden");
+      return;
+    }
+
+    // If everything is valid → hide error
+    regNumberError.classList.add("hidden");
+  });
+}
+        
     </script>
-</body>
-</html>
+    </body> 
+    </html>

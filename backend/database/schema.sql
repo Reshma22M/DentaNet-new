@@ -14,9 +14,6 @@ CREATE TABLE users (
     first_name VARCHAR(100) NOT NULL,
     last_name VARCHAR(100) NOT NULL,
     role ENUM('student', 'lecturer', 'admin') NOT NULL,
-    phone VARCHAR(20),
-    profile_image_url VARCHAR(500),
-    profile_image_size_mb DECIMAL(3,2),
     is_active BOOLEAN DEFAULT TRUE,
     login_attempts INT DEFAULT 0,
     locked_until TIMESTAMP NULL,
@@ -36,11 +33,9 @@ CREATE TABLE students (
     batch_year INT NOT NULL,
     registration_number VARCHAR(50) UNIQUE NOT NULL,
     department ENUM('Basic Sciences', 'Community Dental Health', 'Oral Medicine & Periodontology', 'Oral & Maxillofacial Surgery', 'Oral Pathology', 'Prosthetic Dentistry', 'Restorative Dentistry'),
-    academic_status ENUM('Active', 'Suspended', 'Graduated') DEFAULT 'Active',
     FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
     INDEX idx_batch (batch_year),
-    INDEX idx_reg_number (registration_number),
-    INDEX idx_status (academic_status)
+    INDEX idx_reg_number (registration_number)
 );
 
 -- 1b. Lecturers Table (Lecturer-specific data)
@@ -50,7 +45,6 @@ CREATE TABLE lecturers (
     staff_id VARCHAR(50) UNIQUE,
     department ENUM('Basic Sciences', 'Community Dental Health', 'Oral Medicine & Periodontology', 'Oral & Maxillofacial Surgery', 'Oral Pathology', 'Prosthetic Dentistry', 'Restorative Dentistry') NOT NULL,
     designation ENUM('Lecturer', 'Consultant', 'Demonstrator') DEFAULT 'Lecturer',
-    specialization VARCHAR(100),
     office_location VARCHAR(100),
     FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
     INDEX idx_staff_id (staff_id)
@@ -316,12 +310,12 @@ INSERT INTO users (email, password_hash, full_name, first_name, last_name, role)
 INSERT INTO admins (user_id, admin_level) VALUES (1, 'super_admin');
 
 -- Insert Lecturer Data
-INSERT INTO lecturers (user_id, staff_id, department, designation, specialization) VALUES 
-(2, 'LEC/045', 'Restorative Dentistry', 'Consultant', 'Cavity Preparation');
+INSERT INTO lecturers (user_id, staff_id, department, designation) VALUES 
+(2, 'LEC/045', 'Restorative Dentistry', 'Consultant');
 
 -- Insert Student Data
-INSERT INTO students (user_id, batch_year, registration_number, department, academic_status) VALUES 
-(3, 2023, 'DENT/2023/001', 'Restorative Dentistry', 'Active');
+INSERT INTO students (user_id, batch_year, registration_number, department) VALUES 
+(3, 2023, 'DENT/2023/001', 'Restorative Dentistry');
 
 -- Insert Lab Machines
 INSERT INTO lab_machines (machine_code, lab_number, status) VALUES

@@ -29,7 +29,7 @@ VALUES (
 -- Email: student@test.com
 -- Password: Student@123
 -- Registration: DENT/2024/001
-INSERT INTO users (email, password_hash, full_name, first_name, last_name, role, phone, is_active)
+INSERT INTO users (email, password_hash, full_name, first_name, last_name, role, is_active)
 VALUES (
     'student@test.com',
     '$2b$10$abcdefghijklmnopqrstuvwxyz',
@@ -37,26 +37,24 @@ VALUES (
     'Test',
     'Student',
     'student',
-    '0771234567',
     TRUE
 ) ON DUPLICATE KEY UPDATE email=email;
 
 SET @student_user_id = LAST_INSERT_ID();
 
-INSERT INTO students (user_id, batch_year, registration_number, department, academic_status)
+INSERT INTO students (user_id, batch_year, registration_number, department)
 VALUES (
     @student_user_id,
     2024,
     'DENT/2024/001',
-    'Restorative Dentistry',
-    'Active'
+    'Restorative Dentistry'
 ) ON DUPLICATE KEY UPDATE user_id=user_id;
 
 -- ========== TEST LECTURER ==========
 -- Email: lecturer@test.com
 -- Password: Lecturer@123
 -- Staff ID: LEC/001
-INSERT INTO users (email, password_hash, full_name, first_name, last_name, role, phone, is_active)
+INSERT INTO users (email, password_hash, full_name, first_name, last_name, role, is_active)
 VALUES (
     'lecturer@test.com',
     '$2b$10$abcdefghijklmnopqrstuvwxyz',
@@ -64,19 +62,17 @@ VALUES (
     'Test',
     'Lecturer',
     'lecturer',
-    '0777654321',
     TRUE
 ) ON DUPLICATE KEY UPDATE email=email;
 
 SET @lecturer_user_id = LAST_INSERT_ID();
 
-INSERT INTO lecturers (user_id, staff_id, department, designation, specialization, office_location)
+INSERT INTO lecturers (user_id, staff_id, department, designation, office_location)
 VALUES (
     @lecturer_user_id,
     'LEC/001',
     'Restorative Dentistry',
     'Lecturer',
-    'Endodontics',
     'Building A, Room 201'
 ) ON DUPLICATE KEY UPDATE user_id=user_id;
 

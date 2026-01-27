@@ -87,13 +87,13 @@ router.post("/login", checkLoginAttempts, async (req, res) => {
     let roleData = {};
     if (user.role === "student") {
       const [students] = await promisePool.query(
-        "SELECT batch_year, registration_number, department, academic_status FROM students WHERE user_id = ?",
+        "SELECT batch_year, registration_number, department FROM students WHERE user_id = ?",
         [user.user_id]
       );
       roleData = students[0] || {};
     } else if (user.role === "lecturer") {
       const [lecturers] = await promisePool.query(
-        "SELECT staff_id, department, designation, specialization, office_location FROM lecturers WHERE user_id = ?",
+        "SELECT staff_id, department, designation, office_location FROM lecturers WHERE user_id = ?",
         [user.user_id]
       );
       roleData = lecturers[0] || {};
@@ -155,13 +155,13 @@ router.get("/verify", async (req, res) => {
     let extra = {};
     if (user.role === "student") {
       const [s] = await promisePool.query(
-        "SELECT batch_year, registration_number, department, academic_status FROM students WHERE user_id = ? LIMIT 1",
+        "SELECT batch_year, registration_number, department FROM students WHERE user_id = ? LIMIT 1",
         [user.user_id]
       );
       extra.student = s[0] || null;
     } else if (user.role === "lecturer") {
       const [l] = await promisePool.query(
-        "SELECT staff_id, department, designation, specialization, office_location FROM lecturers WHERE user_id = ? LIMIT 1",
+        "SELECT staff_id, department, designation, office_location FROM lecturers WHERE user_id = ? LIMIT 1",
         [user.user_id]
       );
       extra.lecturer = l[0] || null;

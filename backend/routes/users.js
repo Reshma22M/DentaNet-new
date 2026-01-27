@@ -13,7 +13,7 @@ router.get('/', authenticateToken, async (req, res) => {
 
         const [users] = await promisePool.query(
             `SELECT user_id, email, first_name, last_name, role, batch_year, 
-                    registration_number, phone, is_active, created_at 
+                registration_number, is_active, created_at 
              FROM users 
              ORDER BY created_at DESC`
         );
@@ -38,7 +38,7 @@ router.get('/:id', authenticateToken, async (req, res) => {
 
         const [users] = await promisePool.query(
             `SELECT user_id, email, first_name, last_name, role, batch_year, 
-                    registration_number, phone, profile_image_url, is_active, created_at 
+                    registration_number, is_active, created_at 
              FROM users 
              WHERE user_id = ?`,
             [userId]
@@ -60,7 +60,7 @@ router.get('/:id', authenticateToken, async (req, res) => {
 router.put('/:id', authenticateToken, async (req, res) => {
     try {
         const userId = req.params.id;
-        const { firstName, lastName, phone, profileImageUrl } = req.body;
+        const { firstName, lastName } = req.body;
 
         // Users can only update their own data unless they're admin
         if (req.user.role !== 'admin' && req.user.userId !== parseInt(userId)) {
@@ -69,9 +69,9 @@ router.put('/:id', authenticateToken, async (req, res) => {
 
         await promisePool.query(
             `UPDATE users 
-             SET first_name = ?, last_name = ?, phone = ?, profile_image_url = ?
+             SET first_name = ?, last_name = ?
              WHERE user_id = ?`,
-            [firstName, lastName, phone, profileImageUrl, userId]
+            [firstName, lastName, userId]
         );
 
         res.json({ message: 'User updated successfully' });

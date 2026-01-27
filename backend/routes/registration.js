@@ -113,7 +113,6 @@ router.post("/verify-and-register", async (req, res) => {
       firstName,
       lastName,
       role,
-      phone,
 
       // student
       batchYear,
@@ -124,7 +123,6 @@ router.post("/verify-and-register", async (req, res) => {
       // lecturer
       staffId,
       designation,
-      specialization,
       officeLocation,
     } = req.body;
 
@@ -210,9 +208,9 @@ router.post("/verify-and-register", async (req, res) => {
 
     // Insert user
     const [result] = await promisePool.query(
-      `INSERT INTO users (email, password_hash, full_name, first_name, last_name, role, phone)
-       VALUES (?, ?, ?, ?, ?, ?, ?)`,
-      [sanitizedEmail, passwordHash, fullName.trim(), fName, lName, role, phone || null]
+      `INSERT INTO users (email, password_hash, full_name, first_name, last_name, role)
+       VALUES (?, ?, ?, ?, ?, ?)`,
+      [sanitizedEmail, passwordHash, fullName.trim(), fName, lName, role]
     );
 
     const userId = result.insertId;
@@ -232,9 +230,9 @@ router.post("/verify-and-register", async (req, res) => {
       }
 
       await promisePool.query(
-        `INSERT INTO students (user_id, batch_year, registration_number, department, academic_status)
-         VALUES (?, ?, ?, ?, ?)`,
-        [userId, batchYear, regUpper, department || null, academicStatus || "Active"]
+        `INSERT INTO students (user_id, batch_year, registration_number, department)
+         VALUES (?, ?, ?, ?)`,
+        [userId, batchYear, regUpper, department || null]
       );
     }
 
@@ -252,14 +250,13 @@ router.post("/verify-and-register", async (req, res) => {
       }
 
       await promisePool.query(
-        `INSERT INTO lecturers (user_id, staff_id, department, designation, specialization, office_location)
-         VALUES (?, ?, ?, ?, ?, ?)`,
+        `INSERT INTO lecturers (user_id, staff_id, department, designation, office_location)
+         VALUES (?, ?, ?, ?, ?)`,
         [
           userId,
           staffUpper,
           department || "Restorative Dentistry",
           designation || "Lecturer",
-          specialization || null,
           officeLocation || null,
         ]
       );

@@ -105,7 +105,6 @@
 
 ### New Columns in `users` table:
 - `full_name` VARCHAR(200)
-- `profile_image_size_mb` DECIMAL(3,2)
 - `login_attempts` INT DEFAULT 0
 - `locked_until` TIMESTAMP NULL
 - `last_login_at` TIMESTAMP NULL
@@ -113,7 +112,6 @@
 
 ### Enhanced `students` table:
 - `department` ENUM (7 departments)
-- `academic_status` ENUM (Active/Suspended/Graduated)
 
 ### Enhanced `lecturers` table:
 - `staff_id` VARCHAR(50) UNIQUE
