@@ -330,9 +330,29 @@ INSERT INTO courses (course_code, course_name, semester, year_level) VALUES
 ('DENT302', 'Oral Surgery', 1, 3),
 ('DENT401', 'Advanced Cavity Preparation', 2, 4);
 
--- Insert System Settings
 INSERT INTO system_settings (setting_key, setting_value, description) VALUES
 ('max_booking_hours', '2', 'Maximum hours per booking'),
 ('api_endpoint', 'https://api.dentanet.com', 'AI Evaluation API endpoint'),
 ('email_notifications', 'true', 'Enable email notifications');
+
+
+-- Table to store generated student reports
+DROP TABLE IF EXISTS stu_reports;
+CREATE TABLE stu_reports (
+    report_id INT AUTO_INCREMENT PRIMARY KEY,
+    report_type ENUM('batch','accuracy'),
+    generated_by INT,
+    parameters JSON,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Table to store API reports
+DROP TABLE IF EXISTS api_reports;
+CREATE TABLE api_reports (
+    api_report_id INT AUTO_INCREMENT PRIMARY KEY,
+    report_name VARCHAR(255),
+    requested_by INT,
+    parameters JSON,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 
